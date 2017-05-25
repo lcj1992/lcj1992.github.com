@@ -81,21 +81,3 @@ setnx + expire 这个方案有个问题,一定几率出现数据被永久锁定,
     "lockValue"
 
 对应于jedis的public String set(final String key, final String value, final String nxxx,final String expx, final long time);
-
-### 4.分布式事务
-
-目前旗舰店的都是本地事务,这样就造成同一份mapper文件在不同系统间拷来拷去,垃圾代码太多.
-
-todo
-
-
-### 版本的概念
-
-所有对双方接口的变动要注意版本的概念。  
-
-一点需要铭记：  
-
-线上服务是24小时不停的服务的，不会因为你的发布而终止5分钟,用户的客户端可能不会升级
-
-
-### 防御式编程

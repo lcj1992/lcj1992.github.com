@@ -53,4 +53,6 @@ vmstat可以查看swap I/O的情况
 
 #### 参考
 
-[Linux内存中的Cache真的能被回收么?]<http://mp.weixin.qq.com/s?__biz=MzIxNDMyODgyMA==&mid=100000006&idx=1&sn=de6ab2600549b97f5cccf0c7719a412a#rd>
+[Linux内存中的Cache真的能被回收么?](http://liwei.life/2016/04/26/linux%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84cache%E7%9C%9F%E7%9A%84%E8%83%BD%E8%A2%AB%E5%9B%9E%E6%94%B6%E4%B9%88%EF%BC%9F/)
+
+[cache buffer](https://serverfault.com/questions/85470/meaning-of-the-buffers-cache-line-in-the-output-of-free)

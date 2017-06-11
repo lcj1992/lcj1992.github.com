@@ -293,9 +293,6 @@ shotgun surgery的特殊情况
 
 3. introduce assertion
 
-
-
-
 #### 重构列表
 
 

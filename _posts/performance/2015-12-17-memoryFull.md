@@ -40,4 +40,4 @@ tags: xmx oomkiller Res Rss
 
 [JVM源码分析之SystemGC完全解读]<http://lovestblog.cn/blog/2015/05/07/system-gc/>
 
-[Linux与jvm的内存关系分析]<http://mp.weixin.qq.com/s?src=3&timestamp=1461203155&ver=1&signature=fA4OwtcYwsEBwff*JKCl2mg-fR9TBZAoKJwxenYeMQ3BQGB1gYVq1bQRN5E3Ng4eQo8j28ABgRyCfCJaddWbna-M3mJvmSLrDCSqSf2Jax6pq9V8xSFe3Enan7df2ypGbF1gFMfZV0uh4Q6vymcB0w==>
+[Linux与jvm的内存关系分析]<http://tech.meituan.com/linux-jvm-memory.html>

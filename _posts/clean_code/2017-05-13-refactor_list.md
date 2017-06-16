@@ -33,6 +33,8 @@ tags: clean_code
 
 * 重构时不要担心整体性能，优化时才需要担心它们。
 
+* 重构的一项重要技巧就是“寻找边界条件”
+
 #### 重构原则
 
 ##### 何谓重构
@@ -292,6 +294,9 @@ shotgun surgery的特殊情况
 2. rename method
 
 3. introduce assertion
+
+
+#### 
 
 #### 重构列表
 

@@ -13,7 +13,7 @@ tags: spring proxy aop
 
 ### 动态代理 {#dynamic_proxy}
 
-spring Aop使用`jdk动态代理`或者`cglib代理`来为实例创建代理。
+spring Aop使用`jdk动态代理`或者`cglib代理`来为实例创建代理。(AopProxy接口的两个实现类分别是`JdkDynamicAopProxy`和`CglibAopProxy`)
 
 如果目标对象实现了至少一个接口，那么jdk动态代理将会被使用。所有被这个目标类实现的接口都将被代理。如果目标对象没有实现任何的接口，那么cglib代理将被创建。
 
@@ -87,3 +87,5 @@ ps:
 ![aspectj_expression](/images/java_web/aspectj_expression.jpeg)
 
 [spring aop通知顺序](http://www.uml.org.cn/sjms/201211023.asp)
+
+[《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](http://blog.csdn.net/luanlouis/article/details/51155821)

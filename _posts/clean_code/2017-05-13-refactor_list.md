@@ -16,7 +16,6 @@ tags: clean_code
 
 建议读这本书的，一定要跟着这个例子走一下。看看大师是怎么一步步的重构的。
 
-
 * 重构的第一步永远相同，为即将修改的代码建立一组可靠的测试环境，这些***测试必须有自我检验能力，好的测试时重构的根本***。
 
 * 代码块越小，代码的功能就越容易管理，代码的处理和移动也就越轻松
@@ -106,7 +105,7 @@ tags: clean_code
 
 4. perserve whole object（保持对象完整） ：如果函数有大量的参数
 
-5. replace method with method object : 
+5. replace method with method object :
 
 6. decompose conditional： 条件表达式是提炼的信号
 
@@ -114,11 +113,11 @@ tags: clean_code
 
 ##### Large class (过大的类)
 
-1. extract class： 
+1. extract class：
 
 2. extract subclass：
 
-3. duplicate observed data： 
+3. duplicate observed data：
 
 ##### long parameter list(过长参数列表)
 
@@ -146,7 +145,7 @@ shotgun surgey是指“一种变化引发多个类相应修改”
 
 1. move method : 函数对某个类的兴趣高过对自己所处类的兴趣
 
-2. extract method : 
+2. extract method :
 
 ##### data clumps （数据泥团）
 
@@ -176,7 +175,7 @@ shotgun surgey是指“一种变化引发多个类相应修改”
 
 ##### switch statements （switch 语句）
 
-1. extract method 
+1. extract method
 
 2. replace type code with subclass
 
@@ -287,7 +286,7 @@ shotgun surgery的特殊情况
 
 3. replace inheritance with delegation
 
-#### comments （过多的注释）
+##### comments （过多的注释）
 
 1. extract method
 
@@ -296,12 +295,10 @@ shotgun surgery的特殊情况
 3. introduce assertion
 
 
-#### 
+####
 
 #### 重构列表
 
-
-#### 重新组织函数
 Add Parameter（添加参数） 275
 
 Change Bidirectional Association to Unidirectional（将双向关联改为单向） 200
@@ -337,6 +334,14 @@ Extract Hierarchy（提炼继承体系） 375
 Extract Interface（提炼接口） 341
 
 Extract Method（提炼函数） 110
+
+1. 无局部变量
+2. 有局部变量，包括传入原函数的参数和源函数所声明的临时变量
+    * 局部变量只是读取这些变量，并不修改它们
+    * 源函数的参数被赋值
+    * 临时变量只在被提炼代码中使用
+    * 被提炼代码段之外的代码也使用了这个变量
+
 
 Extract Subclass（提炼子类） 330
 
@@ -404,6 +409,8 @@ Encapsulate Field（封装值域） 206
 
 Extract Class（提炼类） 149
 
+1. 某个类做了应该由两个类做的事，建立一个新类，将相关的字段和函数从旧类搬移到新类
+
 Extract Hierarchy（提炼继承体系） 375
 
 Extract Interface（提炼接口） 341
@@ -424,11 +431,18 @@ Inline Class（将类内联化） 154
 
 Inline Method（将函数内联化） 117
 
+1. 一个函数的本体与名称同样清楚易懂，在函数调用点插入函数本体，然后移除该函数
+
 Inline Temp（将临时变量内联化） 119
+
+1. 临时变量只被一个简单表达式赋值一次，而它妨碍了其他重构手法，将所有对该变量的引用动作，替换为对它赋值的那个表达式自身
+
 
 Introduce Assertion（引入断言） 267
 
 Introduce Explaining Variable（引入解释性变量） 124
+
+1. 你有一个复杂的表达式，将该复杂表达式（或其中一部分）的结果放进一个临时变量，以此变量名称来解释表达式用途。
 
 Introduce Foreign Method（引入外加函数） 162
 
@@ -440,7 +454,11 @@ Introduce Parameter Object（引入参数对象） 295
 
 Move Field（搬移值域） 146
 
+1. 在你的程序中，某个字段被其所驻类之外的另一个类更多的用到，在目标类新建一个字段，修改源字段的所有用户，令它们改用新字段。
+
 Move Method（搬移函数） 142
+
+1. 你的程序中，有个函数与其所驻类之外的另一个类进行更多交流：调用后者，或被后者调用，在该函数最常引用的类中建立一个有着类似行为的新函数，将旧函数变成一个单纯的委托函数，或是将旧函数完全移除。
 
 Parameterize Method（令函数携带参数） 283
 
@@ -459,6 +477,8 @@ Push Down Field（值域㆘移） 329
 Push Down Method（函数㆘移） 328
 
 Remove Assignments to Parameters（移除对参数的赋值动作） 131
+
+1. 代码对一个参数进行赋值，以一个临时变量取代该参数的位置（如果你把一个名为foo的对象作为参数传给了某个函数，那么对“参数赋值”意味着改变foo，使它引用另一个对象，如果你在“被传入对象”身上进行什么操作，那没问题）
 
 Remove Control Flag（移除控制标记） 245
 
@@ -490,6 +510,8 @@ Replace Magic Number with Symbolic Constant（以字面常量取代魔法数） 
 
 Replace Method with Method Object（以函数对象取代函数） 135
 
+1. 你有一个大型函数，其中对局部变量的使用使你无法采用extract method，将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的字段，然后你可以在同一个对象中将这个大型函数分解为多个小型函数。
+
 Replace Nested Conditional with Guard Clauses（以卫语句取代嵌套条件式） 250
 
 Replace Parameter with Explicit Methods（以明确函数取代参数） 285
@@ -501,6 +523,8 @@ Replace Record with Data Class（以数据类取代记录） 217
 Replace Subclass with Fields（以值域取代子类） 232
 
 Replace Temp With Query（以查询取代临时变量） 120
+
+1. 你的程序以一个临时变量保存某一表达式的运算结果，将这个表达式提炼到一个独立函数中，将这个临时变量的所有引用点替换为对新函数的调用，此后，新函数就可以被其他函数使用
 
 Replace Type Code with Class（以类取代型别码） 218
 
@@ -516,7 +540,11 @@ Separate Query from Modifier（将查询函数和修改函数分离） 279
 
 Split Temporary Variable（剖解临时变量） 128
 
+1. 你的程序有个临时变量被赋值超过一次，它既不是循环变量，也不被用于收集计算结果，针对每次赋值，创造一个独立，对应的临时变量
+
 Substitute Algorithm（替换你的算法） 139
+
+1. 你想要把某个算法替换为另一个更清晰的算法，将函数本体替换为另一个算法
 
 Tease Apart Inheritance（梳理并分解继承体系）
 

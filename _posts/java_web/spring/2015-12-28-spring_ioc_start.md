@@ -172,10 +172,20 @@ web.xml中的启动遵循context-param -> listener -> filter -> servlet。spring
 
 首先看下其调用栈，![beandefinitionMap](/images/java_web/ioc_call_stack.png)
 
-1. 从调用栈可以看出，从入口ContextLoaderListener到扫描（scan）涉及的对象有：`ContextLoaderListener`、`AbstractApplicationContext`、`AbstractRefreshableApplicationContext`、`XmlWebApplicationContext`、`AbstractBeanDefinitionReader`、`XmlBeanDefinitionReader`、`DefaultBeanDefinitionDocumentReader`、`BeanDefinitionParserDelegate`、`NamespaceHandlerSupport`、`ComponentScanBeanDefinitionParser`、`ClassPathBeanDefinitionScanner`
+1. 从调用栈可以看出，从入口ContextLoaderListener到扫描（scan）涉及的对象有：
+    *   `ContextLoaderListener`、
+    *   `AbstractApplicationContext`、
+    *   `AbstractRefreshableApplicationContext`、
+    *   `XmlWebApplicationContext`、
+    *   `AbstractBeanDefinitionReader`、
+    *   `XmlBeanDefinitionReader`、
+    *   `DefaultBeanDefinitionDocumentReader`、
+    *   `BeanDefinitionParserDelegate`、
+    *   `NamespaceHandlerSupport`、
+    *   `ComponentScanBeanDefinitionParser`、
+    *   `ClassPathBeanDefinitionScanner`
 2. DefaultBeanDefinitionDocumentReader#parseDefaultElement: 默认namespace的解析，（xml） 解析bean、import、beans、alias标签
 3. BeanDefinitionParserDelegate#parseCustomElement: 其他namespace 的解析 （注解），如tx、context等
-
    * 每个namespace对应有不同的`NamespaceHandler`，eg :tx、context
    * 每个namespaceHandler可能对应多个`BeanDefinitionParser`,eg: ContextNamespaceHandler中包含有PropertyPlaceholderBeanDefinitionParser、ComponentScanBeanDefinitionParser、AnnotationConfigBeanDefinitionParser等用于处理context namespace下的不同的标签。
 具体的处理逻辑可以看对应的parser。
@@ -365,7 +375,7 @@ AbstractAutowireCapableBeanFactory#populateBean
 
 ![填充属性](/images/java_web/spring_populate_bean.png)
 
-实例化策略：java自带的实例化，cglib，jdk动态代理
+实例化策略：无代理实例化，cglib，jdk动态代理
 
 参考：
 

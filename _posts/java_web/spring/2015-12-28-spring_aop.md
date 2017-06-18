@@ -5,11 +5,14 @@ categories: java_web
 tags: spring proxy aop
 ---
 
-* [动态代理](#dynamic_proxy)
-* [静态代理](#static_proxy)
-* [aop](#aop)
+* TOC
+{:toc}
 
 要讲spring的aop，就不能不讲代理。
+
+### 核心类图
+
+![动态代理类图](/images/java_web/spring_aop_proxy.png)
 
 ### 动态代理 {#dynamic_proxy}
 
@@ -27,11 +30,11 @@ final 方法不能被advised，因为他们不能被重写
         <!-- other beans defined here... -->
     </aop:config>
 
-在使用@Aspectj自动代理时，为了强制使用cglib，需要设置<aop:aspectj-autoproxy>的属性‘proxy-target-class’为true。
+在使用@Aspectj自动代理时，为了强制使用cglib，需要设置<aop:aspectj-autoproxy>的属性`proxy-target-class`为true。
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
-使用proxy-target-class=true 在`<tx:annotation-driven/>`,`<aop:aspectj-autoproxy/>`,`<aop:config/>任一，会使cglib代理在三者都生效。
+使用proxy-target-class=true 在`<tx:annotation-driven/>`,`<aop:aspectj-autoproxy/>`,`<aop:config/>`任一，会使cglib代理在三者都生效。
 
 ### 静态代理 {#static_proxy}
 
@@ -41,17 +44,17 @@ aspectj
 
 #### aop术语
 
-* 通知(Advice): 定义了切面是什么以及何时使用，除了描述切面要完成的工作，通知还解决了何时执行这个工作的问题
-    * 前置通知(Before): 在目标方法被调用之前调用通知功能,下类似
-    * 后置通知(After):
-    * 返回通知(After-returing)
-    * 异常通知(After-throwing)
-    * 环绕通知(Around)
-* 连接点(JoinPoint) :在应用执行过程中能够插入切面的一个点
-* 切点(PointCut): 切点的定义会匹配通知所要织入的一个或多个连接点
-* 切面(Aspect): 切面是通知和切点的结合，通知和切点共同定义了切面的全部内容--它是什么，在何时和何处完成其功能
-* 引入(Introduction): 引入允许我们向现有的类添加新方法或属性
-* 织入(Weaving): 织入是把切面应用到目标对象并创建新的代理对象的过程。切面在指定的连接点织入到目标对象。在目标对象的生命周期里有多个点可以进行织入：
+* ***Advice***: `action taken by an aspect at a particular join point.` Different types of advice include "around," "before" and "after" advice. (Advice types are discussed below.)` Many AOP frameworks, including Spring, model an advice as an interceptor, maintaining a chain of interceptors around the join point.` 切面在某一连接点采取的动作
+    * Before: 在目标方法被调用之前调用通知功能,下类似
+    * After:
+    * After-returing
+    * After-throwing
+    * Around
+* ***JoinPoint*** : `a point during the execution of a program`, such as the execution of a method or the handling of an exception. `In Spring AOP, a join point always represents a method execution。`
+* ***PointCut***: `a predicate that matches join points.` Advice is associated with a pointcut expression and runs at any join point matched by the pointcut (for example, the execution of a method with a certain name). The concept of join points as matched by pointcut expressions is central to AOP, and Spring uses the AspectJ pointcut expression language by default.
+* ***Aspect***: a modularization of a concern that cuts across multiple classes. Transaction management is a good example of a crosscutting concern in enterprise Java applications. In Spring AOP, aspects are implemented using regular classes (the schema-based approach) or regular classes annotated with the @Aspect annotation (the @AspectJ style).切面是通知和切点的结合，通知和切点共同定义了切面的全部内容--它是什么，在何时和何处完成其功能
+* ***Introduction***:  declaring additional methods or fields on behalf of a type. Spring AOP allows you to introduce new interfaces (and a corresponding implementation) to any advised object. For example, you could use an introduction to make a bean implement an IsModified interface, to simplify caching. (An introduction is known as an inter-type declaration in the AspectJ community.)
+* ***Weaving***: linking aspects with other application types or objects to create an advised object. This can be done at compile time (using the AspectJ compiler, for example), load time, or at runtime. Spring AOP, like other pure Java AOP frameworks, performs weaving at runtime. 织入是把切面应用到目标对象并创建新的代理对象的过程。切面在指定的连接点织入到目标对象。在目标对象的生命周期里有多个点可以进行织入：
     * 编译期:切面在目标类编译时被织入，这种方式需要特殊的编译器，Aspectj的织入编译器就是以这种方法织入切面的
     * 类加载期: 切面在目标类加载到jvm时被织入。这种方式需要特殊的类加载器，它可以在目标类在被引入应用之前增强该目标类的字节码，Aspectj5的加载时织入(load-time weaving,LTW)就支持以这种方式织入切面
     * 运行时: 切面在应用运行的某个时刻被织入，一般情况下，在织入切面时，aop容器会为目标对象动态创建一个代理对象。spring aop就是以这种方式织入切面的。
@@ -89,3 +92,9 @@ ps:
 [spring aop通知顺序](http://www.uml.org.cn/sjms/201211023.asp)
 
 [《Spring设计思想》AOP实现原理（基于JDK和基于CGLIB）](http://blog.csdn.net/luanlouis/article/details/51155821)
+
+[Aop设计基本原理](http://blog.csdn.net/luanlouis/article/details/51095702)
+
+[Spring AOP源码（十四） 分析ProxyFactoryBean](http://blog.csdn.net/linuu/article/details/50972036)
+
+[spring aop](http://docs.spring.io/spring/docs/5.0.0.RC2/spring-framework-reference/core.html#aop)  

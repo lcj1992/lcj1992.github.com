@@ -174,6 +174,7 @@ web.xml中的启动遵循context-param -> listener -> filter -> servlet。spring
 
 1. 从调用栈可以看出，从入口ContextLoaderListener到扫描（scan）涉及的对象有：
     *   `ContextLoaderListener`、
+    *   `ContextLoader`
     *   `AbstractApplicationContext`、
     *   `AbstractRefreshableApplicationContext`、
     *   `XmlWebApplicationContext`、
@@ -221,7 +222,7 @@ web.xml中的启动遵循context-param -> listener -> filter -> servlet。spring
 
 关键方法如下：
 
-AbstractAutowireCapableBeanFactory#createBean
+##### AbstractAutowireCapableBeanFactory#createBean
 
 实例化bean，包括bean初始化的前置后置逻辑，包括bean属性的填充
 
@@ -270,7 +271,7 @@ AbstractAutowireCapableBeanFactory#createBean
         return beanInstance;
     }
 
-AbstractAutowireCapableBeanFactory#doCreateBean
+##### AbstractAutowireCapableBeanFactory#doCreateBean
 
     protected Object doCreateBean(final String beanName, final RootBeanDefinition mbd, final Object[] args) {
         // Instantiate the bean.
@@ -318,6 +319,7 @@ AbstractAutowireCapableBeanFactory#doCreateBean
             // 填充bean，解析@Resource、@Autowired等标签
             populateBean(beanName, mbd, instanceWrapper);
             if (exposedObject != null) {
+                // 实例化属性（可能需要代理）
                 exposedObject = initializeBean(beanName, exposedObject, mbd);
             }
         }
@@ -369,13 +371,40 @@ AbstractAutowireCapableBeanFactory#doCreateBean
     }
 
 
-AbstractAutowireCapableBeanFactory#populateBean
+##### AbstractAutowireCapableBeanFactory#populateBean
 
-解析依赖，填充属性
+解析依赖，填充属性（深度优先）
 
-![填充属性](/images/java_web/spring_populate_bean.png)
+##### AbstractAutowireCapableBeanFactory#initializeBean
 
-实例化策略：无代理实例化，cglib，jdk动态代理
+初始化bean，实例化对应属性的bean，可能需要创建代理，实例化策略：
+
+* 无代理实例化，
+* cglib
+* jdk动态代理
+
+调用栈如下：
+
+
+       getProxy:164, CglibAopProxy {org.springframework.aop.framework}
+       getProxy:109, ProxyFactory {org.springframework.aop.framework}
+       createProxy:470, AbstractAutoProxyCreator {org.springframework.aop.framework.autoproxy}
+       wrapIfNecessary:350, AbstractAutoProxyCreator {org.springframework.aop.framework.autoproxy}
+       postProcessAfterInitialization:299, AbstractAutoProxyCreator {org.springframework.aop.framework.autoproxy}
+       applyBeanPostProcessorsAfterInitialization:422, AbstractAutowireCapableBeanFactory {org.springframework.beans.factory.support}
+       initializeBean:1583, AbstractAutowireCapableBeanFactory {org.springframework.beans.factory.support}
+       doCreateBean:545, AbstractAutowireCapableBeanFactory {org.springframework.beans.factory.support}
+       createBean:482, AbstractAutowireCapableBeanFactory {org.springframework.beans.factory.support}
+       getObject:306, AbstractBeanFactory$1 {org.springframework.beans.factory.support}
+       getSingleton:230, DefaultSingletonBeanRegistry {org.springframework.beans.factory.support}
+       doGetBean:302, AbstractBeanFactory {org.springframework.beans.factory.support}
+       getBean:197, AbstractBeanFactory {org.springframework.beans.factory.support}
+       preInstantiateSingletons:775, DefaultListableBeanFactory {org.springframework.beans.factory.support}
+       finishBeanFactoryInitialization:861, AbstractApplicationContext {org.springframework.context.support}
+       refresh:541, AbstractApplicationContext {org.springframework.context.support}
+       configureAndRefreshWebApplicationContext:444, ContextLoader {org.springframework.web.context}
+       initWebApplicationContext:326, ContextLoader {org.springframework.web.context}
+       contextInitialized:107, ContextLoaderListener {org.springframework.web.context}
 
 参考：
 

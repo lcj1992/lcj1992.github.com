@@ -5,15 +5,8 @@ categories: java_web
 tags: spring transaction
 ---
 
-*   [常用spring-mybatis的数据库配置](#common_config)
-    *   [原理](#origin)
-    *   [有了spring和mybatis](#spring-mybatis)
-        * [数据源](#datasource)
-        * [mybatis](#mybatis)
-        * [事务配置](#transaction)
-        * [spring事务中两种的mode](#transaction_mode)
-*   [spring事务流程](#how_to_work)
-*   [spring中事务的传播特性](#propagation)
+* TOC
+{:toc}
 
 ### 常用spring-mybatis的数据库配置 {#common_config}
 
@@ -30,7 +23,7 @@ tags: spring transaction
 7.  使用事务[code3](#code3)
 
 ![jdbc_driver](/images/java_web/jdbc_driver.png)
- 
+
 ##### code1
 
 Class.forName()时，先执行static代码块，会先new一个Driver实例，然后注册进DriverManager
@@ -185,7 +178,7 @@ ps:  datasource建立连接的内部实现还是跟[原理](#origin)类似
 
 |传播特性|含义|场景|
 |-|-|-|
-|PROPAGATION_REQUIRED|如果存在一个事务，则支持当前事务。如果没有事务则开启|默认的。|
+|PROPAGATION_REQUIRED|方法被调用时，如果存在一个事务，则支持当前事务。如果没有事务则开启|默认的。|
 |PROPAGATION_SUPPORTS|如果存在一个事务，则支持当前事务。如果没有事务，则非事务的执行||
 |PROPAGATION_MANDATORY|如果存在一个事务，则支持当前事务。如果没有一个活动的事务，则抛出异常。||
 |PROPAGATION_REQUIRES_NEW|总是开启一个新的事务。如果一个事务已经存在，则将这个存在的事务挂起。||
@@ -193,6 +186,19 @@ ps:  datasource建立连接的内部实现还是跟[原理](#origin)类似
 |PROPAGATION_NEVER|总是非事务地执行，如果存在一个活动事务，则抛出异常||
 |PROPAGATION_NESTED|如果一个活动的事务存在，则运行在一个嵌套的事务中. 如果没有活动事务, 则按TransactionDefinition.PROPAGATION_REQUIRED 属性执行||
 
+获取事务传播特性的调用栈
+
+    "main"@1 in group "main": RUNNING
+    getPropagationBehavior:51, DelegatingTransactionDefinition {org.springframework.transaction.support}
+    handleExistingTransaction:404, AbstractPlatformTransactionManager {org.springframework.transaction.support}
+    getTransaction:349, AbstractPlatformTransactionManager {org.springframework.transaction.support}
+    createTransactionIfNecessary:427, TransactionAspectSupport {org.springframework.transaction.interceptor}
+    invokeWithinTransaction:276, TransactionAspectSupport {org.springframework.transaction.interceptor}
+    invoke:96, TransactionInterceptor {org.springframework.transaction.interceptor}
+    proceed:179, ReflectiveMethodInvocation {org.springframework.aop.framework}
+    intercept:655, CglibAopProxy$DynamicAdvisedInterceptor {org.springframework.aop.framework}
+    outerTest0:-1, OuterService$$EnhancerBySpringCGLIB$$42005559 {service}
+    propagationTest:42, TestDaoTest {dao}
 
 #### 注意事项
 首先需要明确的是mysql RR级别下，只能看到本事务内的改动。
@@ -202,11 +208,13 @@ ps:  datasource建立连接的内部实现还是跟[原理](#origin)类似
 3. 事务粒度好好把握，补偿机制。
 4. 对于cglib代理因为是基于继承实现的，所以其@Transactional注解要加在实现类上，不要加在接口上。
 
-case1：宗星 catch 死锁异常，事务没回滚，数据不一致
+case1：catch死锁异常，事务没回滚，数据不一致
 
 case2：order项目 事务内发消息。meilv接受到消息，处理时用到order事务里未提交的数据，异常了。
 
 case3：保险plus 多人退保（子单维度），退保定时任务几乎同时执行，执行成功后更改子单状态为退保完成。然后判定主单包含的子单数和退保完成的子单数是否一致来判定将主单更改为全部退保还是部分退保。
+
+case4：事务内更新某记录的状态字段，然后异步线程中又更新同一字段，由于事务内对记录加锁，异步线程中的sql只能等待事务提交才能执行。
 
 #### aspectj配置 {#appendix}
 

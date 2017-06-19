@@ -47,11 +47,15 @@ aspectj
 ##### ***Advice***
 
 `action taken by an aspect at a particular join point.` Different types of advice include "around," "before" and "after" advice. (Advice types are discussed below.)` Many AOP frameworks, including Spring, model an advice as an interceptor, maintaining a chain of interceptors around the join point.` 切面在某一连接点采取的动作
-    * Before: 在目标方法被调用之前调用通知功能,下类似
-    * After:
-    * After-returing
-    * After-throwing
-    * Around
+
+* Before: 在目标方法被调用之前调用通知功能,下类似
+* After:
+* After-returing
+* After-throwing
+* Around
+
+各advice类图
+![advice](/images/java_web/aop_advice.png)
 
 ##### ***JoinPoint***
 

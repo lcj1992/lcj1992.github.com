@@ -305,6 +305,8 @@ Change Bidirectional Association to Unidirectional（将双向关联改为单向
 
 Change Reference to Value（将引用对象改为实值对象） 183
 
+1. 你有一个引用对象，很小且不可变，而且不易管理，将它变成一个值对象。
+
 Change Unidirectional Association to Bidirectional（将单向关联改为双向） 197
 
 Change Value to Reference（将实值对象改为引用对象） 179
@@ -322,6 +324,8 @@ Convert Procedural Design to Objects（将过程化设计转化为对象设计�
 Decompose Conditional（分解条件式） 238
 
 Duplicate Observed Data（复制「被监视数据」） 189
+
+1. 你有一些领域数据置身于gui控件中，而领域函数需要访问这些数据。将该数据复制到一个领域对象中。建立一个Observer模式，用于同步领域对象和GUI对象内的重复数据。
 
 Encapsulate Collection（封装群集） 208
 
@@ -391,11 +395,17 @@ Add Parameter（添加参数） 275
 
 Change Bidirectional Association to Unidirectional（将双向关联改为单向） 200
 
+1. 两个类之间有双向关联，但其中一个类如今不再需要另一个类的特性，去除不必要的关联
+
 Change Reference to Value（将引用对象改为实值对象） 183
 
 Change Unidirectional Association to Bidirectional（将单向关联改为双向） 197
 
+1. 两个类都需要使用对方特性，但其间只有一条单向连接，添加一个反向指针，并使修改函数能够同时更新两条连接。
+
 Change Value to Reference（将实值对象改为引用对象） 179
+
+1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象。 
 
 Collapse Hierarchy（折迭继承体系） 344
 
@@ -410,6 +420,8 @@ Decompose Conditional（分解条件式） 238
 Duplicate Observed Data（复制「被监视数据」） 189
 
 Encapsulate Collection（封装群集） 208
+
+1. 有个函数返回一个集合，让这个函数返回该集合的一个只读副本，并在这个类中提供添加/移除集合元素的函数。 
 
 Encapsulate Downcast（封装「向㆘转型」动作） 308
 
@@ -505,6 +517,8 @@ Rename Method（重新命名函数） 273
 
 Replace Array with Object（以对象取代数组） 186
 
+1. 你有一个数组，其中的元素各自代表不同的东西,以对象替换数组。对于数组中的每个元素，以一个字段表示。
+
 Replace Conditional with Polymorphism（以多态取代条件式） 255
 
 Replace Constructor with Factory Method（以工厂函数取代构造函数） 304
@@ -535,7 +549,11 @@ Replace Parameter with Method（以函数取代参数） 292
 
 Replace Record with Data Class（以数据类取代记录） 217
 
+1. 你需要面对传统编程环境中的记录结构。为该记录创建一个“哑”数据对象。
+
 Replace Subclass with Fields（以值域取代子类） 232
+
+1. 你的各个子类的唯一差别只在“返回常量数据”的函数身上，修改这些函数，使他们返回超类中的某个（新增）字段，然后销毁子类。
 
 Replace Temp With Query（以查询取代临时变量） 120
 
@@ -543,9 +561,15 @@ Replace Temp With Query（以查询取代临时变量） 120
 
 Replace Type Code with Class（以类取代型别码） 218
 
+1. 类之中有一个数值类型码，但它并不影响类的行为，以一个新的类替换该数值类型码。
+
 Replace Type Code with State/Strategy（以 State/Strategy 取代型别码） 227
 
+1. 你有一个类型码，它会影响类的行为，但你无法通过继承手法消除它，以状态对象取代类型码。
+
 Replace Type Code with Subclasses（以子类取代型别码） 223
+
+1. 你有一个不可变的类型码，它会影响类的行为，以子类取代这个类型码。
 
 Self Encapsulate Field（自封装值域） 171
 

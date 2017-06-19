@@ -309,6 +309,8 @@ Change Unidirectional Association to Bidirectional（将单向关联改为双向
 
 Change Value to Reference（将实值对象改为引用对象） 179
 
+1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象，将这个值对象编程引用对象
+
 Collapse Hierarchy（折叠继承体系） 344
 
 Consolidate Conditional Expression（合并条件式） 240
@@ -355,6 +357,8 @@ Hide Method（隐藏某个函数） 303
 
 Inline Class（将类内联化） 154
 
+1. 某个类没有做太多事情，将这个类的所有特性搬移到另一个类里，然后移除原类。
+
 Inline Method（将函数内联化） 117
 
 Inline Temp（将临时变量内联化） 119
@@ -365,7 +369,11 @@ Introduce Explaining Variable（引入解释性变量） 124
 
 Introduce Foreign Method（引入外加函数） 162
 
+1. 你需要为提供服务的类增加一个函数，但你无法修改这个类，在客户类中建立一个函数，并以第一参数形式传入一个服务类实例。
+
 Introduce local Extension（引入本地扩展） 164
+
+1. 你需要为服务类提供一些额外函数，但你无法修改这个类，建立一个新类，使它包含这些额外函数。让这个扩展品成为源类的子类或者包装类。
 
 Introduce Null Object（引入 Null 对象） 260
 
@@ -424,6 +432,9 @@ Extract Superclass（提炼超类） 336
 Form Template Method（塑造模板函数） 345
 
 Hide Delegate（隐藏「委托关系」） 157
+
+1. 客户通过一个委托类来调用另一个对象，在服务类上建立客户所需的所有函数，用以隐藏委托关系
+    *   如果某个客户通过服务对象的字段得到另一个对象，然后调用后者的函数，那么客户就必须知晓这一层委托关系。万一委托关系发生变化，客户也得相应变化，将委托关系隐藏起来，从而去除这种依赖。这么一来即便将来发生委托关系上的变化，变化也将被限制在服务对象中，不会波及客户。
 
 Hide Method（隐藏某个函数） 303
 
@@ -484,6 +495,8 @@ Remove Control Flag（移除控制标记） 245
 
 Remove Middle Man（移除㆗间㆟） 160
 
+1. 某个类做了过多的简单委托动作，让客户直接调用受托类
+
 Remove Parameter（移除参数） 277
 
 Remove Setting Method（移除设值函数） 300
@@ -497,6 +510,8 @@ Replace Conditional with Polymorphism（以多态取代条件式） 255
 Replace Constructor with Factory Method（以工厂函数取代构造函数） 304
 
 Replace Data Value with Object（以对象取代数据值） 175
+
+1. 你有一个数据项，需要与其他数据和行为一起使用才有意义，将数据项变成对象。
 
 Replace Delegation with Inheritance（以继承取代委托） 355
 
@@ -533,6 +548,8 @@ Replace Type Code with State/Strategy（以 State/Strategy 取代型别码） 22
 Replace Type Code with Subclasses（以子类取代型别码） 223
 
 Self Encapsulate Field（自封装值域） 171
+
+1. 你直接访问一个字段，但与字段之间的耦合关系逐渐变得笨拙，为这个字段建立取值/设置函数，并且只以这些函数来访问字段。
 
 Separate Domain from Presentation（将领域和表述/显示分离） 370
 

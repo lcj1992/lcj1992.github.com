@@ -305,116 +305,11 @@ Add Parameter（添加参数） 275
 
 Change Bidirectional Association to Unidirectional（将双向关联改为单向） 200
 
-Change Reference to Value（将引用对象改为实值对象） 183
-
-1. 你有一个引用对象，很小且不可变，而且不易管理，将它变成一个值对象。
-
-Change Unidirectional Association to Bidirectional（将单向关联改为双向） 197
-
-Change Value to Reference（将实值对象改为引用对象） 179
-
-1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象，将这个值对象变成引用对象
-
-Collapse Hierarchy（折叠继承体系） 344
-
-Consolidate Conditional Expression（合并条件式） 240
-
-Consolidate Duplicate Conditional Fragments（合并重复的条件片段） 243
-
-Convert Procedural Design to Objects（将过程化设计转化为对象设计） 368
-
-Decompose Conditional（分解条件式） 238
-
-1. 你有一个复杂的条件语句，从if、then、else三个段落分别提炼出独立函数
-
-Duplicate Observed Data（复制「被监视数据」） 189
-
-1. 你有一些领域数据置身于gui控件中，而领域函数需要访问这些数据。将该数据复制到一个领域对象中。建立一个Observer模式，用于同步领域对象和GUI对象内的重复数据。
-
-Encapsulate Collection（封装群集） 208
-
-Encapsulate Downcast（封装「向下转型」动作） 308
-
-1. 某个函数返回的对象，需要由函数调用者执行向下转型(downcast)，将向下转型动作移到函数中。
-
-Encapsulate Field（封装值域） 206
-
-Extract Class（提炼类） 149
-
-Extract Hierarchy（提炼继承体系） 375
-
-Extract Interface（提炼接口） 341
-
-Extract Method（提炼函数） 110
-
-1. 无局部变量
-2. 有局部变量，包括传入原函数的参数和源函数所声明的临时变量
-    * 局部变量只是读取这些变量，并不修改它们
-    * 源函数的参数被赋值
-    * 临时变量只在被提炼代码中使用
-    * 被提炼代码段之外的代码也使用了这个变量
-
-
-Extract Subclass（提炼子类） 330
-
-Extract Superclass（提炼超类） 336
-
-Form Template Method（塑造模板函数） 345
-
-Hide Delegate（隐藏「委托关系」） 157
-
-Hide Method（隐藏某个函数） 303
-
-1. 有一个函数，从来没有被其他任何类用到，将这个函数修改为private
-
-Inline Class（将类内联化） 154
-
-1. 某个类没有做太多事情，将这个类的所有特性搬移到另一个类里，然后移除原类。
-
-Inline Method（将函数内联化） 117
-
-Inline Temp（将临时变量内联化） 119
-
-Introduce Assertion（引入断言） 267
-
-Introduce Explaining Variable（引入解释性变量） 124
-
-Introduce Foreign Method（引入外加函数） 162
-
-1. 你需要为提供服务的类增加一个函数，但你无法修改这个类，在客户类中建立一个函数，并以第一参数形式传入一个服务类实例。
-
-Introduce local Extension（引入本地扩展） 164
-
-1. 你需要为服务类提供一些额外函数，但你无法修改这个类，建立一个新类，使它包含这些额外函数。让这个扩展品成为源类的子类或者包装类。
-
-Introduce Null Object（引入 Null 对象） 260
-
-1. 你需要再三检查某对象是否为null,将null值替换为null对象。
-
-Introduce Parameter Object（引入参数对象） 295
-
-1. 某些参数总是很自然地同时出现，以一个对象取代这些参数。
-
-Move Field（搬移值域） 146
-
-Move Method（搬移函数） 142
-
-Parameterize Method（令函数携带参数） 283
-
-1. 若干函数做了类似的工作，但在函数本体中却包含了不同的值，建立单一函数，以参数表达那些不同的值
-
-Preserve Whole Object（保持对象完整） 288
-
-1. 你从某个对象中取出若干值，将它们作为某一次函数调用时的参数改为传递整个对象。
-2. 不过事情总有两面，如果你传的是数值，被调用函数就只依赖于这些数值，而不依赖它们所属的对象。但如果你传递的是整个对象，被调用函数所在的对象就需要依赖参数对象。如果这回是你的依赖结构恶化，那么就不该使用perserve whole object。
-
-Add Parameter（添加参数） 275
-
-Change Bidirectional Association to Unidirectional（将双向关联改为单向） 200
-
 1. 两个类之间有双向关联，但其中一个类如今不再需要另一个类的特性，去除不必要的关联
 
 Change Reference to Value（将引用对象改为实值对象） 183
+
+1. 你有一个引用对象，很小且不可变，而且不易管理，将它变成一个值对象。
 
 Change Unidirectional Association to Bidirectional（将单向关联改为双向） 197
 
@@ -422,9 +317,11 @@ Change Unidirectional Association to Bidirectional（将单向关联改为双向
 
 Change Value to Reference（将实值对象改为引用对象） 179
 
-1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象。
+1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象，将这个值对象变成引用对象
 
-Collapse Hierarchy（折迭继承体系） 344
+Collapse Hierarchy（折叠继承体系） 344
+
+1. 超类和子类之前无太大区别，将它们合为一体。
 
 Consolidate Conditional Expression（合并条件式） 240
 
@@ -437,33 +334,60 @@ Consolidate Duplicate Conditional Fragments（合并重复的条件片段） 243
 
 Convert Procedural Design to Objects（将过程化设计转化为对象设计） 368
 
+1. 你手上有一些传统过程化风格的代码，将数据记录变成对象，将大块的行为分为小块，并将行为移入相关对象之中。
+
 Decompose Conditional（分解条件式） 238
 
+1. 你有一个复杂的条件语句，从if、then、else三个段落分别提炼出独立函数
+
 Duplicate Observed Data（复制「被监视数据」） 189
+
+1. 你有一些领域数据置身于gui控件中，而领域函数需要访问这些数据。将该数据复制到一个领域对象中。建立一个Observer模式，用于同步领域对象和GUI对象内的重复数据。
 
 Encapsulate Collection（封装群集） 208
 
 1. 有个函数返回一个集合，让这个函数返回该集合的一个只读副本，并在这个类中提供添加/移除集合元素的函数。
 
-Encapsulate Downcast（封装「向㆘转型」动作） 308
+Encapsulate Downcast（封装「向下转型」动作） 308
 
-Encapsulate Field（封装值域） 206
+1. 某个函数返回的对象，需要由函数调用者执行向下转型(downcast)，将向下转型动作移到函数中。
 
-Extract Class（提炼类） 149
+Encapsulate Field（封装字段） 206
+
+1. 你的类中存在一个public字段，将它声明为private，并提供相应的访问函数。
+
+Extract Class (提炼类) 149
 
 1. 某个类做了应该由两个类做的事，建立一个新类，将相关的字段和函数从旧类搬移到新类
 
 Extract Hierarchy（提炼继承体系） 375
 
+1. 你有某个类做了太多工作，其中一部分工作是以大量条件表达式完成的，建立继承体系，以一个子类表示一种特殊情况。
+
 Extract Interface（提炼接口） 341
+
+1. 若干客户使用类接口中的同一子集，或者两个类的接口有部分相同
 
 Extract Method（提炼函数） 110
 
+1. 无局部变量
+2. 有局部变量，包括传入原函数的参数和源函数所声明的临时变量
+    * 局部变量只是读取这些变量，并不修改它们
+    * 源函数的参数被赋值
+    * 临时变量只在被提炼代码中使用
+    * 被提炼代码段之外的代码也使用了这个变量
+
 Extract Subclass（提炼子类） 330
+
+1.  类中的某些特性只被某些（而非全部）实例用到，新建一个子类，将上面所说的那有部分特性移到子类中。
 
 Extract Superclass（提炼超类） 336
 
+1. 两个类有相似特性，为这两个类建立一个超类，将相同特性移至超类。
+
 Form Template Method（塑造模板函数） 345
+
+1. 你有一些子类，其中相应的某些函数以相同顺序执行类似的操作，但各个操作的细节上有所不同，将这些操作分别放进独立函数中，并保持它们都有相同的签名，于是原函数也就变得相同了，然后将原函数上移至超类。
 
 Hide Delegate（隐藏「委托关系」） 157
 
@@ -472,7 +396,11 @@ Hide Delegate（隐藏「委托关系」） 157
 
 Hide Method（隐藏某个函数） 303
 
+1. 有一个函数，从来没有被其他任何类用到，将这个函数修改为private
+
 Inline Class（将类内联化） 154
+
+1. 某个类没有做太多事情，将这个类的所有特性搬移到另一个类里，然后移除原类。
 
 Inline Method（将函数内联化） 117
 
@@ -492,11 +420,19 @@ Introduce Explaining Variable（引入解释性变量） 124
 
 Introduce Foreign Method（引入外加函数） 162
 
-Introduce local Extension（引入本㆞扩展） 164
+1. 你需要为提供服务的类增加一个函数，但你无法修改这个类，在客户类中建立一个函数，并以第一参数形式传入一个服务类实例。
+
+Introduce local Extension（引入本地扩展） 164
+
+1. 你需要为服务类提供一些额外函数，但你无法修改这个类，建立一个新类，使它包含这些额外函数。让这个扩展品成为源类的子类或者包装类。
 
 Introduce Null Object（引入 Null 对象） 260
 
+1. 你需要再三检查某对象是否为null,将null值替换为null对象。
+
 Introduce Parameter Object（引入参数对象） 295
+
+1. 某些参数总是很自然地同时出现，以一个对象取代这些参数。
 
 Move Field（搬移值域） 146
 
@@ -508,11 +444,16 @@ Move Method（搬移函数） 142
 
 Parameterize Method（令函数携带参数） 283
 
+1. 若干函数做了类似的工作，但在函数本体中却包含了不同的值，建立单一函数，以参数表达那些不同的值
+
 Preserve Whole Object（保持对象完整） 288
 
-Refactoring – Improving the Design of Existing Code
+1. 你从某个对象中取出若干值，将它们作为某一次函数调用时的参数改为传递整个对象。
+2. 不过事情总有两面，如果你传的是数值，被调用函数就只依赖于这些数值，而不依赖它们所属的对象。但如果你传递的是整个对象，被调用函数所在的对象就需要依赖参数对象。如果这回是你的依赖结构恶化，那么就不该使用perserve whole object。
 
 Pull Up Constructor Body（构造函数本体㆖移） 325
+
+1. 你再各个子类中拥有一些构造函数，它们的本体几乎完全一致，在超类中新建一个构造函数，并在子类构造函数中调用它。
 
 Pull Up Field（值域㆖拉） 320
 
@@ -524,7 +465,11 @@ Pull Up Method（函数㆖拉） 322
 
 Push Down Field（值域㆘移） 329
 
+1. 超类中的某个字段只被部分(而非全部)子类用到，将这个字段移到需要它的那些子类去。
+
 Push Down Method（函数㆘移） 328
+
+1. 超类中的某个函数只与部分(而非全部)子类有关，将这个函数移到相关的那些子类去
 
 Remove Assignments to Parameters（移除对参数的赋值动作） 131
 
@@ -568,6 +513,8 @@ Replace Data Value with Object（以对象取代数据值） 175
 
 Replace Delegation with Inheritance（以继承取代委托） 355
 
+1. 你在两个类之间使用委托关系，并经常为整个接口编写许多极简单的委托函数，让委托类继承受托类。
+
 Replace Error Code with Exception（以异常取代错误码） 310
 
 1. 某个函数返回一个特定的代码，用以表示某种错误情况，改用异常。
@@ -577,6 +524,8 @@ Replace Exception with Test（以测试取代异常） 315
 1. 面对一个调用者可以预先检查的条件，你抛出一个异常，修改调用者，使它在调用函数之前先做检查。
 
 Replace Inheritance with Delegation（以委托取代继承） 352
+
+1. 某个子类只使用超类接口中的一部分，或者根本不需要继承而来的数据，在子类中新建一个字段用以保存超类，调整子类函数，令它改而委托超类，然后去掉两者之间的继承关系。
 
 Replace Magic Number with Symbolic Constant（以字面常量取代魔法数） 204
 
@@ -627,6 +576,8 @@ Self Encapsulate Field（自封装值域） 171
 
 Separate Domain from Presentation（将领域和表述/显示分离） 370
 
+1. 某些GUI类之中包含了领域逻辑，将领域逻辑分离出来，为它们建立独立的领域类。
+
 Separate Query from Modifier（将查询函数和修改函数分离） 279
 
 1. 某个函数既返回对象状态值，又修改对象状态，建立两个不同的函数，其中一个负责查询，另一个负责修改。
@@ -640,5 +591,7 @@ Substitute Algorithm（替换你的算法） 139
 1. 你想要把某个算法替换为另一个更清晰的算法，将函数本体替换为另一个算法
 
 Tease Apart Inheritance（梳理并分解继承体系）
+
+1. 某个继承体系同时承担两项责任，建立两个继承体系，并通过委托关系让其中一个可以调用另一个
 
 [重构](https://zacharychang.gitbooks.io/refactoring-improving-the-design-of-existing-code/)

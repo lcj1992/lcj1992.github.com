@@ -294,9 +294,6 @@ shotgun surgery的特殊情况
 
 3. introduce assertion
 
-
-####
-
 #### 重构列表
 
 Add Parameter（添加参数） 275

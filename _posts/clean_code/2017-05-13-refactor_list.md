@@ -323,6 +323,8 @@ Convert Procedural Design to Objects（将过程化设计转化为对象设计�
 
 Decompose Conditional（分解条件式） 238
 
+1. 你有一个复杂的条件语句，从if、then、else三个段落分别提炼出独立函数
+
 Duplicate Observed Data（复制「被监视数据」） 189
 
 1. 你有一些领域数据置身于gui控件中，而领域函数需要访问这些数据。将该数据复制到一个领域对象中。建立一个Observer模式，用于同步领域对象和GUI对象内的重复数据。
@@ -381,6 +383,8 @@ Introduce local Extension（引入本地扩展） 164
 
 Introduce Null Object（引入 Null 对象） 260
 
+1. 你需要再三检查某对象是否为null,将null值替换为null对象。
+
 Introduce Parameter Object（引入参数对象） 295
 
 Move Field（搬移值域） 146
@@ -405,13 +409,18 @@ Change Unidirectional Association to Bidirectional（将单向关联改为双向
 
 Change Value to Reference（将实值对象改为引用对象） 179
 
-1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象。 
+1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象。
 
 Collapse Hierarchy（折迭继承体系） 344
 
 Consolidate Conditional Expression（合并条件式） 240
 
+1. 你有一系列条件测试，都得到相同结果，将这些测试合并为一个条件表达式，并将这个条件表达式提炼为一个独立函数。
+
 Consolidate Duplicate Conditional Fragments（合并重复的条件片段） 243
+
+1. 在条件表达式的每个分支上有着相同的一段代码，将这些重复代码搬移到条件表达式之外。
+2. 我们也可以使用同样的手法来对待异常
 
 Convert Procedural Design to Objects（将过程化设计转化为对象设计） 368
 
@@ -421,7 +430,7 @@ Duplicate Observed Data（复制「被监视数据」） 189
 
 Encapsulate Collection（封装群集） 208
 
-1. 有个函数返回一个集合，让这个函数返回该集合的一个只读副本，并在这个类中提供添加/移除集合元素的函数。 
+1. 有个函数返回一个集合，让这个函数返回该集合的一个只读副本，并在这个类中提供添加/移除集合元素的函数。
 
 Encapsulate Downcast（封装「向㆘转型」动作） 308
 
@@ -460,8 +469,9 @@ Inline Temp（将临时变量内联化） 119
 
 1. 临时变量只被一个简单表达式赋值一次，而它妨碍了其他重构手法，将所有对该变量的引用动作，替换为对它赋值的那个表达式自身
 
-
 Introduce Assertion（引入断言） 267
+
+1. 某一段代码需要对程序状态做出某种假设，以断言明确表现这种假设。
 
 Introduce Explaining Variable（引入解释性变量） 124
 
@@ -505,6 +515,8 @@ Remove Assignments to Parameters（移除对参数的赋值动作） 131
 
 Remove Control Flag（移除控制标记） 245
 
+1. 在一系列布尔表达式中，某个变量带有"控制标记"的作用，以break语句或return语句取代控制标记。
+
 Remove Middle Man（移除㆗间㆟） 160
 
 1. 某个类做了过多的简单委托动作，让客户直接调用受托类
@@ -520,6 +532,8 @@ Replace Array with Object（以对象取代数组） 186
 1. 你有一个数组，其中的元素各自代表不同的东西,以对象替换数组。对于数组中的每个元素，以一个字段表示。
 
 Replace Conditional with Polymorphism（以多态取代条件式） 255
+
+1. 你手上有个条件表达式，它根据对象类型的不同而选择不同的行为，将这个条件表达式的每个分支放进一个子类内的覆写函数中，然后将原始函数声明为抽象函数。
 
 Replace Constructor with Factory Method（以工厂函数取代构造函数） 304
 
@@ -542,6 +556,9 @@ Replace Method with Method Object（以函数对象取代函数） 135
 1. 你有一个大型函数，其中对局部变量的使用使你无法采用extract method，将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的字段，然后你可以在同一个对象中将这个大型函数分解为多个小型函数。
 
 Replace Nested Conditional with Guard Clauses（以卫语句取代嵌套条件式） 250
+
+1. 函数中的条件逻辑使人难以看清正常的执行路径，使用卫语句表现所有特殊情况。
+2. 常常可以将条件表达式反转，从而实现replace netsted conditional with guard clauses
 
 Replace Parameter with Explicit Methods（以明确函数取代参数） 285
 

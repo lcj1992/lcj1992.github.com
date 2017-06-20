@@ -301,6 +301,8 @@ shotgun surgery的特殊情况
 
 Add Parameter（添加参数） 275
 
+1. 某个函数需要从调用端得到更多信息，为此函数添加一个对象参数，让该参数带进函数所需信息。
+
 Change Bidirectional Association to Unidirectional（将双向关联改为单向） 200
 
 Change Reference to Value（将引用对象改为实值对象） 183
@@ -311,7 +313,7 @@ Change Unidirectional Association to Bidirectional（将单向关联改为双向
 
 Change Value to Reference（将实值对象改为引用对象） 179
 
-1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象，将这个值对象编程引用对象
+1. 你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象，将这个值对象变成引用对象
 
 Collapse Hierarchy（折叠继承体系） 344
 
@@ -332,6 +334,8 @@ Duplicate Observed Data（复制「被监视数据」） 189
 Encapsulate Collection（封装群集） 208
 
 Encapsulate Downcast（封装「向下转型」动作） 308
+
+1. 某个函数返回的对象，需要由函数调用者执行向下转型(downcast)，将向下转型动作移到函数中。
 
 Encapsulate Field（封装值域） 206
 
@@ -361,6 +365,8 @@ Hide Delegate（隐藏「委托关系」） 157
 
 Hide Method（隐藏某个函数） 303
 
+1. 有一个函数，从来没有被其他任何类用到，将这个函数修改为private
+
 Inline Class（将类内联化） 154
 
 1. 某个类没有做太多事情，将这个类的所有特性搬移到另一个类里，然后移除原类。
@@ -387,13 +393,20 @@ Introduce Null Object（引入 Null 对象） 260
 
 Introduce Parameter Object（引入参数对象） 295
 
+1. 某些参数总是很自然地同时出现，以一个对象取代这些参数。
+
 Move Field（搬移值域） 146
 
 Move Method（搬移函数） 142
 
 Parameterize Method（令函数携带参数） 283
 
+1. 若干函数做了类似的工作，但在函数本体中却包含了不同的值，建立单一函数，以参数表达那些不同的值
+
 Preserve Whole Object（保持对象完整） 288
+
+1. 你从某个对象中取出若干值，将它们作为某一次函数调用时的参数改为传递整个对象。
+2. 不过事情总有两面，如果你传的是数值，被调用函数就只依赖于这些数值，而不依赖它们所属的对象。但如果你传递的是整个对象，被调用函数所在的对象就需要依赖参数对象。如果这回是你的依赖结构恶化，那么就不该使用perserve whole object。
 
 Add Parameter（添加参数） 275
 
@@ -503,7 +516,11 @@ Pull Up Constructor Body（构造函数本体㆖移） 325
 
 Pull Up Field（值域㆖拉） 320
 
+1. 两个子类拥有相同的字段，将该字段移至超类。
+
 Pull Up Method（函数㆖拉） 322
+
+1. 有些函数，在各个子类中产生完全相同的结果，将该函数移至超类。
 
 Push Down Field（值域㆘移） 329
 
@@ -523,9 +540,15 @@ Remove Middle Man（移除㆗间㆟） 160
 
 Remove Parameter（移除参数） 277
 
+1. 函数本体不需要某个参数，将该参数去除
+
 Remove Setting Method（移除设值函数） 300
 
+1. 类中的某个字段应该在对象创建时被设值，然后就不再改变，去掉该字段的所有设值函数。
+
 Rename Method（重新命名函数） 273
+
+1. 函数的名称未能揭示函数的用途，修改函数名称。
 
 Replace Array with Object（以对象取代数组） 186
 
@@ -537,6 +560,8 @@ Replace Conditional with Polymorphism（以多态取代条件式） 255
 
 Replace Constructor with Factory Method（以工厂函数取代构造函数） 304
 
+1. 你希望在创建对象时不仅仅是简单的建构动作，将构造函数替换为工厂函数。
+
 Replace Data Value with Object（以对象取代数据值） 175
 
 1. 你有一个数据项，需要与其他数据和行为一起使用才有意义，将数据项变成对象。
@@ -545,7 +570,11 @@ Replace Delegation with Inheritance（以继承取代委托） 355
 
 Replace Error Code with Exception（以异常取代错误码） 310
 
+1. 某个函数返回一个特定的代码，用以表示某种错误情况，改用异常。
+
 Replace Exception with Test（以测试取代异常） 315
+
+1. 面对一个调用者可以预先检查的条件，你抛出一个异常，修改调用者，使它在调用函数之前先做检查。
 
 Replace Inheritance with Delegation（以委托取代继承） 352
 
@@ -562,7 +591,11 @@ Replace Nested Conditional with Guard Clauses（以卫语句取代嵌套条件�
 
 Replace Parameter with Explicit Methods（以明确函数取代参数） 285
 
+1. 你有一个函数，其中完全取决于参数值而采取不同行为，针对该参数的每一个可能值，建立一个独立函数。
+
 Replace Parameter with Method（以函数取代参数） 292
+
+1. 对象调用某个函数，并将所得结果作为参数，传递给另一个函数，而接受该参数的额函数本身也能够调用前一个函数，让参数接受者去除该项参数，并直接调用前一个函数。
 
 Replace Record with Data Class（以数据类取代记录） 217
 
@@ -595,6 +628,8 @@ Self Encapsulate Field（自封装值域） 171
 Separate Domain from Presentation（将领域和表述/显示分离） 370
 
 Separate Query from Modifier（将查询函数和修改函数分离） 279
+
+1. 某个函数既返回对象状态值，又修改对象状态，建立两个不同的函数，其中一个负责查询，另一个负责修改。
 
 Split Temporary Variable（剖解临时变量） 128
 

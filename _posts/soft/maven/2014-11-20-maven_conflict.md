@@ -183,4 +183,3 @@ idea的show dependencies(ctrl + (shift) +alt + u)（好像用处不大。。//TO
 
 [日志框架]<http://www.cnblogs.com/enjiex/p/3732338.html>
 
-[日志框架]<http://wiki.sankuai.com/pages/viewpage.action?pageId=575620751>

@@ -93,7 +93,7 @@ web.xml中的启动遵循context-param -> listener -> filter -> servlet。spring
 
 3. 依据BeanDefinition，实例化bean(lazy-init = false或者在第一次使用bean时)
 
-4. ...
+4. bean定义的载入和依赖注入是两个独立的过程。
 
 ### 启动流程
 
@@ -190,6 +190,7 @@ web.xml中的启动遵循context-param -> listener -> filter -> servlet。spring
    * 每个namespace对应有不同的`NamespaceHandler`，eg :tx、context
    * 每个namespaceHandler可能对应多个`BeanDefinitionParser`,eg: ContextNamespaceHandler中包含有PropertyPlaceholderBeanDefinitionParser、ComponentScanBeanDefinitionParser、AnnotationConfigBeanDefinitionParser等用于处理context namespace下的不同的标签。
 具体的处理逻辑可以看对应的parser。
+4. spring通过定义BeanDefinition来管理基于spring的应用中的各种对象以及它们之间的相互依赖关系。
 
 ##### DefaultBeanDefinitionDocumentReader#parseDefaultElement
 

@@ -4,34 +4,15 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-开篇的例子	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^#### 开篇的例子$/;"	function	line:11
-重构原则	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^#### 重构原则$/;"	function	line:37
-何谓重构	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### 何谓重构$/;"	function	line:39
-为何重构	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### 为何重构$/;"	function	line:47
-何时重构	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### 何时重构$/;"	function	line:55
-怎么对经理说	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### 怎么对经理说$/;"	function	line:67
-重构的难题	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### 重构的难题$/;"	function	line:79
-代码的坏味道	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^#### 代码的坏味道$/;"	function	line:84
-duplicated code (重复代码)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### duplicated code (重复代码)$/;"	function	line:86
-long method (过长函数)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### long method (过长函数)$/;"	function	line:98
-Large class (过大的类)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### Large class (过大的类)$/;"	function	line:114
-long parameter list(过长参数列表)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### long parameter list(过长参数列表)$/;"	function	line:122
-divergent change (发散式变化)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### divergent change (发散式变化)$/;"	function	line:132
-shotgun surgey （霰弹式修改）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### shotgun surgey （霰弹式修改）$/;"	function	line:136
-feature ency （依恋情结）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### feature ency （依恋情结）$/;"	function	line:144
-data clumps （数据泥团）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### data clumps （数据泥团）$/;"	function	line:150
-primitive obsession（基本类型偏执）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### primitive obsession（基本类型偏执）$/;"	function	line:160
-switch statements （switch 语句）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### switch statements （switch 语句）$/;"	function	line:176
-parallel inheritance hierarchies (平行继承体系)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### parallel inheritance hierarchies (平行继承体系)$/;"	function	line:190
-lazy class （冗赘类）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### lazy class （冗赘类）$/;"	function	line:198
-speculative generality （夸夸其谈未来性）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### speculative generality （夸夸其谈未来性）$/;"	function	line:204
-temporary field (令人迷惑的暂时字段)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### temporary field (令人迷惑的暂时字段)$/;"	function	line:215
-message chains（过度耦合的消息链）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### message chains（过度耦合的消息链）$/;"	function	line:221
-middle man (中间人)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### middle man (中间人)$/;"	function	line:229
-inappropriate intimacy (狎昵关系)	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### inappropriate intimacy (狎昵关系)$/;"	function	line:237
-alternative classes with different interfaces	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### alternative classes with different interfaces$/;"	function	line:251
-incomplete library （不完美的库类）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### incomplete library （不完美的库类）$/;"	function	line:259
-data class （纯稚的数据类）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### data class （纯稚的数据类）$/;"	function	line:267
-refused bequest （被拒绝的遗赠）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### refused bequest （被拒绝的遗赠）$/;"	function	line:281
-comments （过多的注释）	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^##### comments （过多的注释）$/;"	function	line:289
-重构列表	/Users/lichuangjian/work/foolchild/_posts/clean_code/2017-05-13-refactor_list.md	/^#### 重构列表$/;"	function	line:297
+核心类图	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^### 核心类图$/;"	function	line:13
+动态代理 {	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^### 动态代理 {#dynamic_proxy}$/;"	function	line:17
+静态代理 {	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^### 静态代理 {#static_proxy}$/;"	function	line:39
+aop	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^### aop$/;"	function	line:43
+aop术语	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^#### aop术语$/;"	function	line:45
+***Advice（通知）***	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^##### ***Advice（通知）***$/;"	function	line:47
+***JoinPoint（连接点）***	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^##### ***JoinPoint（连接点）***$/;"	function	line:62
+***PointCut（切点）***	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^##### ***PointCut（切点）***$/;"	function	line:66
+***Aspect/Advisor（切面/通知器）***	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^##### ***Aspect\/Advisor（切面\/通知器）***$/;"	function	line:72
+***Introduction***	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^##### ***Introduction***$/;"	function	line:86
+***Weaving***	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^##### ***Weaving***$/;"	function	line:90
+切点表达式	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_aop.md	/^#### 切点表达式$/;"	function	line:101

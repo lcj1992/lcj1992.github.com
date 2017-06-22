@@ -44,9 +44,11 @@ aspectj
 
 #### aop术语
 
-##### ***Advice***
+##### ***Advice（通知）***
 
-`action taken by an aspect at a particular join point.` Different types of advice include "around," "before" and "after" advice. (Advice types are discussed below.)` Many AOP frameworks, including Spring, model an advice as an interceptor, maintaining a chain of interceptors around the join point.` 切面在某一连接点采取的动作
+`action taken by an aspect at a particular join point.` Different types of advice include "around," "before" and "after" advice. (Advice types are discussed below.)` Many AOP frameworks, including Spring, model an advice as an interceptor, maintaining a chain of interceptors around the join point.`
+
+定义在连接点做什么，为切面增强提供织入接口，在spring aop中，它主要描述spring aop围绕方法调用而注入的切面行为。
 
 * Before: 在目标方法被调用之前调用通知功能,下类似
 * After:
@@ -57,18 +59,28 @@ aspectj
 各advice类图
 ![advice](/images/java_web/aop_advice.png)
 
-##### ***JoinPoint***
+##### ***JoinPoint（连接点）***
 
 `a point during the execution of a program`, such as the execution of a method or the handling of an exception. `In Spring AOP, a join point always represents a method execution。`
 
-##### ***PointCut***
+##### ***PointCut（切点）***
 
 `a predicate that matches join points.` Advice is associated with a pointcut expression and runs at any join point matched by the pointcut (for example, the execution of a method with a certain name). The concept of join points as matched by pointcut expressions is central to AOP, and Spring uses the AspectJ pointcut expression language by default.
 
+pointcut决定advice应该作用于哪个joinPoint，也就是说通过pointcut来定义需要增强的方法的集合，这些集合的选取可以按照一定的规则来完成。
 
-##### ***Aspect***
+##### ***Aspect/Advisor（切面/通知器）***
 
-a modularization of a concern that cuts across multiple classes. Transaction management is a good example of a crosscutting concern in enterprise Java applications. In Spring AOP, aspects are implemented using regular classes (the schema-based approach) or regular classes annotated with the @Aspect annotation (the @AspectJ style).切面是通知和切点的结合，通知和切点共同定义了切面的全部内容--它是什么，在何处完成其功能
+a modularization of a concern that cuts across multiple classes. Transaction management is a good example of a crosscutting concern in enterprise Java applications. In Spring AOP, aspects are implemented using regular classes (the schema-based approach) or regular classes annotated with the @Aspect annotation (the @AspectJ style).切面是
+
+advisor通知器 完成对目标方法的切面增强设计(Advice)和关注点的设计(Pointcut)以后，需要一个对象把它们结合起来，完成这个作用的就是Advisor(通知器)
+
+ps: aspect和advisor的区别[aspect和advisor](http://www.iteye.com/problems/69785)
+
+1. Adivisor是一种特殊的Aspect，Advisor代表spring中的Aspect
+2. 区别：advisor只持有一个Pointcut和一个advice，而aspect可以多个pointcut和多个advice
+
+It is perfectly possible to mix @AspectJ style aspects using the autoproxying support, schema-defined <aop:aspect> aspects, <aop:advisor> declared advisors and even proxies and interceptors defined using the Spring 1.2 style in the same configuration. All of these are implemented using the same underlying support mechanism and will co-exist without any difficulty. [官方文档](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/aop.html#aop-mixing-styles)
 
 
 ##### ***Introduction***

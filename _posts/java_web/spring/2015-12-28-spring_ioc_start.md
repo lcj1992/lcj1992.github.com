@@ -89,7 +89,7 @@ web.xml中的启动遵循context-param -> listener -> filter -> servlet。spring
 
 1. 加载resource, 由context-param标签中的参数指定。
 
-2. 解析resource，向容器中注册resource对应的bean,即填充beanDefinitionMap等bean的元信息
+2. 解析resource，向容器中注册resspringource对应的bean,即填充beanDefinitionMap等bean的元信息
 
 3. 依据BeanDefinition，实例化bean(lazy-init = false或者在第一次使用bean时)
 

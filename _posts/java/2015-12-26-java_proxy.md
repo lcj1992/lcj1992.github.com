@@ -15,23 +15,23 @@ tags: Proxy cglib InvocationHandler
     interface Booker {
         void book();
     }
-    
+
     class TripTicketBooker implements Booker {
-    
+
         @Override
         public void book() {
             System.out.println("book a trip ticket");
         }
     }
-    
+
     class TransactionalInvocationHandler implements InvocationHandler {
-    
+
         private Object target;
-    
+
         TransactionalInvocationHandler(Object target) {
             this.target = target;
         }
-    
+
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             System.out.println("begin transaction");
@@ -40,9 +40,9 @@ tags: Proxy cglib InvocationHandler
             return object;
         }
     }
-    
+
     public class JdkDynamicProxyTest {
-    
+
         @Test
         public void dynamicProxyTest() throws InterruptedException {
             // 下边这行代码是保存动态生成的类，我这不知怎么的不好使
@@ -50,7 +50,7 @@ tags: Proxy cglib InvocationHandler
             // System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
             Booker booker = new TripTicketBooker();
             Class clazz = booker.getClass();
-            Booker bookerProxy = (Booker) Proxy.newProxyInstance(clazz.getClassLoader(), 
+            Booker bookerProxy = (Booker) Proxy.newProxyInstance(clazz.getClassLoader(),
                 clazz.getInterfaces(), new TransactionalInvocationHandler(booker));
             bookerProxy.book();
         }
@@ -58,7 +58,7 @@ tags: Proxy cglib InvocationHandler
 
 1. 生成的代理类`bookerProxy`实现了`Booker`接口，继承自`Proxy`类
 2. `Proxy`类含有一个`InvocationHandler`的属性，我们代码中InvocationHandler的实现为`TransactionInvocationHandler`
-3. bookerProxy实现的Booker接口中的book方法，实际上是通过调用TransactionInvocationHandler的invoke方法实现的。 
+3. bookerProxy实现的Booker接口中的book方法，实际上是通过调用TransactionInvocationHandler的invoke方法实现的。
 
 #### 创建代理对象
 
@@ -86,7 +86,7 @@ public static Object newProxyInstance(ClassLoader loader, Class<?>[] interfaces,
   	  at java.lang.reflect.Proxy.newProxyInstance(Proxy.java:719)
   	  at jdk.proxy.BookerProxy.bind(DynamicProxyTest.java:43)
   	  at jdk.proxy.DynamicProxyTest.dynamicProxyTest(DynamicProxyTest.java:60)
- 
+
 Proxy$ProxyClassFactory.apply
 
 方法里会做这些事情：
@@ -104,7 +104,7 @@ Proxy$ProxyClassFactory.apply
         implements BiFunction<ClassLoader, Class<?>[], Class<?>>
     {
         // jdk.proxy.$Proxy2 或者 com.sun.proxy.$Proxy50熟悉么
-        // $Proxy和数字就是下边这两个字段 
+        // $Proxy和数字就是下边这两个字段
         private static final String proxyClassNamePrefix = "$Proxy";
         private static final AtomicLong nextUniqueNumber = new AtomicLong();
 
@@ -160,7 +160,7 @@ Proxy$ProxyClassFactory.apply
             // 生成代理类字节数组
             byte[] proxyClassFile = ProxyGenerator.generateProxyClass(proxyName, interfaces, accessFlags);
             try {
-                // 生成代理类 
+                // 生成代理类
                 return defineClass0(loader, proxyName, proxyClassFile, 0, proxyClassFile.length);
             } catch (ClassFormatError e) {
                 throw new IllegalArgumentException(e.toString());
@@ -189,21 +189,21 @@ Proxy$ProxyClassFactory.apply
     import java.lang.reflect.Proxy;
     import java.lang.reflect.UndeclaredThrowableException;
     import jdk.proxy.Booker;
-    
+
     final class $Proxy2 extends Proxy implements Booker {
         private static Method m1;
         private static Method m3;
         private static Method m2;
         private static Method m0;
-    
+
         public $Proxy2(InvocationHandler var1) throws  {
             super(var1);
         }
-    
+
         public final boolean equals(Object var1) throws  {
             ....
         }
-    
+
         public final void book() throws  {
             try {
                 // h是InvocationHandler的实例，因为$Proxy2
@@ -214,15 +214,15 @@ Proxy$ProxyClassFactory.apply
                 throw new UndeclaredThrowableException(var3);
             }
         }
-    
+
         public final String toString() throws  {
             ....
         }
-    
+
         public final int hashCode() throws  {
             ....
         }
-    
+
         static {
             try {
                 m1 = Class.forName("java.lang.Object").getMethod("equals", new Class[]{Class.forName("java.lang.Object")});
@@ -250,13 +250,13 @@ Proxy$ProxyClassFactory.apply
             return result;
         }
     }
-    
+
     class CglibBooker {
         synchronized void book() {
             System.out.println("book a trip ticket");
         }
     }
-    
+
     public class CglibProxyTest {
         @Test
         public void cglibProxy() {

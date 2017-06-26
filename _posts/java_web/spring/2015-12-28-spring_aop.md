@@ -104,22 +104,25 @@ linking aspects with other application types or objects to create an advised obj
 
 在spring aop中，要使用aspectj的切点表达式语言来定义切点，spring aop仅支持aspectj切点指示器的一个子集。
 
-|aspectj指示器|描述|
-|-|-|
-|arg()|限制连接点匹配参数为指定类型的执行方法|
-|@arg()|限制连接点匹配参数由指定注解标注的执行方法|
-|execution()|用于匹配是连接点的执行方法|
-|this()|限制连接点匹配aop代理的bean引用为指定类型的类|
-|target()|限制连接点匹配目标对象为指定类型的类|
-|@target()|限制连接点匹配特定的执行对象，这些对象对应的类要具有指定类型的注解|
-|within()|限制连接点匹配指定的类型|
-|@within()|限制连接点匹配指定注解所标注的类型(当使用spring aop时，方法定义在由指定注解所标注的类里)|
-|@annotation()|限制匹配带有指定注解的连接点|
+|aspectj指示器|描述|示例|
+|-|-|-|
+|arg()|限制连接点匹配参数为指定类型的执行方法||
+|@arg()|限制连接点匹配参数由指定注解标注的执行方法||
+|execution()|用于匹配是连接点的执行方法||
+|this()|限制连接点匹配aop代理的bean引用为指定类型的类||
+|target()|限制连接点匹配目标对象为指定类型的类||
+|@target()|限制连接点匹配特定的执行对象，这些对象对应的类要具有指定类型的注解||
+|within()|限制连接点匹配指定的类型||
+|@within()|限制连接点匹配指定注解所标注的类型(当使用spring aop时，方法定义在由指定注解所标注的类里)||
+|@annotation()|限制匹配带有指定注解的连接点||
 
 ps:
 
 1. 在spring中尝试使用aspectj其他指示器时，将会抛出IIlegalArgument Exception异常。
 2. 只有execution指示器是实际执行匹配的，而其他的指示器都是用来限制匹配的。
+
+
+((AnnotationInvocationHandler)((Proxy)((JoinPointMatchImpl)pmi.getUserAttribute("@annotation(lifecycle)")).getParameterBindings()[0].getBinding()).h).memberValues.get("name")
 
 举例如下：
 ![aspectj_expression](/images/java_web/aspectj_expression.jpeg)

@@ -11,45 +11,67 @@ tags: proxy factory adapter facade decorator
 
 ## 动机
 
-学习一个东西首先要搞清楚学它有啥用，那学习设计模式有什么用呢？
+`cost(total) = cost(develop) + cost(maintain)`
+`cost(maintain) = cost(understand) + cost(change) + cost(deploy)`
 
-于个人，架构设计做的无非就是物理世界和软件世界的映射，抽象能力
+软件的成本可以分解为初始成本和维护成本，我们都知道维护的成本往往是很高的。三个月开发，三年维护，甚至更长时间。
+软件设计应该致力于减少整体成本，这就要求我们的项目在设计之初就要有很好的`扩展性`，`复用性`等，并且在代码实施阶段，写出的代码有较好的`可读性`，代码被很好地安置，具备较好的`可测试性`。
 
-于公司，学习设计模式是可以减少软件开发的成本的。
+可读性:
 
-对于一个系统软件
+1. 好的变量、方法、类、包、模块、系统的命名。命名能反映其承担的职责，名副其实。好的命名是可以讲故事的。
+2. 职责单一，一个变量、一个方法、一个类、一个模块、一个系统只做一件事（不同抽象层次，理顺职责边界）。
+3. 代码格式等等
 
+可复用性：
+
+1. 合理的职责划分，合理的归类，定义合理的类的接口和继承层次
+2. 封装变化，禁止复制粘贴，逻辑内聚，同样的逻辑散落在各处，变更时就是麻烦
+
+可扩展性：
+
+1. 面对一个新的需求，更多的是通过添加类或者模块的方式来完成，而不是修改现有的代码，对扩展开放，对修改关闭。
+
+可测试性：
+
+1. 每个方法、类、都职责单一，清晰，明确。那么更容易进行单元测试，好的测试你懂的。
+2. 合理的职责划分，合理的归类，也会更方便我们进行集成测试。
+
+正是这些个要求，前人加以总结，就有了后续的一些设计原则，单一职责，开闭，里式替换，接口隔离等等。
 
 ## 设计原则
 
 ### OO基础
 
-1. 抽象
+OO的基本概念：抽象、封装、多态、继承
 
-2. 封装
+类与类之间的关系：
 
-3. 多态
-
-4. 继承
+1. 泛化： 指定了子类如何特化父类的所有特征和行为 eg: AbstractEventListener PayConfirmSuccessListenterForPushTicket
+2. 实现： 表示类是接口所有特征和行为的实现 eg :EventListener PayConfirmSuccessListenterForPushTicket
+3. 关联： 是一种拥有的关系，它是一个类知道另一个类的属性和方法（关联、双向关联、自关联）eg: TicketUserOrderBiz MedisLock
+4. 聚合： 整体和部分，关联关系，一个从属者可以被多个聚集者拥有 eg: InputProductInfo InputInsuranceInfo
+5. 组合： 整体和部分，关联关系，一个从属者只能被一个聚集者拥有，要求普通的聚合关系中代表整体的对象负责代表部分的对象的生命周期 eg: OrderCreationContext BusinessParameter
+6. 依赖： 是一个使用关系，代码参数 eg: OrderBiz OrderCreationContext
 
 ### 设计原则
 
 SOLID
 
 1. [单一职责SRP](https://en.wikipedia.org/wiki/Single_responsibility_principle)
-    
+
     * a class should have only a single responsibility (i.e. only one potential change in the software's specification should be able to affect the specification of the class)
 
 2. [开闭OCP](https://en.wikipedia.org/wiki/Open/closed_principle)
-    
+
     * “software entities … should be open for extension, but closed for modification.”
 
 3. [里式代换LSP](https://en.wikipedia.org/wiki/Liskov_substitution_principle)
-    
+
     * “objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.”
 
 4. [接口隔离ISP](https://en.wikipedia.org/wiki/Interface_segregation_principle)
-    
+
     * “many client-specific interfaces are better than one general-purpose interface.”
 
 5. [依赖倒转DIP](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
@@ -64,7 +86,7 @@ SOLID
 
 1. 封装变化
 
-2. 多用组合，少用继承 
+2. 多用组合，少用继承
 
 3. 针对接口编程，不针对实现编程
 
@@ -94,13 +116,7 @@ ps:
 
 2. 方法取名时，取为动作，doExecute, createOrder等
 
-3. 减少耦合性，好多都是中间加了一层管理者，比如ioc、桥接、观察者等。
-
-代码的坏味道：
-
-1. 重复，程序中太多的重复代码
-
-2. 太多的if-else
+3. 减少耦合性，好多都是中间加了一层代理层，比如ioc、桥接、观察者等。
 
 下图中的例子都来自[示例代码](https://github.com/lcj1992/learn/tree/master/java/designPattern)、`jdk`、[gitbook](https://quanke.gitbooks.io/design-pattern-java/content/)或者[wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern)
 

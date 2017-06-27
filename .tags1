@@ -4,14 +4,11 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-入口-ContextLoaderListener	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^### 入口-ContextLoaderListener$/;"	function	line:13
-XmlWebApplicationContext类图	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^### XmlWebApplicationContext类图$/;"	function	line:74
-启动流程	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^### 启动流程$/;"	function	line:98
-obtainFreshBeanFactory	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^#### obtainFreshBeanFactory$/;"	function	line:169
-DefaultBeanDefinitionDocumentReader	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^##### DefaultBeanDefinitionDocumentReader#parseDefaultElement$/;"	function	line:195
-BeanDefinitionParserDelegate	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^##### BeanDefinitionParserDelegate#parseCustomElement$/;"	function	line:199
-finishBeanFactoryInitialization	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^#### finishBeanFactoryInitialization$/;"	function	line:207
-AbstractAutowireCapableBeanFactory	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^##### AbstractAutowireCapableBeanFactory#createBean$/;"	function	line:226
-AbstractAutowireCapableBeanFactory	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^##### AbstractAutowireCapableBeanFactory#doCreateBean$/;"	function	line:275
-AbstractAutowireCapableBeanFactory	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^##### AbstractAutowireCapableBeanFactory#populateBean$/;"	function	line:375
-AbstractAutowireCapableBeanFactory	/Users/lichuangjian/work/foolchild/_posts/java_web/spring/2015-12-28-spring_ioc_start.md	/^##### AbstractAutowireCapableBeanFactory#initializeBean$/;"	function	line:379
+代理模式	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^## 代理模式$/;"	function	line:11
+动态代理	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^## 动态代理$/;"	function	line:15
+jdk动态代理	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^### jdk动态代理$/;"	function	line:17
+创建代理对象	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^#### 创建代理对象$/;"	function	line:67
+生成的代理类	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^#### 生成的代理类$/;"	function	line:175
+cglib代理	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^### cglib代理$/;"	function	line:244
+代理模式与装饰器模式	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^## 代理模式与装饰器模式$/;"	function	line:281
+参考	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^## 参考$/;"	function	line:283

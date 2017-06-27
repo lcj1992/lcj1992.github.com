@@ -12,6 +12,7 @@ tags: proxy factory adapter facade decorator
 ## 动机
 
 `cost(total) = cost(develop) + cost(maintain)`
+
 `cost(maintain) = cost(understand) + cost(change) + cost(deploy)`
 
 软件的成本可以分解为初始成本和维护成本，我们都知道维护的成本往往是很高的。三个月开发，三年维护，甚至更长时间。

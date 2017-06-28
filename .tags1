@@ -9,6 +9,6 @@
 jdk动态代理	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^### jdk动态代理$/;"	function	line:17
 创建代理对象	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^#### 创建代理对象$/;"	function	line:67
 生成的代理类	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^#### 生成的代理类$/;"	function	line:175
-cglib代理	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^### cglib代理$/;"	function	line:244
-代理模式与装饰器模式	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^## 代理模式与装饰器模式$/;"	function	line:281
-参考	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^## 参考$/;"	function	line:283
+cglib代理	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^### cglib代理$/;"	function	line:243
+代理模式与装饰器模式	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^## 代理模式与装饰器模式$/;"	function	line:280
+参考	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-proxy.md	/^## 参考$/;"	function	line:282

@@ -5,7 +5,6 @@ categories: clean_code
 tags: prototype
 ---
 
-
 参考
 
 [wikipedia](https://en.wikipedia.org/wiki/Prototype_pattern)  

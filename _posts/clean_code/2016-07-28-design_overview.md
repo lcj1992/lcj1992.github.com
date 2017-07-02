@@ -5,7 +5,6 @@ categories: clean_code
 tags: proxy factory adapter facade decorator
 ---
 
-
 * TOC
 {:toc}
 
@@ -113,7 +112,7 @@ ps:
 
 下图中的例子都来自[示例代码](https://github.com/lcj1992/learn/tree/master/java/designPattern)、`jdk`、[gitbook](https://quanke.gitbooks.io/design-pattern-java/content/)或者[wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern)
 
-##设计模式
+## 设计模式
 
 ### 创建型 {#create}
 
@@ -191,3 +190,5 @@ ps： 下边的gitbook xxx是指的gitbook中的相应的例子。
 [Dependency Injection Is NOT The Same As The Dependency Inversion Principle](https://lostechies.com/derickbailey/2011/09/22/dependency-injection-is-not-the-same-as-the-dependency-inversion-principle/)
 
 [谈一谈自己对依赖、关联、聚合和组合之间区别的理解](http://www.open-open.com/lib/view/open1427621514639.html)
+
+[Design Patterns & Tips for Developers](https://sourcemaking.com/design-patterns-and-tips)

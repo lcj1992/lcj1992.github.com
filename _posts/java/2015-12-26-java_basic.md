@@ -90,19 +90,6 @@ eg:
 
 3.  被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化。
 
-#### shallow copy & deep copy {#shallow_deep_copy}
-
-1.  浅拷贝，对于基本类型和String，没有问题，独立的一份，对于对象，只是拷贝了引用，共用同一片内存区域
-2.  深拷贝，两对象独立
-
-参考
-
-[1]<http://javaconceptoftheday.com/difference-between-shallow-copy-vs-deep-copy-in-java/>
-
-[2]<https://www.cs.utexas.edu/~scottm/cs307/handouts/deepCopying.htm>
-
-[3]<https://en.wikipedia.org/wiki/Object_copying>
-
 
 #### Object#wait() &&  Thread.sleep() {#object_wait_thread_sleep}
 
@@ -166,7 +153,7 @@ Calendar calendar 可变且共享的 -> 非线程安全
 那么如何正确的使用参见[常用的线程安全处理方法](http://foolchild.cn/2015/11/25/concurrent#how_to_handle)
 
 1. 线程封闭： 每次使用实例化一个simpleDateFormat，局部变量； threadLocal
-2. 同步：每次使用时，加锁 
+2. 同步：每次使用时，加锁
 3. 使用joadTime （推荐）
 
 #### lock_tryLock_lockInterruptibly
@@ -176,5 +163,3 @@ Calendar calendar 可变且共享的 -> 非线程安全
 3. lockInterruptibly类lock，响应中断。当别的线程调用threadx.interrupt() 会使threadx抛出InterruptedException
 
 参考[lock、tryLock和lockInterruptibly的差別](https://pandaforme.ghost.io/java-lock-trylockhe-lockinterruptibly/)
-
-

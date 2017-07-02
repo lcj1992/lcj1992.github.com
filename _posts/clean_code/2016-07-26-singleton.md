@@ -5,13 +5,20 @@ categories: clean_code
 tags: singleton
 ---
 
-*   [lazy 懒汉式](#lazy)
-    *   [简单版本](#lazy_easy)
-    *   [双重检查](#double_check)
-    *   [holder](#holder)
-*   [eager 饿汉式](#eager)
+* TOC
+{:toc}
 
-对于singleton有`lazy`方式和`eager`方式。对于一些依赖参数或者配置文件的，在getInstance()之前必须调用某个方法设置参数给它，那就必须是用lazy的方式，而不能使用eager方式。
+确保一个类只有一个实例，并提供一个全局访问点。
+
+## 动机
+
+1. 有一些对象其实我们只需要一个，常常被用来管理共享的资源。 如：线程池，数据库连接，Runtime, AppContext, 注册表等
+2. 如果对象的初始化非常耗费资源，那么我们就可以在使用它时才进行初始化。eg: 实例化特别消耗资源的，比如从大文件中读取配置等.
+
+## 实现
+
+1. 不对外提供公开构造器，而是提供工厂方法，工厂方法保证线程安全，只会实例化一次
+2. 有`lazy`方式和`eager`方式，延迟初始化。
 
 ### lazy
 
@@ -51,9 +58,11 @@ tags: singleton
         }
     }
 
-ps：
+##### 双检查锁的原因
 
-    instance = new DoubleCheckVersion();
+```
+instance = new DoubleCheckVersion();
+```
 
 这句并不是原子的操作， 事实上在jvm层面大概做了三件事：
 
@@ -84,6 +93,54 @@ ps：
 1.  instance声明为final的，在构造完成之前引用已经完全确定了
 
 eager的实现方式有enum版本的，还有最简单的直接实例化的,这里就不说了,详见[单例](https://github.com/lcj1992/learn/tree/master/java/designPattern/src/main/java/creational/singleton)。
+
+## 问题
+
+1. 两个类加载器可能有机会各自创建自己的单件实例
+2. 反射也是有可能造成两个单件实例的。
+
+```
+SimpleVersion singleton = SimpleVersion.getInstance();
+MyClassLoader myClassLoader = new MyClassLoader("myClassLoader");
+myClassLoader.setClassPath("/Users/lichuangjian/work/learn/java/designPattern/target/classes");
+Class singletonClass = myClassLoader.findClass("creational.singleton.lazyInit.SimpleVersion");
+System.out.println("singletonClass.getClassLoader() : " + singletonClass.getClassLoader());
+System.out.println("Singleton.class==singletonClass : " + (SimpleVersion.class == singletonClass));
+System.out.println("Singleton.class.equals(singletonClass) : " + (SimpleVersion.class.equals(singletonClass)));
+Constructor constructor1 = SimpleVersion.class.getDeclaredConstructor();
+Constructor constructor2 = SimpleVersion.class.getDeclaredConstructor();
+Constructor constructor3 = singletonClass.getDeclaredConstructor();
+System.out.println("constructor1==constructor2 : " + (constructor1 == constructor2));
+System.out.println("constructor1.equals(constructor2) : " + constructor1.equals(constructor2));
+System.out.println("constructor1==constructor : " + (constructor1 == constructor3));
+System.out.println("constructor1.equals(constructor3) : " + constructor1.equals(constructor3));
+constructor1.setAccessible(true);
+Object singleton1 = constructor1.newInstance();
+constructor2.setAccessible(true);
+Object singleton2 = constructor2.newInstance();
+constructor3.setAccessible(true);
+Object singleton3 = constructor3.newInstance();
+System.out.println("singleton : " + singleton);
+System.out.println("singleton1 : " + singleton1);
+System.out.println("singleton2 : " + singleton2);
+System.out.println("singleton3 : " + singleton3);
+
+
+-----------------------
+
+singletonClass.getClassLoader() : creational.singleton.MyClassLoader@27c170f0
+Singleton.class==singletonClass : false
+Singleton.class.equals(singletonClass) : false
+constructor1==constructor2 : false
+constructor1.equals(constructor2) : true
+constructor1==constructor : false
+constructor1.equals(constructor3) : false
+singleton : creational.singleton.lazyInit.SimpleVersion@2626b418
+singleton1 : creational.singleton.lazyInit.SimpleVersion@5a07e868
+singleton2 : creational.singleton.lazyInit.SimpleVersion@76ed5528
+singleton3 : creational.singleton.lazyInit.SimpleVersion@2c7b84de
+
+```
 
 ### 参考 {#ref}
 

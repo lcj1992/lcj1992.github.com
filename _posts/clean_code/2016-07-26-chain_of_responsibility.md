@@ -7,6 +7,8 @@ tags: chain_of_responsibility
 
 ### 定义
 
+当你想要让一个以上的对象有机会处理某个请求的时候，就使用责任链模式
+
 ### 实例
 
 logic执行框架

@@ -326,7 +326,7 @@ todo
 
 #### 字段
 
-1. 我更愿意在阅读代码时首先看到数据的声明，我也是
+1. 我更愿意在阅读代码时首先看到数据的声明，“我也是”
 
 2. 可以选择把字段声明为final，以此告诉阅读者，构造函数执行完之后就不能再改变该字段的值了.
    eg. OrderCreationContext 中的orderDisplayId字段
@@ -780,7 +780,6 @@ eg.
         books = new ArrayList<Book>();
         books.addAll(newBooks);
     }
-
 
 ### 参考
 

@@ -211,7 +211,6 @@ shotgun surgery的特殊情况
 
 4. rename method
 
-
 ##### temporary field (令人迷惑的暂时字段)
 
 1. extract class
@@ -373,6 +372,10 @@ Extract Method（提炼函数） 110
     * 源函数的参数被赋值
     * 临时变量只在被提炼代码中使用
     * 被提炼代码段之外的代码也使用了这个变量
+
+例子：
+
+简单工厂：当我发现一个类的实例化逻辑除了new Instance(), 还有一些别的动作，那我会用extract method，提出一个方法，当多个类都会实例化这个类，那么还会运用extract class，置于提到类本身或者再专门搞个工厂类。（他们都是想通的）
 
 Extract Subclass（提炼子类） 330
 

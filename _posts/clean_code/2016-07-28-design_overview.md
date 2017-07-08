@@ -8,6 +8,8 @@ tags: proxy factory adapter facade decorator
 * TOC
 {:toc}
 
+> 整体上介绍设计模式，从使用设计模式的动机，引出设计模式相关的原则性知识，最后整体介绍分类，23中设计模式。
+
 ## 动机
 
 `cost(total) = cost(develop) + cost(maintain)`
@@ -82,7 +84,7 @@ SOLID
 
 7. [合成复用](https://en.wikipedia.org/wiki/Composition_over_inheritance)
 
-### head first设计模式提到的OO原则：
+### head first设计模式提到的OO原则
 
 1. 封装变化
 
@@ -102,19 +104,11 @@ SOLID
 
 9. 类应该只有一个改变的理由
 
-ps:
-
-1. 类名取名时，取为对象，英语中一般为er，or，ist等后缀
-
-2. 方法取名时，取为动作，doExecute, createOrder等
-
-3. 减少耦合性，好多都是中间加了一层代理层，比如ioc、桥接、观察者等。
-
 下图中的例子都来自[示例代码](https://github.com/lcj1992/learn/tree/master/java/designPattern)、`jdk`、[gitbook](https://quanke.gitbooks.io/design-pattern-java/content/)或者[wikipedia](https://en.wikipedia.org/wiki/Software_design_pattern)
 
 ## 设计模式
 
-### 创建型 {#create}
+### 创建型
 
 ps： 下边的gitbook xxx是指的gitbook中的相应的例子。
 
@@ -127,7 +121,7 @@ ps： 下边的gitbook xxx是指的gitbook中的相应的例子。
 |建造者|创建模块化的复杂的对象|`gitbook游戏角色`|[详](/2016/07/26/builder)|
 |原型|得到一个对象的拷贝|`gitbook工作日报`,深拷贝vs浅拷贝|[详](/2016/07/26/prototype)
 
-### 行为型 {#behavior}
+### 行为型
 
 |模式|概述|备注or例子|详述|
 |-|-|-|-|-|-|
@@ -143,7 +137,7 @@ ps： 下边的gitbook xxx是指的gitbook中的相应的例子。
 |模板方法|定义一个算法的框架，子类可以实现具体的某些步骤（abstract的方法）。|太多了,AbstractCollection#isEmpty()|[详](/2016/07/26/template)|
 |访问者|Vistor、Element、Elements，不同的vistor实现visit同一Element，结果不一样，不同的visitor关注点不同，Elements提供遍历操作|gitbook `hr和财务访问员工list`|[详](/2016/07/26/visitor)|
 
-### 结构型 {#structure}
+### 结构型
 
 |模式|概述|备注or例子|详述|
 |-|-|-|-|-|-|
@@ -155,19 +149,19 @@ ps： 下边的gitbook xxx是指的gitbook中的相应的例子。
 |享元|大量细粒度对象的重用|`缓存`，`Integer#valueOf()`|[详](/2016/07/26/flyweight)|
 |代理|代理类和被代理类实现统一接口，代理类持有被代理类引用，在实现接口方法时改变被代理类的行为|静态代理，spring动态代理|[详](/2016/07/26/proxy)|
 
-### 参考 {#ref}
+## 参考
 
 [如何提升代码可读性？其实不是你想的那样](http://www.iteye.com/news/27610)
 
-[wikipedia]<https://en.wikipedia.org/wiki/Design_pattern>
+[wikipedia](https://en.wikipedia.org/wiki/Design_pattern)
 
-[gitbook]<https://quanke.gitbooks.io/design-pattern-java/content/>
+[gitbook](https://quanke.gitbooks.io/design-pattern-java/content/)
 
-[图说设计模式]<http://design-patterns.readthedocs.io/zh_CN/latest/>
+[图说设计模式](http://design-patterns.readthedocs.io/zh_CN/latest/)
 
-[设计模式]<http://alicharles.com/category/designpattern/>
+[设计模式](http://alicharles.com/category/designpattern/)
 
-[oodesign]<http://www.oodesign.com/>
+[oodesign](http://www.oodesign.com/)
 
 [Software quality](https://en.wikipedia.org/wiki/Software_quality)
 

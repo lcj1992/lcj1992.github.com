@@ -132,6 +132,8 @@ tags: spring bean context cglib dynamicProxy
 - 此时，bean已经准备就绪，可以被应用程序使用了，它们将一直驻留在应用上下文中，直到该应用上下文被销毁
 - 如果bean实现了disposableBean接口，spring将调用它的destory()接口方法，同样，如果bean使用destory-method声明了销毁方法，该方法也会被调用
 
+aware接口 -> 将单向关联转化为双向关联（Change Unidirectional Association to Bidirectional），详见[重构](/2017/05/13/refactor_list)
+
 ### component-scan  vs  annotation-config
 
 ```

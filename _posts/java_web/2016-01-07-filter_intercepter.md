@@ -41,5 +41,3 @@ tags: filter intercepter
         <filter-name>checkAccess</filter-name>
         <url-pattern>/xx.jsp</url-pattern>
     </filter-mapping>
-
-

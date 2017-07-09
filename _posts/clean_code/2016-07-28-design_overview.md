@@ -108,6 +108,11 @@ SOLID
 
 ## 设计模式
 
+设计模式依据其目的可分为创建型、结构型和行为型。
+1. 创建型与对象的创建有关
+2. 结构型模式处理类或对象的组合
+3. 行为型模式对类或对象怎样交互和怎样分配职责进行描述
+
 ### 创建型
 
 ps： 下边的gitbook xxx是指的gitbook中的相应的例子。
@@ -120,6 +125,18 @@ ps： 下边的gitbook xxx是指的gitbook中的相应的例子。
 |抽象工厂|跟工厂方法类似，不过抽象工厂可以创建一组对象（有关联的），工厂与产品组一对一|`GUIFactory和WinFactory`|[详](/2016/07/26/abstract_factory)|
 |建造者|创建模块化的复杂的对象|`gitbook游戏角色`|[详](/2016/07/26/builder)|
 |原型|得到一个对象的拷贝|`gitbook工作日报`,深拷贝vs浅拷贝|[详](/2016/07/26/prototype)
+
+### 结构型
+
+|模式|概述|备注or例子|详述|
+|-|-|-|-|-|-|
+|适配器|Adapter、Adaptee、Target，（对象适配器）Adapter继承自Target，持有Adaptee的引用（对象适配器）；除此之外还有类适配器和双向适配器|`官网代购的各个adapter`|[详](/2016/07/26/adapter)|
+|桥接|多维度变化，其中一个维度持有其他维度的引用|`gitbook PNG,JPG格式图片和Win，Mac，Linux操作系统`，`java.util.logging.Handler及Filter、Formatter、ErrorManager`|[详](/2016/07/26/bridge)|
+|组合|对待组合和对待元素是一样一样的。组合和元素实现统一接口||[详](/2016/07/26/composite)|
+|装饰|如果只增强一层的话，和代理模式类图是一样一样的，关注点不同。可以不断的装饰|InputStream、FilterInputStream、BufferedInputStream、DataInputStream|[详](/2016/07/26/decorator)|
+|门面|封装，对外提供api|`gitbook自己泡茶和去茶馆喝茶`|[详](/2016/07/26/facade)|
+|享元|大量细粒度对象的重用|`缓存`，`Integer#valueOf()`|[详](/2016/07/26/flyweight)|
+|代理|代理类和被代理类实现统一接口，代理类持有被代理类引用，在实现接口方法时改变被代理类的行为|静态代理，spring动态代理|[详](/2016/07/26/proxy)|
 
 ### 行为型
 
@@ -136,18 +153,6 @@ ps： 下边的gitbook xxx是指的gitbook中的相应的例子。
 |策略|类图感觉跟状态模式一样，感觉要解决的问题不一样（好别扭）|`Collections.sort(list,comparator)`|[详](/2016/07/26/strategy)|
 |模板方法|定义一个算法的框架，子类可以实现具体的某些步骤（abstract的方法）。|太多了,AbstractCollection#isEmpty()|[详](/2016/07/26/template)|
 |访问者|Vistor、Element、Elements，不同的vistor实现visit同一Element，结果不一样，不同的visitor关注点不同，Elements提供遍历操作|gitbook `hr和财务访问员工list`|[详](/2016/07/26/visitor)|
-
-### 结构型
-
-|模式|概述|备注or例子|详述|
-|-|-|-|-|-|-|
-|适配器|Adapter、Adaptee、Target，（对象适配器）Adapter继承自Target，持有Adaptee的引用（对象适配器）；除此之外还有类适配器和双向适配器|`官网代购的各个adapter`|[详](/2016/07/26/adapter)|
-|桥接|多维度变化，其中一个维度持有其他维度的引用|`gitbook PNG,JPG格式图片和Win，Mac，Linux操作系统`，`java.util.logging.Handler及Filter、Formatter、ErrorManager`|[详](/2016/07/26/bridge)|
-|组合|对待组合和对待元素是一样一样的。组合和元素实现统一接口||[详](/2016/07/26/composite)|
-|装饰|如果只增强一层的话，和代理模式类图是一样一样的，关注点不同。可以不断的装饰|InputStream、FilterInputStream、BufferedInputStream、DataInputStream|[详](/2016/07/26/decorator)|
-|门面|封装，对外提供api|`gitbook自己泡茶和去茶馆喝茶`|[详](/2016/07/26/facade)|
-|享元|大量细粒度对象的重用|`缓存`，`Integer#valueOf()`|[详](/2016/07/26/flyweight)|
-|代理|代理类和被代理类实现统一接口，代理类持有被代理类引用，在实现接口方法时改变被代理类的行为|静态代理，spring动态代理|[详](/2016/07/26/proxy)|
 
 ## 参考
 

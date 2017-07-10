@@ -4,6 +4,6 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-定义	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-chain_of_responsibility.md	/^### 定义$/;"	function	line:8
-实例	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-chain_of_responsibility.md	/^### 实例$/;"	function	line:10
-参考	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-chain_of_responsibility.md	/^### 参考$/;"	function	line:36
+定义	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-visitor.md	/^## 定义$/;"	function	line:11
+使用场景	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-visitor.md	/^## 使用场景$/;"	function	line:29
+效果	/Users/lichuangjian/work/foolchild/_posts/clean_code/2016-07-26-visitor.md	/^## 效果$/;"	function	line:37

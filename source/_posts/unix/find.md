@@ -3,7 +3,9 @@ layout: post
 title: find实用
 date: 2014-11-13
 categories: unix
-tags: find locate
+tags:
+    - find
+    - locate
 ---
 
 在文件树种查找文件，并做相应处理

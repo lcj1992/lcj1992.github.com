@@ -3,7 +3,8 @@ layout: post
 title: 死锁了
 date: 2015-12-27
 categories: performance
-tags: deadlock
+tags:
+    - deadlock
 ---
 
 #### 代码

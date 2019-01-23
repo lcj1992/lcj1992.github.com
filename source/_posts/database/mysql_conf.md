@@ -3,9 +3,9 @@ layout: post
 title: mysql相关配置
 date: 2015-12-27
 categories: db
-tags: workbeanch
+tags:
+    - workbeanch
 ---
-
 
 ### mac上mysql 安装
 

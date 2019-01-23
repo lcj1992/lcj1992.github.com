@@ -3,11 +3,11 @@ layout: post
 title: 代理模式
 date: 2016-07-26
 categories: clean_code
-tags: proxy cglib InvocationHandler
+tags:
+    - proxy
+    - cglib
+    - InvocationHandler
 ---
-
-
-
 
 ## 代理模式
 

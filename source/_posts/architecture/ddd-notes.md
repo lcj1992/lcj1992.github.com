@@ -3,7 +3,10 @@ layout: post
 title: 领域驱动读书笔记
 date: 2018-06-15
 categories: architecture
-tags: 领域模型 限界上下文 通用语言
+tags:
+    - 领域模型
+    - 限界上下文
+    - 通用语言
 ---
 
 ### 如何使用本书

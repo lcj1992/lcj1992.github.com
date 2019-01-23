@@ -3,15 +3,9 @@ layout: post
 title: tcp 有限状态机(译)
 date: 2015-12-25
 categories: network
-tags: tcp
+tags:
+    - tcp
 ---
-
-
-
-
-
-*   [状态、事件、流转](#set)
-
 
 #### 几个术语
 

@@ -3,11 +3,20 @@ layout: post
 title: 一些有趣的工具
 date: 2016-03-21
 categories: tool
-tags: alfred oh-my-zsh zsh z switchHosts theFuck z homebrew iterm2 reeder xmind omnigraffle
+tags:
+    - alfred
+    - oh-my-zsh
+    - zsh
+    - z
+    - switchHosts
+    - theFuck
+    - z
+    - homebrew
+    - iterm2
+    - reeder
+    - xmind
+    - omnigraffle
 ---
-
-
-
 
 ### alfred
 
@@ -82,7 +91,7 @@ mac上我的第一个掏钱的软件,买亏了。
 
 snip 腾讯的,mac自带的不太好用啊
 
-### zsh-终极shell 
+### zsh-终极shell
 
 ***1.安装zsh***
 
@@ -131,7 +140,7 @@ mac上的`visio`
 
 open -a Go2Shell --args config
 
-## 参考 
+## 参考
 
 [终极 Shell]<http://macshuo.com/?p=676>
 

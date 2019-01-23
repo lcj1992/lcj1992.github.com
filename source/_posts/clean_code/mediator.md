@@ -3,7 +3,8 @@ layout: post
 title: 中介者模式
 date: 2016-07-26
 categories: clean_code
-tags: mediator
+tags:
+    - mediator
 ---
 
 

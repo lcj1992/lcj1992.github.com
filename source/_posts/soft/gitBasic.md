@@ -3,7 +3,8 @@ layout: post
 title: git基础命令
 date: 2014-11-17
 categories: soft
-tags: git
+tags:
+    - git
 ---
 
 #### git原理简图：

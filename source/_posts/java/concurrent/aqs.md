@@ -3,7 +3,10 @@ layout: post
 title: AbstractQueuedSynchronizer
 date: 2016-08-24
 categories: java
-tags: concurrent aqs juc
+tags:
+    - concurrent
+    - aqs
+    - juc
 ---
 
 ## 概述

@@ -3,7 +3,8 @@ layout: post
 title: jvm常用配置
 date: 2015-12-26
 categories: java
-tags: jvm
+tags:
+    - jvm
 ---
 
 *   -Xms2048m:初始堆大小

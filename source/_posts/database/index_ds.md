@@ -3,7 +3,8 @@ layout: post
 title: 索引的数据结构（mysql）
 date: 2017-10-10
 categories: db
-tags: index
+tags:
+    - index
 ---
 
 

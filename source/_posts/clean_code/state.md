@@ -3,11 +3,9 @@ layout: post
 title: 状态模式
 date: 2016-07-26
 categories: clean_code
-tags: state
+tags:
+    - state
 ---
-
-
-
 
 ## 定义
 

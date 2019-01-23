@@ -5,21 +5,9 @@ date: 2016-02-24
 categories: java
 ---
 
-
-
-
-
-*   [HashMap X问](#qAnda)
-    *   [为什么并发下会死循环?](#infiniteLoop)
-    *   [为什么table的length都是2的幂,这样做有什么好处?](#table_length)
-    
-    
-    
-
-
 基于jdk1.7
 
-### 类图 
+### 类图
 
 ![map类图](/images/java/map.png)
 
@@ -82,9 +70,9 @@ HashMap九个内部类
 *   KeyIterator 继承HashIterator Key的Iterator
 *   ValueIterator 继承HashIterator Value的Iterator
 
-### HashMap X问 
+### HashMap X问
 
-#### 1.为什么并发下会死循环 
+#### 1.为什么并发下会死循环
 
 hash死循环发生在两个或多个线程同时对hashMap resize过程中 transfer会造成entry和它的next反转.entry的next又指向了next,造成死循环,照着[耗子叔叔的](http://coolshell.cn/articles/9606.html)走一遍就清楚了.
 
@@ -108,7 +96,7 @@ hash死循环发生在两个或多个线程同时对hashMap resize过程中 tran
         }
     }
 
-#### 2.为什么其内部table的length都是2的幂 
+#### 2.为什么其内部table的length都是2的幂
 
 什么,不一定是2的幂?
 
@@ -118,17 +106,17 @@ hash死循环发生在两个或多个线程同时对hashMap resize过程中 tran
 
 可以保证entry分配均匀,在这里有讨论[详见这里](/2016/03/12/equals_hashcode_eg#indexFor)
 
-#### 3.hashCode如何提高HashMap的性能 
+#### 3.hashCode如何提高HashMap的性能
 
 具体在在equals hashcode中有讨论[详见这里](/2016/03/10/equals_hashcode#hashCode_hash_based)
 
-#### 4.EntrySet为何能遍历所有键值对 
+#### 4.EntrySet为何能遍历所有键值对
 
 当初这么想的，EntrySet最多也只是能遍历所有Entry，在冲突的情况下，每个Entry上可能挂多个键值对，怎么能遍历所有的键值对呢.它重写了iterator()方法啊，不是AbstractSet的iterator()啊。妈的，源码中没带@Override标签，这也告诉我们重写的方法时最好是带上`@Override`，这对于读代码的人，有好处没坏处。
 
 简直二逼啊！还是mark下吧。
 
-#### 5.ConcurrentHashMap为什么线程安全且高性能 
+#### 5.ConcurrentHashMap为什么线程安全且高性能
 
 分段锁，减少锁粒度，避免对整张表加锁
 

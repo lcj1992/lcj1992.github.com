@@ -3,7 +3,9 @@ layout: post
 title: 事务隔离级
 date: 2016-07-16
 categories: db
-tags : transaction acid
+tags :
+    - transaction
+    - acid
 ---
 
 ### 概念及其之间的关系  
@@ -35,7 +37,7 @@ tags : transaction acid
 3.  可重复读 repeatable read
 4.  串行  serializable
 
-#### 读现象 
+#### 读现象
 
 1.  脏读 dirty_read 读到别人未提交的数据。隔离级为RU时，会出现
 2.  不可重复读 Non-repeatable reads  同一事务中两次读的记录不同。隔离级为RU,RC时会出现

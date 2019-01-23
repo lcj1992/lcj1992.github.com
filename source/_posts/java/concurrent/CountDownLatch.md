@@ -3,7 +3,10 @@ layout: post
 title: CountDownLatch源码分析
 date: 2016-08-26
 categories: java
-tags: countDownLatch juc aqs
+tags:
+    - countDownLatch
+    - juc
+    - aqs
 ---
 
 

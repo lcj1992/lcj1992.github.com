@@ -3,7 +3,12 @@ layout: post
 title: 设计模式概述
 date: 2016-07-28
 categories: clean_code
-tags: proxy factory adapter facade decorator
+tags:
+    - proxy
+    - factory
+    - adapter
+    - facade
+    - decorator
 ---
 
 整体上介绍设计模式，从使用设计模式的动机，引出设计模式相关的原则性知识，最后整体介绍23种设计模式。

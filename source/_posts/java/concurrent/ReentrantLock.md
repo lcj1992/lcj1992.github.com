@@ -3,7 +3,11 @@ layout: post
 title: ReentrantLock源码解析
 date: 2016-08-22
 categories: java
-tags: AQS ReentrantLock CLH AbstractQueuedSynchronizer juc
+tags:
+    - aqs
+    - ReentrantLock
+    - CLH
+    - JUC
 ---
 
 ## 概述  

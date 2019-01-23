@@ -3,7 +3,9 @@ layout: post
 title: 数据库查询性能优化
 date: 2015-12-27
 categories: db
-tags: performance sql explain
+tags:
+    - performance
+    - sql
 ---
 
 #### 慢日志

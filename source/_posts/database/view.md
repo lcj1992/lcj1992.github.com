@@ -6,7 +6,6 @@ categories: db
 tags: view
 ---
 
-
 #### 定义
 
 存起来的查询命令，只是个查询，没有数据，动态查询
@@ -22,7 +21,7 @@ eg:
 创建视图:
 
     CREATE VIEW accounts_view AS
-        SELECT 
+        SELECT
             name,
             money_received,
             money_sent,
@@ -55,7 +54,7 @@ eg:
                     ...
               FROM table_customers c JOIN accounts_table a
                    ON a.customer_id = c.customer_id        )
-    
+
 #### 参考
 
 [wikipedia]<https://en.wikipedia.org/wiki/View_(SQL)>

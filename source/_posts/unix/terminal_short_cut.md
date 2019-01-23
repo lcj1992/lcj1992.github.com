@@ -3,7 +3,6 @@ layout: post
 title: 终端快捷键
 date: 2015-12-27
 categories: tool
-tags: bash terminal short_cut
 ---
 
 |命令　|作用|

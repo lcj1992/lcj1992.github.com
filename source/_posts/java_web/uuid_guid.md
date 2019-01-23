@@ -3,7 +3,9 @@ layout: post
 title: uuid(抄)
 date: 2016-01-08
 categories: java_web
-tags: uuid guid
+tags:
+    - uuid
+    - guid
 ---
 
 `uuid`:通用唯一识别码是一种软件建构的标准，亦为自由软件基金会组织在分散式计算环境领域的一部份。 UUID的目的，是让分散式系统中的所有元素，都能有唯一的辨识信息，而不需要通过中央控制端来做辨识信息的指定。如此一来，每个人都可以创建不与其它人冲突的UUID。

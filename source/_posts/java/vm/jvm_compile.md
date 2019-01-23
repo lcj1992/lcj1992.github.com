@@ -3,7 +3,10 @@ layout: post
 title: 如何得到jvm的本地指令
 date: 2016-08-06
 categories: java
-tags: assembly jit jvm
+tags:
+    - assembly
+    - jit
+    - jvm
 ---
 
 ### 安装汇编插件
@@ -71,7 +74,7 @@ todo看懂上边汇编
 
 关于64位下寄存器的相关知识可参照[x86#64bit](https://en.wikipedia.org/wiki/X86#64-bit)
 
-### 参考 
+### 参考
 
 [x86]<https://en.wikipedia.org/wiki/X86>
 

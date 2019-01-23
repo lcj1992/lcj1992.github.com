@@ -3,7 +3,8 @@ layout: post
 title: 负载均衡算法(notes)
 date: 2015-12-27
 categories: algorithm
-tags: load_balance
+tags:
+    - load_balance
 ---
 
 常用的负载均衡算法包括`轮询法(round robin)`，`随机法`，`源地址哈希法`，`加权轮询法`，`加权随机法`，`最小连接数算法`,`sticky`

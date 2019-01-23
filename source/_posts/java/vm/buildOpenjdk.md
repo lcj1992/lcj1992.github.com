@@ -3,8 +3,8 @@ layout: post
 title: 编译openJdk
 date: 2014-11-20
 categories: java
-description: 编译openjdk
-keywords: openjdk
+tags:
+    - openjdk
 ---
 
 下载openjdk
@@ -35,9 +35,6 @@ keywords: openjdk
 
 编译后
 编译后的jdk在build/j2sdk-image中
-
-
-
 
 
 ## mac ox10.11编译openjdk

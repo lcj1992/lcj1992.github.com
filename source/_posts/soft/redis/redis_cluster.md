@@ -3,7 +3,8 @@ layout: post
 title: redis集群搭建
 date: 2016-09-04
 categories: soft
-tags: redis cluster sentinel
+tags:
+    - redis 
 ---
 
     //下载redis源码
@@ -35,7 +36,7 @@ tags: redis cluster sentinel
     redis-server /cluster/redis-7000.conf
     redis-server /cluster/redis/redis-7002.conf
     redis-server /cluster/redis/redis-7001.conf
-   
+
     // 编辑redis-sentinel-26379.conf
     port 26379  
     daemonize yes  
@@ -46,7 +47,7 @@ tags: redis cluster sentinel
     sentinel down-after-milliseconds mymaster 30000
     sentinel parallel-syncs mymaster 1
     sentinel failover-timeout mymaster 180000
-    
+
     // 同样的编辑redis-sentinel-26380.conf和redis-sentienl-26381.conf
     sed 's/26379/26380/g' redis-sentinel-26379.conf >> redis-sentinel-26380.conf
     sed 's/26379/26381/g' redis-sentinel-26379.conf >> redis-sentinel-26381.conf
@@ -55,7 +56,7 @@ tags: redis cluster sentinel
     sed 's/26379/26380/g' redis-sentinel-26379.conf >> redis-sentinel-26380.conf
     sed 's/26379/26381/g' redis-sentinel-26379.conf >> redis-sentinel-26381.conf
 
-    
-### 参考 
+
+### 参考
 
 [Redis 自动故障转移sentinel（哨兵）实践]<http://lampblog.org/1840.html>

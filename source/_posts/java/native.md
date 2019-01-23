@@ -5,8 +5,6 @@ date: 2016-02-28
 categories: java
 ---
 
-
-
 ### Object
 
 *   registerNatives()
@@ -22,7 +20,7 @@ categories: java
 *   wait()
 *   finalize()
 
-Object就这几个方法,其中除equals和toString,其他都是native方法. 
+Object就这几个方法,其中除equals和toString,其他都是native方法.
 
 本文就以Object来探讨下java的native,源码基于openjdk7
 
@@ -36,14 +34,14 @@ Object native方法的声明在openjdk/jdk/src/share/native/java/lang/Object.c�
         {"clone",       "()Ljava/lang/Object;",   (void *)&JVM_Clone},
     };
 
-JNINativeMethod的结构体如下: 
- 
+JNINativeMethod的结构体如下:
+
     typedef struct {
         char *name;
         char *signature;
         void *fnPtr;
     } JNINativeMethod;
-    
+
 *   name  Object的方法名称
 *   signature 方法签名
 *   fnPtr native实现的函数指针
@@ -70,11 +68,11 @@ wait():
       }
       ObjectSynchronizer::wait(obj, ms, THREAD);
     JVM_END
-    
+
 ...
 
 JVM_ENTRY的结构体定义在openjdk/hotspot/src/share/vm/runtime/interfaceSupport.hpp
-    
+
     #define JVM_ENTRY(result_type, header)                               \
     extern "C" {                                                         \
       result_type JNICALL header {                                       \
@@ -82,7 +80,7 @@ JVM_ENTRY的结构体定义在openjdk/hotspot/src/share/vm/runtime/interfaceSupp
         ThreadInVMfromNative __tiv(thread);                              \
         debug_only(VMNativeEntryWrapper __vew;)                          \
         VM_ENTRY_BASE(result_type, header, thread)
-        
+
 JVM_END
 
     #define JVM_END } }

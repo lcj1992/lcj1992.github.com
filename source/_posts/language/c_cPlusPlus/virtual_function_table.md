@@ -3,14 +3,13 @@ layout: post
 title: C++虚函数表解析
 date: 2014-11-03
 categories: language
-tags: c_plus_plus  virtual_function
 ---
 
-  
+
 **单继承**
 
 无虚函数覆盖：
-  
+
 *	虚函数按照其声明顺序放于表中。
 
 *	父类的虚函数在子类的虚函数前面。
@@ -32,5 +31,5 @@ tags: c_plus_plus  virtual_function
 有虚函数覆盖：
 
 *	父类虚函数表中的f()的位置被替换成了子类的函数指针。这样，我们就可以任一静态类型的父类来指向子类，并调用子类的f()了
-  
+
 [附左耳朵耗子的一篇博文](http://blog.csdn.net/haoel/article/details/1948051)

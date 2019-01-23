@@ -3,14 +3,12 @@ layout: post
 title: 定时任务
 date: 2016-03-03
 categories: unix
-tags: quartz cron
+tags:
+    - quartz
+    - cron
 ---
 
-
-
-
-
-### unix下使用crontab 
+### unix下使用crontab
 
 1.  crontab -u 指定某一个用户
 2.  crontab -e 编辑
@@ -59,7 +57,7 @@ ps： jan 和JAN一样，大小写不敏感。
 |LW|	这个月最后一个工作日|	发工资的日子
 |#|本月的第几个星期几|	6#3，本月的第三个周五（一周从周日开始，别问为什么就是这样）|
 
-### 参考 
+### 参考
 
 [1]<http://quartz-scheduler.org/documentation/quartz-2.2.x/tutorials/crontrigger>
 

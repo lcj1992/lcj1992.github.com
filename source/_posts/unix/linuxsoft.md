@@ -2,7 +2,8 @@
 layout: post
 title: linux软件安装
 date: 2016-01-23
-categories: unix
+categories:
+    - unix
 ---
 
 `apt-get`,`yum` ,`dnf`,`pacman`,`pip`,`brew`，`port`

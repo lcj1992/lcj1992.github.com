@@ -3,7 +3,12 @@ layout: post
 title: java线程间通信方式
 date: 2015-11-25
 categories: java
-tags: synchronized CountDownLatch CyclicBarrier,Exchanger,Semaphore
+tags:
+    - synchronized
+    - CountDownLatch
+    - CyclicBarrier
+    - Exchanger
+    - Semaphore
 ---
 
 
@@ -11,7 +16,7 @@ tags: synchronized CountDownLatch CyclicBarrier,Exchanger,Semaphore
 
 本文重在实战，不讲原理。
 
-### synchronized 
+### synchronized
 
 1. java语言层面的同步，性能在1.6之后很ok了。
 2. static方法，非static方法，代码块。

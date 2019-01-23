@@ -3,7 +3,8 @@ layout: post
 title: 备忘录模式
 date: 2016-07-26
 categories: clean_code
-tags: memento
+tags:
+    - memento
 ---
 
 ## 定义
@@ -23,7 +24,6 @@ tags: memento
     * 不能对备忘录的内容进行操作或检查
 
 ## 优缺点
-
 
 1. 保持封装边界
 2. 它简化了原发器

@@ -3,27 +3,11 @@ layout: post
 title: redis源码分析
 date: 2016-09-01
 categories: soft
-tags: redis ds
+tags:
+    - redis
 ---
 
-
-
-
-
-  
-  
-  
-  
-  
-  
-
-
-
-    
-
-
-
-### redis各文件作用 
+### redis各文件作用
 
 redis源码总共6w多行。
 
@@ -92,7 +76,7 @@ redis源码总共6w多行。
 | `zmalloc.c` 、 `zmalloc.h`| 内存管理程序
 
 
-### 内存结构 
+### 内存结构
 
 首先需要明确的是redis是一个key-value存储。
 
@@ -105,7 +89,7 @@ redis源码总共6w多行。
 
 ![redis结构](/images/soft/redis.jpg)
 
-### 对象 
+### 对象
 
     typedef struct redisObject {
 
@@ -172,7 +156,7 @@ eg:
     127.0.0.1:6379> object encoding msg
     "embstr"
 
-### 数据结构 
+### 数据结构
 
 redis底层的数据结构有这么几种:sds、list、dict、skipList、intSet、 zipList。
 
@@ -180,7 +164,7 @@ redis底层的数据结构有这么几种:sds、list、dict、skipList、intSet�
 
 2.  服务器的一些其他功能的底层实现也是这些数据结构，比如redisServer保持多个客户端的状态信息，监视器等功能底层实现也是list；redis本身就是个kv存储系统，redis数据库的底层就是使用了dict，然后dict对象底层也是用的dict，有点蒙了，可以对照上图。
 
-#### sds 
+#### sds
 
 sds: simple dynamic string
 
@@ -199,7 +183,7 @@ sds: simple dynamic string
     };
 
 
-#### list 
+#### list
 
     typedef struct listNode {
 
@@ -237,7 +221,7 @@ sds: simple dynamic string
 
     } list;
 
-#### dict(hash) 
+#### dict(hash)
 
     typedef struct dict {
 
@@ -316,7 +300,7 @@ sds: simple dynamic string
 
 渐进式rehash
 
-#### skipList 
+#### skipList
 
     typedef struct zskiplist {
 
@@ -375,7 +359,7 @@ sds: simple dynamic string
 
 类型转换
 
-#### zipList 
+#### zipList
 
     typedef struct zlentry {
 
@@ -401,12 +385,12 @@ sds: simple dynamic string
 
 连锁更新
 
-#### 内存结构-多态 
+#### 内存结构-多态
 
 ![底层数据结构的变换](/images/soft/redis_object_transform.jpg)
 
 
-### 调试redis 
+### 调试redis
 
 使用vi，ctags，cscope，gdb进行调试 参见[我是这样看源码的](/2016/02/28/view_source)
 
@@ -428,7 +412,7 @@ ps: mac上的gdb还需设置下: http://jingyan.baidu.com/article/925f8cb8fa362e
 
 ![gdb_redis](/images/soft/gdb_redis.png)
 
-### redis启动流程 
+### redis启动流程
 
 
 ![redis启动流程](/images/soft/redis_start.jpg)
@@ -478,7 +462,7 @@ Q&A ?
 
 1. 如何将其设置为守护进程的。
 
-### redis接受请求 
+### redis接受请求
 
 ![redis请求处理流程](/images/soft/redis_cmd_process.jpg)
 
@@ -582,9 +566,9 @@ mac上其实现为kqueue，linux为epool，sun为select，可参见config.h和ae
 
 ### redis多机  
 
-### redis使用场景 
+### redis使用场景
 
-### 参考 
+### 参考
 
 [redis设计与实现]<http://redisbook.com/>
 

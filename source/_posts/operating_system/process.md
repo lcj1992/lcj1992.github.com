@@ -3,7 +3,8 @@ layout: post
 title: 进程管理
 date: 2015-12-31
 categories: os
-tags: process
+tags:
+    - process
 ---
 
 #### 基本概念

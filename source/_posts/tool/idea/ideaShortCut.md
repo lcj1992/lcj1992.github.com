@@ -3,23 +3,11 @@ layout: post
 title: idea快捷键
 date: 2015-11-25
 categories: tool
-tags: idea
+tags:
+    - idea
 ---
 
-
-
-    
-    
-    *   [usage　search](#usage_search)
-    
-    
-    
-    
-    *   [vcs/local history](#vcs)
-    
-    
-
-## 代码颜色 
+## 代码颜色
 
 ![git](/images/git/git.png)
 
@@ -30,7 +18,7 @@ tags: idea
 |白色	|工作区和本地仓库代码一致|
 |红色	|只在本地工作区|
 
-## 快捷键 
+## 快捷键
 
 <h3 id="in practice">实用至上</h3>
 
@@ -121,7 +109,7 @@ Command,Shift,Option,Ctrl参看[mac按键](/2016/02/03/mackeyboard)
 |Cmd + Shift + F7|Ctrl + Shift + F7 |Highlight usages in file
 |Cmd + Opt + F7|Ctrl + Alt + F7 |Show usages
 
-### 编译运行 
+### 编译运行
 
 |mac| pc| 作用  |
 |---| -----  | ----- |
@@ -131,7 +119,7 @@ Command,Shift,Option,Ctrl参看[mac按键](/2016/02/03/mackeyboard)
 |Ctrl + D|Shift + F9 |调试
 
 
-### 调试 
+### 调试
 
 |mac| 快捷键| 作用  |
 |---| -----  | ----- |
@@ -145,7 +133,7 @@ Command,Shift,Option,Ctrl参看[mac按键](/2016/02/03/mackeyboard)
 |Cmd + F8|Ctrl + F8 |切换断点
 |Cmd + Shift + F8|Ctrl + Shift + F8 |查看所有断点,当鼠标该行有断点时，是更改该行的条件
 
-### 导航 
+### 导航
 
 |mac| pc| 作用  |
 |----|-----  | ----- |
@@ -180,7 +168,7 @@ Command,Shift,Option,Ctrl参看[mac按键](/2016/02/03/mackeyboard)
 |Cmd + F3|Shift + F11 |显示标签
 ||Alt + F7 |查看方法使用
 
-### 重构 
+### 重构
 
 |mac| pc| 作用  |
 |-----| -----  | ----- |
@@ -196,7 +184,7 @@ Command,Shift,Option,Ctrl参看[mac按键](/2016/02/03/mackeyboard)
 |Cmd + Opt + C|Ctrl + Alt + C |提取常量
 |Cmd + Opt + P|Ctrl + Alt + P |提取参数
 
-### vcs/local history 
+### vcs/local history
 
 |mac| pc| 作用  |
 |---| -----  | ----- |
@@ -204,7 +192,7 @@ Command,Shift,Option,Ctrl参看[mac按键](/2016/02/03/mackeyboard)
 |Cmd + T|Ctrl + T |Update project from VCS
 |Shift + Opt + C|Alt + Shift + C |View recent changes
 
-### 模板 
+### 模板
 
 |mac| pc| 作用  |
 |---| -----  | ----- |     
@@ -218,7 +206,7 @@ Command,Shift,Option,Ctrl参看[mac按键](/2016/02/03/mackeyboard)
 |psf|psf | public static final
 |thr|thr | throw new
 
-### 通用 
+### 通用
 
 |mac| pc| 作用  |
 |---| -----  | ----- |

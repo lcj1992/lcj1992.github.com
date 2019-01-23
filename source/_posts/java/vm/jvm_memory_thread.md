@@ -3,12 +3,17 @@ layout: post
 title: java内存模型与线程
 date: 2016-07-31
 categories: java
-tags: jvm memory thread memory_barrier lock
+tags:
+    - jvm
+    - memory
+    - thread
+    - memory_barrier
+    - lock
 ---
 
 >   概述：本文首先说下java的内存模型：工作内存和主内存之间是如何进行交互的，然后引出重排序，说明什么时候会重排序，什么时候禁止重排序，cpu又是怎么来实现的，对应cpu的那些指令，最后几个简单case以常见并发类编译成的汇编指令进行验证。
 
-### 工作内存与主内存的交互 
+### 工作内存与主内存的交互
 
 1.  一个变量如何从主内存拷贝到工作内存
 2.  如何从工作内存同步回主内存
@@ -43,7 +48,7 @@ java内存模型定义了8种操作来完成，虚拟机实现必须保证这八
 
 3.  假定动作A是`线程T`对变量V实施的use或assign动作，假定动作F是和动作A相关联的load或store动作，假定动作P是和动作F相对应的对变量V的read或write动作；类似的，假定动作B是`线程T`对变量W实施的use或assign动作，假定动作G是和动作B相关联的load或store动作，假定动作Q是和动作G相对应的对变量W的read或write动作。如果A优先于B，那么P优先于Q。（这条规则要求volatile修饰的变量不会被指令重排序优化，保证代码的执行顺序与程序的顺序相同）。
 
-### 重排序 
+### 重排序
 
 在访问程序变量（对象实例的域，类的静态域，以及数组元素）时，一些情形下，可能程序执行过程并不像代码写的那样。编译器可能会做优化，cpu在特定情形下可能会乱序执行。数据可能以不同于程序代码的顺序从寄存器，cpu cache，以及主存之间流转。
 
@@ -53,7 +58,7 @@ java内存模型定义了8种操作来完成，虚拟机实现必须保证这八
 
 觉得不清楚的话，可以之间看原文[what is meant by reordering](https://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html#reordering)
 
-### 禁止重排序 
+### 禁止重排序
 
 Doug Lea的图。 此人写了Collection和Concurrent包的,制定了多个jsr。
 
@@ -104,7 +109,7 @@ LoadLoad等在不同的cpu架构上，对应不同的指令，然后就是下图
 
 8. 传递性：如果 A happens- before B，且 B happens- before C，那么 A happens- before C。
 
-### 参考 
+### 参考
 
 [Threads and Locks]<https://docs.oracle.com/javase/specs/jvms/se6/html/Threads.doc.html>
 

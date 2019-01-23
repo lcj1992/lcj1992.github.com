@@ -3,7 +3,11 @@ layout: post
 title: 各种环境配置
 date: 2014-11-18
 categories: soft
-tags: soft jdk maven git jekyll
+tags:
+    - soft
+    - jdk
+    - maven
+    - git
 ---
 
 ### jdk

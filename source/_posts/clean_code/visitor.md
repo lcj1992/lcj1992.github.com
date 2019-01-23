@@ -3,7 +3,8 @@ layout: post
 title: 访问者模式
 date: 2016-07-26
 categories: clean_code
-tags: visitor
+tags:  
+    - visitor
 ---
 
 

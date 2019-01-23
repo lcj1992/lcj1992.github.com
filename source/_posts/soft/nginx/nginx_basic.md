@@ -3,11 +3,9 @@ layout: post
 title: nginx简单使用
 date: 2015-12-28
 categories: soft
-tags: nginx
+tags:
+    - nginx
 ---
-
-
-
 
 ### basic
 
@@ -19,15 +17,15 @@ location的映射关系访问 http://fuck/，再用127.0.0.1:8080或者10.86.41.
 `server_name + listen + location` -> `经upstream替换后的proxy_pass`
 
      http {
-         upstream fuck { 
-             server 127.0.0.1:8080; 
-             server 10.86.41.3:8080 
+         upstream fuck {
+             server 127.0.0.1:8080;
+             server 10.86.41.3:8080
          }
-        
+
          server {
              listen       80;
              server_name  foolchild.cn;
-        
+
              location / {                 
                  proxy_pass  http://fuck/;             
              }

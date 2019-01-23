@@ -3,11 +3,11 @@ layout: post
 title: spring aop
 date: 2015-12-28
 categories: java_web
-tags: spring proxy aop
+tags:
+    - spring
+    - proxy
+    - aop
 ---
-
-
-
 
 要讲spring的aop，就不能不讲代理。
 
@@ -15,7 +15,7 @@ tags: spring proxy aop
 
 ![动态代理类图](/images/java_web/spring_aop_proxy.png)
 
-### 动态代理 
+### 动态代理
 
 spring Aop使用`jdk动态代理`或者`cglib代理`来为实例创建代理。(AopProxy接口的两个实现类分别是`JdkDynamicAopProxy`和`CglibAopProxy`)
 
@@ -37,7 +37,7 @@ final 方法不能被advised，因为他们不能被重写
 
 使用proxy-target-class=true 在`<tx:annotation-driven/>`,`<aop:aspectj-autoproxy/>`,`<aop:config/>`任一，会使cglib代理在三者都生效。
 
-### 静态代理 
+### 静态代理
 
 aspectj
 

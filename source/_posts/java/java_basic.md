@@ -3,19 +3,17 @@ layout: post
 title: java基础
 date: 2015-12-26
 categories:  java
-tags: java autoboxing transient thread jdbc shallow_deep_copy final
+tags:
+    - java
+    - autoboxing
+    - transient
+    - thread
+    - jdbc
+    - shallow_deep_copy
+    - final
 ---
 
-
-
-* [shallow_deep_copy](#shallow_deep_copy)
-* [object#wait VS thread#sleep](#object_wait_thread_sleep)
-
-
-
-* [lock_tryLock_lockInterruptibly](#lock_tryLock_lockInterruptibly)    
-
-#### 初始化顺序 
+#### 初始化顺序
 
 1.  静态变量（类变量）、静态初始化块 > 实例变量、 初始化块 > 构造器
 
@@ -23,7 +21,7 @@ tags: java autoboxing transient thread jdbc shallow_deep_copy final
 
 3.  静态代码块是在类加载时主动执行的，静态方法是在被调用的时候被动执行的 todo
 
-#### 自动装箱拆箱 
+#### 自动装箱拆箱
 
 装箱：基本类型 -> 引用类型
 拆箱：引用类型 -> 基本类型
@@ -92,7 +90,7 @@ eg:
 3.  被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化。
 
 
-#### Object#wait() &&  Thread.sleep() 
+#### Object#wait() &&  Thread.sleep()
 
 Object#wait()
 
@@ -149,7 +147,7 @@ ps: static的变量都是放在方法区的。这个我觉得说的很对[27楼�
 
 所有的Serializable的类必须含有serialVersionUID属性，这是出于性能考虑，如果没有serialVersionUID属性，jre会自己计算一个值，这个值的计算很消耗资源。
 
-#### SimpleDateFormat 
+#### SimpleDateFormat
 
 Calendar calendar 可变且共享的 -> 非线程安全
 

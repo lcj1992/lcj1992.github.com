@@ -3,7 +3,9 @@ layout: post
 title: cpu调度
 date: 2015-12-31
 categories: os
-tags: cpu thread schedule
+tags:
+    - cpu
+    - thread 
 ---
 
 #### 作业(任务,线程?)调度算法

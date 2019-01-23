@@ -3,7 +3,9 @@ layout: post
 title: kmp
 date: 2014-11-08
 categories: algorithm
-tags: kmp algorithm
+tags:
+    - kmp 
+    - algorithm
 ---
 
 a串中是否包含b串，如果包含，返回匹配到的a的子串的初始位置，否则返回-1。

@@ -3,24 +3,15 @@ layout: post
 title: idea调试技巧
 date: 2015-12-26
 categories: tool
-tags: idea debug
+tags:
+    - idea
 ---
-
-*   [Condition Breakpoint](#condition)
-*   [Exception Breakpoint](#exception)
-*   [Watch Point](#watch)
-
-*   [change Variable values](#change)
-*   [Environment Variables](#env)
-*   [drop frame](#dropFrame)
-*   [step over,step into,step out,run to cursor](#general)
-*   [multi threads](#multiThread)
 
 <http://javapapers.com/core-java/top-10-java-debugging-tips-with-eclipse>
 
 这是个eclipse版的，此人.. 知道大名鼎鼎的core java么.对照着来个idea版的
 
-#### Condition Breakpoint 
+#### Condition Breakpoint
 
 <https://www.jetbrains.com/idea/help/creating-field-watchpoints.html>
 
@@ -28,7 +19,7 @@ ctrl+shift+f8 打开Breakpoints
 
 Condition 设置断点打开的条件，当条件满足时，断点才生效，才中断。
 
-#### Exception Breakpoint 
+#### Exception Breakpoint
 
 <https://www.jetbrains.com/idea/help/creating-exception-breakpoints.html>
 
@@ -36,7 +27,7 @@ ctrl+shift+f8 打开Breakpoints
 
 添加java Exception breakpoint，当发生指定异常时，中断。
 
-#### Watch Point [filed] 
+#### Watch Point [filed]
 
 <https://www.jetbrains.com/idea/help/creating-field-watchpoints.html)、[method](https://www.jetbrains.com/idea/help/creating-method-breakpoints.html>
 
@@ -46,11 +37,11 @@ ctrl+shift+f8 打开Breakpoints
 
 同样的还有java method breakpoint，会在进入方法的第一步和出方法的最后一步中断
 
-#### Evaluation(Display or inspect or watch) 
+#### Evaluation(Display or inspect or watch)
 
 alt + f8 运行时执行表达式判定值，
 
-#### change Variable values 
+#### change Variable values
 
 f2 运行时改变值，继续走，对于多if，简直赞。
 
@@ -58,13 +49,13 @@ f2 运行时改变值，继续走，对于多if，简直赞。
 
 找不到对应的。
 
-#### Environment Variables 
+#### Environment Variables
 
 run->Edit configurations->environment variables  设置环境变量
 
 然后System.getEnv()
 
-#### drop frame 
+#### drop frame
 扔掉帧,
 
 每个方法维护一个栈帧
@@ -74,7 +65,7 @@ run->Edit configurations->environment variables  设置环境变量
 #### step filter
 //TODO
 
-#### step over,step into,step out,run to cursor 
+#### step over,step into,step out,run to cursor
 
 step over F8
 
@@ -86,7 +77,7 @@ force step into alt + shift + F7
 
 run to cursor F9
 
-####  多线程debug 
+####  多线程debug
 
 idea 默认run的级别是all 改为Thread就可以debug多线程了
 

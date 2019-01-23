@@ -3,7 +3,9 @@ layout: post
 title: 枚举
 date: 2014-11-20
 categories: java
-tags: enum effectiveJava
+tags:
+    - enum
+    - effectiveJava
 ---
 
 这个主要是effective java的笔记，大部分配的是工作中用的例子，部分还是书上的例子

@@ -3,7 +3,10 @@ layout: post
 title: 内存命令
 date: 2015-12-27
 categories: unix
-tags: free memory　vmstat
+tags:
+    - free
+    - memory　
+    - vmstat
 ---
 
 #### free

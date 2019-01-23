@@ -3,7 +3,10 @@ layout: post
 title: 系统资源
 date: 2015-11-27
 categories: unix
-tags: top netstat performance
+tags:
+    - top
+    - netstat
+    - performance
 ---
 
 *   w

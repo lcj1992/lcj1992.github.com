@@ -3,7 +3,8 @@ layout: post
 title: 原型模式
 date: 2016-07-26
 categories: clean_code
-tags: prototype
+tags:
+    - prototype
 ---
 
 

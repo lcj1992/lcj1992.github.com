@@ -3,7 +3,11 @@ layout: post
 title: 内存满了
 date: 2015-12-17
 categories: performance
-tags: xmx oomkiller Res Rss
+tags:
+    - xmx
+    - oomkiller
+    - Res
+    - Rss
 ---
 
 ### 基础

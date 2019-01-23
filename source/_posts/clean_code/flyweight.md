@@ -3,7 +3,8 @@ layout: post
 title: 享元模式
 date: 2016-07-26
 categories: clean_code
-tags: flyweight
+tags:
+    - flyweight
 ---
 
 ## 定义

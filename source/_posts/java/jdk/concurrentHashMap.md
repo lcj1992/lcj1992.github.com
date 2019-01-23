@@ -2,14 +2,12 @@
 layout: post
 title: concurrentHashMap
 date: 2016-02-28
-categories: java
+categories:
+    - java
+    - ConcurrentHashMap
 ---
 
-
-
-
-
-### uml图 
+### uml图
 
 ![concurrentHashMap](/images/java/concurrentHashMap.png)
 

@@ -3,7 +3,11 @@ layout: post
 title: ThreadPoolEexcutor
 date: 2016-09-01
 categories: java
-tags: ThreadPoolExecutor FutureTask RunnableFuture ExecutorService
+tags:
+    - ThreadPoolExecutor
+    - FutureTask
+    - RunnableFuture
+    - ExecutorService
 ---
 
 首先需要明确的是ThreadPoolExecutor虽然是1.5引入的，但是底层还是一些jdk1.0的东西，Thread和Runnable，然后加以管理.

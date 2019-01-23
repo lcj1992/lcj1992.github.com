@@ -3,7 +3,10 @@ layout: post
 title: 观察者模式
 date: 2016-07-26
 categories: clean_code
-tags: observer 观察者 发布订阅
+tags:
+    - observer
+    - 观察者
+    - 发布订阅
 ---
 
 

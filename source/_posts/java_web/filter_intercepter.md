@@ -3,7 +3,9 @@ layout: post
 title: 过滤器和拦截器
 date: 2016-01-07
 categories: java_web
-tags: filter intercepter
+tags:
+    - filter
+    - intercepter
 ---
 
 #### 概述

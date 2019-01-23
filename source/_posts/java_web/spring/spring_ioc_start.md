@@ -3,7 +3,10 @@ layout: post
 title: spring ioc启动流程
 date: 2015-12-28
 categories: java_web
-tags: spring ioc ServletContext
+tags:
+    - spring
+    - ioc
+    - ServletContext
 ---
 
 

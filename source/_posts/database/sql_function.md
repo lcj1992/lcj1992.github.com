@@ -3,13 +3,14 @@ layout: post
 title: 常用函数(mysql)
 date: 2015-11-26
 categories: db
-tags: sql index date string function datetime
+tags:
+    - sql
 ---
 
 
 
 
-## 日期 
+## 日期
 
 1.  now() 获取当前时间　　　
 　
@@ -30,8 +31,8 @@ tags: sql index date string function datetime
 
 9.  to_seconds(@dt) 　时间转化成秒　　　　
 
-10. date_add(@dt,interval 1 day) date_add(@dt,interval 1 hour) / minute,second,microsecond,week,month,quarter,year 
-    
+10. date_add(@dt,interval 1 day) date_add(@dt,interval 1 hour) / minute,second,microsecond,week,month,quarter,year
+
     ps:不要使用date(create_time) + 1, 这样就可能出现20151032这样的结果,可是十月有32号么?　
 
 11. date_add(@dt,interval '01:15:30' hour_second)　　
@@ -44,7 +45,7 @@ tags: sql index date string function datetime
 
 15. str_to_date(str,format) date_format(date,format) time_format(time,format) 格式转换函数　　
 
-## 字符串 
+## 字符串
 
 1.  left(column_xxx,2) 第二列从左起两个字符　　
 
@@ -68,7 +69,7 @@ tags: sql index date string function datetime
 
 9.  拼接字段,concat()将多个逗号隔开的字符串链接起来
 
-## 其他 
+## 其他
 
 * 从文件中导数据
 

@@ -3,11 +3,10 @@ layout: post
 title: spring事务
 date: 2015-12-28
 categories: java_web
-tags: spring transaction
+tags:
+    - spring
+    - transaction
 ---
-
-
-
 
 ### 常用spring-mybatis的数据库配置
 

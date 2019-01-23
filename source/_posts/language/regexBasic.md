@@ -2,7 +2,8 @@
 layout: post
 title: 正则基础
 date: 2015-12-08
-categories: language
+categories:
+    - regex
 ---
 
 

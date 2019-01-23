@@ -3,9 +3,9 @@ layout: post
 title: python调试
 date: 2016-03-03
 categories: language
-tags: pdb
+tags:
+    - pdb
 ---
-
 
 pdb 是 python 自带的一个包,python调试利器，
 设置断点、单步调试、进入函数调试、查看当前代码、查看栈片段、动态改变变量的值等
@@ -30,11 +30,9 @@ pdb 是 python 自带的一个包,python调试利器，
 |pp expression|执行表达式的值|
 |help command|查看pdb的命令|
 
- 
+
 ### 参考
 
 [1]<http://www.cnblogs.com/chinasun021/archive/2013/03/19/2969107.html/>
 
 [2]<https://www.ibm.com/developerworks/cn/linux/l-cn-pythondebugger/>
- 
-

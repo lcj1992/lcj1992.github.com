@@ -3,7 +3,10 @@ layout: post
 title: top
 date: 2015-12-27
 categories: unix
-tags: top htop glances
+tags:
+    - top
+    - htop
+    - glances
 ---
 
 load + cpu使用率 + 内存概览 + 进程资源消耗

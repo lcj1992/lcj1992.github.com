@@ -6,7 +6,6 @@ categories: java
 tags: reflect
 ---
 
-
 1.  获取类名,包名
 2.  获取Class
 3.  通过Class实例化其类的对象

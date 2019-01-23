@@ -3,10 +3,12 @@ layout: post
 title: cpu高了
 date: 2015-12-17
 categories: performance
-tags: cpu performance
+tags:
+    - cpu
+    - performance
 ---
 
-### 案例一:死循环 
+### 案例一:死循环
 
 #### 测试代码
 
@@ -28,7 +30,7 @@ tags: cpu performance
 
 2.`jstack -F 24744 > stack.log`
 
-3.检测对应代码 
+3.检测对应代码
 
 ![cpu](/images/performance/cpu.png)
 

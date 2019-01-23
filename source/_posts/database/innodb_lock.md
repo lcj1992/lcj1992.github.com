@@ -3,7 +3,10 @@ layout: post
 title: innodb加锁分析
 date: 2016-07-21
 categoreis: database
-tags: mysql innodb lock
+tags:
+    - mysql
+    - innodb
+    - lock
 ---
 
 这篇就是走了一遍登博的[mysql加锁处理分析](http://hedengcheng.com/?p=771)

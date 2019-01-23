@@ -3,7 +3,8 @@ layout: post
 title: 桥接器模式
 date: 2016-07-26
 categories: clean_code
-tags: bridge
+tags:
+    - bridge
 ---
 
 

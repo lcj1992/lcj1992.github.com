@@ -3,7 +3,9 @@ layout: post
 title: 注解
 date: 2014-11-20
 categories: java
-tags: annotation java
+tags:
+    - annotation
+    - java
 ---
 
 ####  基础

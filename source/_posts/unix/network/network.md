@@ -3,17 +3,9 @@ layout: post
 title: 网络
 date: 2015-03-20
 categories: unix
-tags: unix
+tags:
+    - unix
 ---
-
-
-
-
-
-
-
-
-
 
 ### iftop
 

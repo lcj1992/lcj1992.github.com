@@ -3,10 +3,9 @@ layout: post
 title: 责任链模式
 date: 2016-07-26
 categories: clean_code
-tags: chain_of_responsibility
+tags:
+    - chain_of_responsibility
 ---
-
-
 
 ## 定义
 

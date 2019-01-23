@@ -3,12 +3,13 @@ layout: post
 title: tomcat的启动关闭与请求处理
 date: 2016-04-26
 categories: soft
-tags: tomcat source
+tags:
+    - tomcat 
 ---
 
 基于7.0.42.0, tomcat源码导入idea[参看这篇](/2015/12/28/import_tomcat_to_idea)
 
-#### 整体架构 
+#### 整体架构
 
 ![tomcat架构](/images/soft/tomcat_structure.jpg)
 
@@ -26,7 +27,7 @@ tags: tomcat source
 同时在请求页面未发现时,connector就会给客户端浏览器发送标准的Http 404错误相应页面
 5.  Resource子模块: 这个子模块包含一些资源文件,如Server.xml及Web.xml配置文件.严格来说,这个子模块不包含java源代码,但是它是tomcat编译运行所必需的.
 
-#### 启动关闭流程 
+#### 启动关闭流程
 
 这个日志熟悉么? 不熟悉的话,重启下你机器上的任一tomcat项目,熟悉一下
 
@@ -78,25 +79,25 @@ tomcat的入口为`BootStrap#main`
 启动:
 
 1.  Bootstrap#init
-    
+
     *   1.1 设置catalina.home,设置catalina.base (ps: [CATALINA_HOME vs CATALINA_BASE](https://tomcat.apache.org/tomcat-8.0-doc/introduction.html#Directories_and_Files))
     *   1.2 初始化类加载器,`commonLoader`,`catalinaLoader`,`sharedLoader`
     *   1.3 用catalinaLoader对`org.apache.catalina.startup.Catalina`类进行加载,并进行实例化startupInstance,设置catalinaDaemon为startupInstance
     *   1.4 在bootstrap初始化完毕之后,设置daemon为bootstrap
-    
+
 2.  根据传入命令, 已start为例,加载,调用Bootstrap#load(args),实际上是调用catalinaDaemon#load方法
 
     *   2.1 Catalina#createStartDigester 创建解析规则, 就是创建Server,Service,Executor等元素与相关类的对应关系,根据其配置实例化相应模块,参见[server.xml](https://github.com/lcj1992/tomcat_study/blob/master/conf/server.xml),
-            
+
             digester.addObjectCreate("Server","org.apache.catalina.core.StandardServer","className");
             digester.addSetProperties("Server");
             digester.addSetNext("Server","setServer","org.apache.catalina.Server");
-            
+
             digester.addObjectCreate("Server/Listener",null, // MUST be specified in the element(必须在你的server.xml中制定)
                                              "className");
             digester.addSetProperties("Server/Listener");
             digester.addSetNext("Server/Listener","addLifecycleListener","org.apache.catalina.LifecycleListener");
-            
+
     *   2.2 读取`$CATALINA_BASE/conf/server.xml`,然后解析之,digester#parse(inputSource),会实例化一个Server,并Catalina#setServer指向这个实例,并将Server#setCatalina指向这个Catalina实例.
     开始调用StandardServer#initInternal,初始化server实例,初始化时会对状态机进行校验  
         *   globalNamingResources的初始化  
@@ -106,7 +107,7 @@ tomcat的入口为`BootStrap#main`
             *   初始化Connectors(可多个)(Connector)  
                 *   初始化protocolHandler(eg: Http11Protocol)    
                     *   初始化endpoint(eg JioEndpoint),然后endpoint#bind(),绑定地址和端口,设置线程池的大小,并创建`serverSocket` EndPoint的bindState 有UNBOUND -> BOUND_ON_START  
-                *   初始化mapperListener 
+                *   初始化mapperListener
     *   2.3 启动各组件,还是调用Catalina#start(),启动时都会动状态机进行校验
         *   globalNamingResources的启动
         *   启动各services
@@ -122,11 +123,11 @@ tomcat的入口为`BootStrap#main`
                 *   启动mapperListener, findDefaultHost(),addListeners(engine),registerHost(host)
     *   2.4 如果useShutdownHook为true,添加CatalinaShutdownHook`
     *   2.5 Catalina#await(),new 一个server socket to wait on (默认端口号为8005,你懂的)
-                
+
 #### 状态机  
-  
+
 org.apache.Catalina.Lifecycle的实现类都具有如下的[状态机](https://github.com/lcj1992/tomcat_study/blob/master/java/org/apache/catalina/Lifecycle.java).
-   
+
                  start()
        -----------------------------
        |                           |
@@ -195,8 +196,8 @@ Lifecycle的子类类图:
 	at java.lang.Thread.run(Thread.java:745)
 
 JioEndpoint的Acceptor是这么产生的,启动`getAcceptorThreadCount()`个线程,接收请求.
-        
->   Connector#startInternal() -> AbstractEndpoint#start() -> JIoEndpoint#startInternal() -> AbstractEndpoint#startAcceptorThreads() -> JioEndpoint#createAcceptor() 
+
+>   Connector#startInternal() -> AbstractEndpoint#start() -> JIoEndpoint#startInternal() -> AbstractEndpoint#startAcceptorThreads() -> JioEndpoint#createAcceptor()
 
 ![create_acceptor](/images/soft/create_acceptor.png)
 
@@ -252,21 +253,21 @@ JioEndpoint的Acceptor是这么产生的,启动`getAcceptorThreadCount()`个线�
         }
         return true;
 
-然后返回请求, 请求返回的方法调用链: 
+然后返回请求, 请求返回的方法调用链:
 
 1.  JIoEndpoint$SocketProcessor#run  
 2.  AbstractProtocol$AbstractConnectionHandler#process  
 3.  AbstractHttp11Processor#process  
-4.  CoyoteAdapter#service 
+4.  CoyoteAdapter#service
 5.  StandardEngineValve#invoke  
-6.  AccessLogValve#invoke 
+6.  AccessLogValve#invoke
 7.  ErrorReportValve#invoke  
-8.  StandardHostValve#invoke 
+8.  StandardHostValve#invoke
 9.  AuthenticatorBase#invoke  
 10. StandardContextValve#invoke  
 11. StandardWrapperValve#invoke  
 12. ApplicationFilterChain#doFilter  
-13. ApplicationFilterChain#internalDoFilter 
+13. ApplicationFilterChain#internalDoFilter
 14. HttpServlet#service 然后调用doGet 或者doPost
 
 [HTTPServlet源码](https://github.com/lcj1992/tomcat_study/blob/master/java/javax/servlet/http/HttpServlet.java)
@@ -314,7 +315,7 @@ JioEndpoint的Acceptor是这么产生的,启动`getAcceptorThreadCount()`个线�
     at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_45]
     at java.lang.Thread.run(Thread.java:744) [na:1.7.0_45]
 
-#### 参考 
+#### 参考
 
 [tomcat8官方文档]<https://tomcat.apache.org/tomcat-8.0-doc/config/service.html>
 

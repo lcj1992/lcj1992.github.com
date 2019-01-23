@@ -3,7 +3,6 @@ layout: post
 title: 泛型
 date: 2014-11-20
 categories: java
-tags: 类型擦除 类型推导 运行时 编译时
 ---
 
 ### 概述
@@ -41,7 +40,7 @@ tags: 类型擦除 类型推导 运行时 编译时
     <T extends Aclass>String aMethod(T t){}
     List<? extends AClass> aMethod(){}
 
-### Effective Java中关于泛型的几个建议 
+### Effective Java中关于泛型的几个建议
 
 1.  请不要再新代码中使用原生态类型
 2.  消除非受检警告

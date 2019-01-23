@@ -3,25 +3,20 @@ layout: post
 title: java8
 date: 2015-05-20
 categories: java
-tags: java8 Predicate Function Supplier Consumer Comparator Optional Stream
+tags:
+    - java8
+    - Predicate
+    - Function
+    - Supplier
+    - Consumer
+    - Comparator
+    - Optional
+    - Stream
 ---
-
-
-*  [增加@FunctionalInterface注解](#functionalInterface)
-
-	
-	
-	
-	
-	
-
-	
-	
-
 
 java8函数式编程里一句话，觉得说的特好：函数式编程是对行为进行抽象。
 
-### 接口可以有实现了, default和static 
+### 接口可以有实现了, default和static
 
 #### 为什么要有default方法?
 
@@ -110,7 +105,7 @@ eg：
 2. Iterator中增加了forEach方法
 3. ...
 
-### 增加@FunctionalInterface注解 
+### 增加@FunctionalInterface注解
 
 1.	接口可以有实现
 2.	如果接口只有一个非static，非default的方法，那么这个接口就是函数式的接口
@@ -170,7 +165,7 @@ eg:
 	    }
 	}
 
-### 部分函数式接口 
+### 部分函数式接口
 
 #### Predicate
 
@@ -242,7 +237,7 @@ eg:
 	comparator.compare(p1, p2);
 	comparator.reversed().compare(p1, p2);
 
-### 除此之外还有 
+### 除此之外还有
 
 #### Optional
 
@@ -275,7 +270,7 @@ stream接口中的大部分函数都是高阶函数。
 2. map : 将一种类型的值转换成另外一种类型，将一个流转换成一个新的流
 3. filter : 遍历数据并检查其中的元素
 4. flatMap : 可用Stream替换值，然后将多个Stream连接成一个Stream, 打平。
-5. max、min、count : 最大值，最小值，统计 
+5. max、min、count : 最大值，最小值，统计
 6. reduce : 实现从一组值中生成一个值，参数是一个BinaryOperator, max、min、count都是reduce操作，只是因为太常用了，而被纳入了标准库。
 7. 数据分块: Collectors.partitioningBy 传入一个Predicate，操作的是stream最基本的元素，返回key包含true和false的两个kv的map。
 8. 数据分组：Collectors.groupingBy传入一个Function，操作的是stream最基本的元素，返回以Function计算得出的结果为key的map。
@@ -324,7 +319,7 @@ java8中ThreadLocal中增加了一个工厂方法，接受一个lambda表达式�
     ThreadLocal<String> source = ThreadLocal.withInitial(() -> "mtp");
 
 
-### 参考 
+### 参考
 
 [java8函数式编程](https://book.douban.com/subject/26346017/)
 

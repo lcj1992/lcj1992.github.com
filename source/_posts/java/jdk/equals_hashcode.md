@@ -3,19 +3,13 @@ layout: post
 title: equal & hashcode
 date: 2016-03-10
 categories: java
-tags: java equal hashcode
+tags:
+    - java
+    - equal
+    - hashcode
 ---
 
-
-
-
-
-*   [Q&A](#qAnda)
-    *   [hashCode为什么能够提升hash-based的Collection和Map的性能](#hashCode_hash_based)
-
-
-
-### 概述 
+### 概述
 equals() 和 hashCode()是java中Object类中两个基本的方法
 
 equals():   
@@ -28,7 +22,7 @@ hashCode():
 对于包含容器类型的程序设计语言来说,基本上都会设计到hashCode.在java中也一样,hashCode方法的主要作用是为了配合基于散列的集合一起正常运行,如hashSet,hashMap等
 用于快速定位对象.
 
-###  hashCode和equals关系 
+###  hashCode和equals关系
 
 1.  如果你重写了equals方法,你必须重写hashCode方法
 2.  关系:
@@ -37,7 +31,7 @@ hashCode():
 3.  equals和hashCode应使用相同的域(`same set of "significant" fields`),当然不一定是所有域,你看着办.
 4.  当使用基于hash的Collection和Map如 HashSet,LinkedHashSet,HashMap,HashTable,WeakHashMap,确保key的hashCode()是不可变的
 
-### 实现equals 
+### 实现equals
 
 当实现equals,根据类型不同,采用不同的比较方法
 
@@ -83,7 +77,7 @@ hashCode():
 
 还可以使用apache的工具类[EqualsBuilder](http://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/EqualsBuilder.html)
 
-### 实现hashCode 
+### 实现hashCode
 
 1.  把某个非零常数值保存在int变量result中
 2.  对于对象的每一个关键域f(equals方法中考虑的每一个域)
@@ -103,10 +97,10 @@ ps:
 
 还可以使用apache的工具类[HashCodeBuilder](http://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/builder/HashCodeBuilder.html)
 
-### Q&A 
+### Q&A
 
 
-#### hashCode为什么能够提升基于hash的Collection和Map的性能 
+#### hashCode为什么能够提升基于hash的Collection和Map的性能
 
 以HashMap为例,想象一下如果没有hash,你会如何查找一个map中的某个entry. 遍历HashMap中所有entry,逐一equals?这肯定是可以的,但是...
 
@@ -133,11 +127,11 @@ ps:
     return null;
 
 
-### 一道题目 
+### 一道题目
 
 [看这里](/2016/03/12/equals_hashcode_eg)
 
-### 参考 
+### 参考
 
 [1]<http://crunchify.com/how-to-override-equals-and-hashcode-method-in-java/>
 

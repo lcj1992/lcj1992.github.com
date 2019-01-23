@@ -3,7 +3,6 @@ layout: post
 title: 一些速度
 date: 2015-12-27
 categories: performance
-tags: speed
 ---
 
 #### 一些速度

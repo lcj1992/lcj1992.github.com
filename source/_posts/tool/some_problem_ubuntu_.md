@@ -3,7 +3,10 @@ layout: post
 title: ubuntu (14.04)使用时的一些问题
 date: 2015-12-27
 categories: tool
-tags: chrome flash ubuntu
+tags:
+    - chrome
+    - flash
+    - ubuntu
 ---
 
 #### chrome安装flash

@@ -3,22 +3,17 @@ layout: post
 title: es基础
 date: 2016-07-26
 categories: soft
-tags: elasticsearch
+tags:
+    - elasticsearch
 ---
 
-
-
-* [java client接入](#java_client)
-
-  
-
-### 是什么 
+### 是什么
 
 分布式的实时文件存储
 分布式的实时分析搜索引擎
 可扩展到上百台服务器，处理pb级数据，通过restful api进行访问，提供多语言client
 
-### 核心概念 
+### 核心概念
 `集群（cluster）：一组具有相同cluster.name的节点的集合，他们协同工作，共享数据并提供故障转移和扩展功能，当然一个节点也可以组成一个集群。
 
 `节点（node）`：一个运行着的Elasticsearch实例，做为用户，我们能够与集群中的任何节点通信，包括主节点。每一个节点都知道文档存在于哪个节点上，它们可以转发请求到相应的节点上。我们访问的节点负责收集各节点返回的数据，最后一起返回给客户端。这一切都由Elasticsearch处理。
@@ -49,7 +44,7 @@ cluster、node 、以及shard的关系大致如下：
 
 其api dash里有
 
-### java client接入 
+### java client接入
 
 #### node client
 
@@ -67,7 +62,7 @@ Java客户端所在的Elasticsearch版本必须与集群中其他节点一致，
         <version>1.7.0</version>
     </dependency>
 
-### 集成kibana和marvel 
+### 集成kibana和marvel
 
 #### kibana
 
@@ -95,7 +90,7 @@ Java客户端所在的Elasticsearch版本必须与集群中其他节点一致，
 
     # 访问http://localhost:5601/app/marvel 就可以监控节点状态了
 
-#### 说明 
+#### 说明
 
 大概长这样：
 

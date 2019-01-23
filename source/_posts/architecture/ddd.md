@@ -3,10 +3,12 @@ layout: post
 title: 领域驱动读书笔记
 date: 2017-01-04
 categories: architecture
-tags: 领域模型 限界上下文 通用语言
+tags:
+    - 领域模型
+    - 限界上下文
+    - 通用语言
 ---
 
-## 如何使用本书
 
 战略设计与战术设计
 

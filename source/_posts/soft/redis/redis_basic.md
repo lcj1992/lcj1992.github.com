@@ -3,15 +3,13 @@ layout: post
 title: hello redis
 date: 2015-12-28
 categories: soft
-tags: redis ds
+tags:
+    - redis
 ---
-
-
-
 
 redis是一个开源的内存数据结构存储，被用作数据库，缓存，以及消息中间件。它提供了诸如strings，hashes，lists，sets，带区间查询的sorted sets，bitmaps，hyperloglogs，以及带半径查询的geospatial indexes。redis内置了复制，lua 脚本，LRU逐出，事务以及不同级别的持久化，提供了带有哨兵和集群自动分区功能的redis集群。
 
-### 介绍 
+### 介绍
 
     brew install redis
 
@@ -22,7 +20,7 @@ redis是一个开源的内存数据结构存储，被用作数据库，缓存，
     cd redis-3.2.1
     make install
 
-### 基本用法 
+### 基本用法
 
 ***首先明确一点这是一个key-value缓存系统，key是字符串，而这个value可以是多样的：string，map，list，set，sort set，bitmaps，hyperLogLogs***
 
@@ -80,6 +78,6 @@ redis是一个开源的内存数据结构存储，被用作数据库，缓存，
     ...
     exec
 
-### 参考 
+### 参考
 
 [redis官网]<http://redis.io>

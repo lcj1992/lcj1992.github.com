@@ -2,7 +2,8 @@
 layout: post
 title: 磁盘满了
 date: 2015-12-17
-categories: performance
+categories:
+    - performance
 ---
 
 ### 一般解决办法

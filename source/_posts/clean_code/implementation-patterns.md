@@ -3,7 +3,8 @@ layout: post
 title: 实现模式
 date: 2017-01-29
 categories: clean_code
-tags: clean_code
+tags:
+    - clean_code
 ---
 
 

@@ -3,48 +3,42 @@ layout: post
 title: clean pom
 date: 2015-12-28
 categories: soft
-tags: maven dependency conflict
+tags:
+    - maven
 ---
 
-
-  
-  
-* [clean pom](#in_action)
-
-
-
-### 基础知识 
+### 基础知识
 
 1. 依赖调解 dependency mediation
-   
+
    * nearest  A->B->C2; A->C1   最终会选择C1
    * 声明优先 A->C2; B->C1,   最终会选择C2
-   
+
 2. 依赖管理 dependency management  
-   
+
    * 可以显式指定，来解决多版本问题（传递依赖）。
 
 3. 依赖作用域
-   
+
    * compile、test、provided、system、runtime、import
 
 4. 排除依赖 excluded dependencies
 
 5. 可选依赖 optional dependencies   
-  
+
   * X-> A  A->B 可以将B声明为optional，这样X就不会依赖B，如果X想引入B依赖，需显式声明,eg: [可选例子](http://ifeve.com/introduction-to-optional-and-excludes-dependencies/)
 
 > 有一个名为X2的项目，这个项目和hibernate有一些类似的功能，支持许多数据库驱动/依赖，比如说MySQL，postgre，oracle等。为了构建X2，所有的这些依赖都是必须的，但是对于你的项目来说却不是必须的，所以对于X2把这些依赖声明为可选的是非常实用的，不论什么时候当你在POM文件中把X2声明为一个直接依赖的时候，所有被X2支持的驱动不会自动的被包含进你的项目的classpath，你需要直接声明你将要使用的数据库的依赖/驱动。
 
 6. 优先级
-  
+
   * 依赖管理显式引入的优先级高于依赖调解机制调解出来的
   * 当前pom的声明优先于父pom中的声明（对于dependency的，区分是groupId:artifactId:type:classifier，四个都相同是前提；对于plugin是groupId和artifactId），详见下代码
 
 >1. dependency management takes precedence over dependency mediation for transitive dependencies
 >2. the current pom's declaration takes precedence over its parent's declaration.
 
-#### 子pom的dependencies和父pom的dependencies如何merge 
+#### 子pom的dependencies和父pom的dependencies如何merge
 
 包括dependencyManagement中的dependencies和真正的dependencies，以源码做注解[maven github地址](https://github.com/apache/maven)
 
@@ -59,15 +53,15 @@ tags: maven dependency conflict
         {
             List<Dependency> tgt = target.getDependencies();
             Map<Object, Dependency> merged = new LinkedHashMap<>( ( src.size() + tgt.size() ) * 2 );
-     
-      
+
+
             // 注意dependency是包含excludes的。
             for ( Dependency element : tgt )
             {
                 Object key = getDependencyKey( element );
                 merged.put( key, element );
             }
-     
+
             for ( Dependency element : src )
             {
                 // key是groupId+artifactId+type+classifier组成的字符串，见下getManagementKey
@@ -78,17 +72,17 @@ tags: maven dependency conflict
                     merged.put( key, element );
                 }
             }
-     
+
             target.setDependencies( new ArrayList<>( merged.values() ) );
         }
     }
-      
+
     @Override
     protected Object getDependencyKey( Dependency dependency )
     {
         return dependency.getManagementKey();
     }
-      
+
     public String getManagementKey()
     {
         if ( managementKey == null )
@@ -98,7 +92,7 @@ tags: maven dependency conflict
         return managementKey;
     }
 
-#### dependency如何使用dependencyManagement的配置 
+#### dependency如何使用dependencyManagement的配置
 
     public void mergeManagedDependencies( Model model )
     {
@@ -107,14 +101,14 @@ tags: maven dependency conflict
         {
             Map<Object, Dependency> dependencies = new HashMap<>();
             Map<Object, Object> context = Collections.emptyMap();
-     
+
             for ( Dependency dependency : model.getDependencies() )
             {
                 // 同上 groupId:artifactId:type:classifier
                 Object key = getDependencyKey( dependency );
                 dependencies.put( key, dependency );
             }
-     
+
             for ( Dependency managedDependency : dependencyManagement.getDependencies() )
             {
                 Object key = getDependencyKey( managedDependency );
@@ -126,7 +120,7 @@ tags: maven dependency conflict
             }
         }
     }
-      
+
     protected void mergeDependency( Dependency target, Dependency source, boolean sourceDominant,
                                     Map<Object, Object> context )
     {
@@ -140,8 +134,8 @@ tags: maven dependency conflict
         mergeDependency_Optional( target, source, sourceDominant, context );
         mergeDependency_Exclusions( target, source, sourceDominant, context );
     }
-      
-      
+
+
     protected void mergeDependency_Version( Dependency target, Dependency source, boolean sourceDominant,
                                             Map<Object, Object> context )
     {
@@ -156,7 +150,7 @@ tags: maven dependency conflict
             }
         }
     }
-      
+
     @Override
     protected void mergeDependency_Exclusions( Dependency target, Dependency source, boolean sourceDominant,
                                                Map<Object, Object> context )
@@ -166,7 +160,7 @@ tags: maven dependency conflict
         if ( tgt.isEmpty() )
         {
             List<Exclusion> src = source.getExclusions();
-     
+
             for ( Exclusion element : src )
             {
                 Exclusion clone = element.clone();
@@ -175,7 +169,7 @@ tags: maven dependency conflict
         }
     }
 
-### 最佳实践 
+### 最佳实践
 
 1. 项目的parent设置为公共父pom（指定了一些每个项目都需要的配置，不需要你再重复了，包括jdk配置、plugin配置、仓库配置、常用jar的dependencyManagement；引入冲突检测机制，将风险在编译期就暴露出来）
 
@@ -195,23 +189,22 @@ tags: maven dependency conflict
 
     // 1. 下载maven源码
     git clone git@github.com:apache/maven.git
-      
+
     // 2. build maven（你机器上得有maven和jdk）
     mvn -DdistributionTargetFolder="/path/to/maven" clean package
-      
+
     // 3. 使用你源码build出的命令（不是你之前安装的哟），mvnDebug会设置java的debug端口为8000
     cd  /path/to/you_project
     /path/to/maven/bin/mvnDebug  clean package(你要执行的命令)
-      
+
     // 4.设置idea的remote debug配置为localhost 8000，入口是MavenCli#main，
-      
+
     // 5.调试吧。
 
-### 参考 
+### 参考
 
 [maven依赖机制](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
 
 [maven](https://maven.apache.org/ref/3.3.9/maven-model/maven.html#class_DependencyManagement)
 
 [Maven 工程规范](http://blog.csdn.net/oooyooo/article/details/49254571)
-

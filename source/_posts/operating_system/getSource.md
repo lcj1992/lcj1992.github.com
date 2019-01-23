@@ -2,7 +2,6 @@
 layout: post
 title: ubuntu获取源码
 date: 2015-12-17
-categories: os linux
 ---
 
 ### 获取工具源码
@@ -13,11 +12,3 @@ categories: os linux
        lcj@lcj:~$ dpkg -S /bin/ls
        coreutils: /bin/ls
        lcj@lcj:~$ sudo apt-get source coreutils
-
-
-
-
-
-
-
-

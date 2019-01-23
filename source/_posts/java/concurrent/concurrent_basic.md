@@ -3,7 +3,8 @@ layout: post
 title: java并发基础
 date: 2015-12-26
 categories: java
-tags: concurrent
+tags:
+    - concurrent
 ---
 
 |操作|x86对应指令|

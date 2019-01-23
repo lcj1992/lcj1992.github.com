@@ -3,7 +3,8 @@ layout: post
 title: shell参数替换
 date: 2016-01-17
 categories: language
-tags: shell parameter replace
+tags:
+    - shell
 ---
 
 #### 转义字符
@@ -46,4 +47,3 @@ tags: shell parameter replace
 |${var%%pattern}|同上，只不过是最长匹配|
 |${var/pattern/string}|替换，仅一次|
 |${var//pattern/string}|替换，全部|
-

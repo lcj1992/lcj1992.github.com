@@ -3,7 +3,8 @@ layout: post
 title: 同时使用内网和翻墙
 date: 2015-12-27
 categories: tool
-tags: great_wall
+tags:
+    - great_wall
 ---
 
 goagent：（好像确实不是很稳定）

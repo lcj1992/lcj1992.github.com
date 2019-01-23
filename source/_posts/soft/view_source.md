@@ -3,17 +3,16 @@ layout: post
 title: 我是这样看源码的
 date: 2016-02-28
 categories: soft
-tags: vim ctags cscope doxygen graphviz code2ebook
+tags:
+    - vim
+    - ctags
+    - cscope
+    - doxygen
+    - graphviz
+    - code2ebook
 ---
 
-
-
-
-
-*   [doxygen+graphviz](#doxygen_graphviz)
-
-
-### vi分屏 
+### vi分屏
 
 ***1.直接用终端打开多个文件***
 

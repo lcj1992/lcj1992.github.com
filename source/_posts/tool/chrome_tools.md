@@ -3,11 +3,11 @@ layout: post
 title: 我的chrome插件
 date: 2016-01-09
 categories: tool
-tags: chrome idea mac
+tags:
+    - chrome
+    - idea
+    - mac
 ---
-
-
-
 
 ## chrome
 

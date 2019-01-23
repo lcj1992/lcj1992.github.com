@@ -2,7 +2,8 @@
 layout: post
 title: 策略模式
 date: 2016-07-26
-categories: clean_code
+categories:
+    - clean_code
 ---
 
 

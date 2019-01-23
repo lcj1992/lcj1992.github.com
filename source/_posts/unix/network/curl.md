@@ -3,7 +3,9 @@ layout: post
 title: curl
 date: 2015-12-27
 categories: unix tool
-tags: curl httpie
+tags:
+    - curl
+    - httpie
 ---
 
 curl

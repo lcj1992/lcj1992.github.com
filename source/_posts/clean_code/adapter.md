@@ -3,10 +3,9 @@ layout: post
 title: 适配器模式
 date: 2016-07-26
 categories: clean_code
-tags: adapter
+tags:
+    - adapter
 ---
-
-
 
 ## 定义
 

@@ -3,7 +3,9 @@ layout: post
 title: 类加载机制
 date: 2015-01-26
 categories: java
-tags: memory byteCode
+tags:
+    - memory
+    - byteCode
 ---
 
 ### classloader

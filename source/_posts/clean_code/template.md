@@ -3,7 +3,8 @@ layout: post
 title: 模版方法
 date: 2016-07-26
 categories: clean_code
-tags: template
+tags:
+    - template
 ---
 
 

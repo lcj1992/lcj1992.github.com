@@ -3,15 +3,9 @@ layout: post
 title: 文件系统
 date: 2016-01-07
 categories: os
-tags: inode dentry
+tags:
+    - inode dentry
 ---
-
-
-
-
-*   [super_block](#super_block)
-
-
 
 下载linux源码
     sudo apt-get install linux-source　//代码将被下载到/usr/src/下,我的是3.13.0
@@ -126,7 +120,7 @@ tags: inode dentry
 
 代码位置：include/linux/fs.h#super_block
 
-### linux如何表示打开的文件 
+### linux如何表示打开的文件
 
 #### 内核的三个数据结构
 
@@ -158,7 +152,7 @@ inode表中对应表项的指针。这样，不同的文件被打开，对应进
 
 ![共享](/images/file_system/fork_file.png)
 
-### 逻辑到物理 
+### 逻辑到物理
 
 ![逻辑块号到物理块号](/images/file_system/vir_to_phy.jpg)
 

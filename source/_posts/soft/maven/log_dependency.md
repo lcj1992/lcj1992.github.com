@@ -3,17 +3,13 @@ layout: post
 title: 日志各jar依赖
 date: 2016-11-04
 categories: soft
-tags: maven slf4j log4j2 logback dependency
+tags:
+    - maven
+    - log
+    - log4j
 ---
 
-
-
-  * [slf4j + logback](#slf4j_logback)
-  * [slf4j + log4j2](#slf4j_log4j2)
-
-
-
-### 概述 
+### 概述
 
 很多的冲突都是日志jar引起的，日志实现性能不一，有必要统一下系统中使用的日志.
 
@@ -29,7 +25,7 @@ tags: maven slf4j log4j2 logback dependency
 
 ![log_knids](/images/soft/log_kinds.png)
 
-### 实践 
+### 实践
 
 通常我们选择slf4j作为日志接口，log4j2或者logback作为日志实现
 
@@ -55,23 +51,23 @@ jcl-over-slf4j适配原理
 
     #// 摘取SLF4JLog的关键代码片段
     public class SLF4JLog implements Log, Serializable {
-     
+
         ...
         // 关键点
         private transient org.slf4j.Logger logger;
-     
+
         SLF4JLog(Logger logger) {
             this.logger = logger;
             this.name = logger.getName();
         }
-     
+
         ...
         public void info(Object message) {
             logger.info(String.valueOf(message));
         }
     }
 
-#### slf4j+logback 
+#### slf4j+logback
 
 ![slf4j+logback](/images/soft/slf4j_logback.png)
 
@@ -80,7 +76,7 @@ jcl-over-slf4j适配原理
         <artifactId>slf4j-api</artifactId>
         <version>${org.slf4j.version}</version>
     </dependency>
-     
+
     <!--Jakarta Commons Logging redirect to slf4j -->
     <dependency>
         <groupId>org.slf4j</groupId>
@@ -88,7 +84,7 @@ jcl-over-slf4j适配原理
         <version>${org.slf4j.version}</version>
         <scope>runtime</scope>
     </dependency>
-     
+
     <!--Java Util Logging redirect to slf4j -->
     <dependency>
         <groupId>org.slf4j</groupId>
@@ -96,7 +92,7 @@ jcl-over-slf4j适配原理
         <version>${org.slf4j.version}</version>
         <scope>runtime</scope>
     </dependency>
-      
+
     <!--Apache log4j redirect to slf4j -->
     <dependency>
         <groupId>org.slf4j</groupId>
@@ -104,7 +100,7 @@ jcl-over-slf4j适配原理
         <version>${org.slf4j.version}</version>
         <scope>runtime</scope>
     </dependency>
-     
+
     <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
@@ -129,7 +125,7 @@ jcl-over-slf4j适配原理
         <artifactId>slf4j-api</artifactId>
         <version>${org.slf4j.version}</version>
     </dependency>
-     
+
     <!--Jakarta Commons Logging redirect to slf4j -->
     <dependency>
         <groupId>org.slf4j</groupId>
@@ -137,7 +133,7 @@ jcl-over-slf4j适配原理
         <version>${org.slf4j.version}</version>
         <scope>runtime</scope>
     </dependency>
-     
+
     <!--Java Util Logging redirect to slf4j -->
     <dependency>
         <groupId>org.slf4j</groupId>
@@ -161,7 +157,7 @@ jcl-over-slf4j适配原理
         <artifactId>log4j-core</artifactId>
         <version>2.3</version>
     </dependency>
-      
+
     <!--其实这里使用log4j-over-slf4j也是可以的。无非是多了一层适配-->
     <!--log4j api --> slf4j api -->  slf4j挂的日志实现（这里是log4j2） -->
     <!--log4j api --> log4j2实现 -->
@@ -171,7 +167,7 @@ jcl-over-slf4j适配原理
         <version>2.3>
     </dependency>
 
-### 其他好图 
+### 其他好图
 
 ![log4j2+slf4j](/images/soft/whichjar-slf4j-2.x.png)
 
@@ -195,11 +191,10 @@ jcl-over-slf4j适配原理
 
 7. slf4j 挂log4j2，需要桥接包log4j-slf4j-impl，具体见上 slf4j+log4j2
 
-### 参考 
+### 参考
 
 [slf4j-legacy](http://www.slf4j.org/legacy.html)
 
 [slf4j-manual](http://www.slf4j.org/manual.html)
 
 [log4j2-troubleshooting](https://logging.apache.org/log4j/2.0/faq.html#troubleshooting)
-

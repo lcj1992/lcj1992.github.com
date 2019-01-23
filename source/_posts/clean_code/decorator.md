@@ -3,7 +3,8 @@ layout: post
 title: 装饰器模式
 date: 2016-07-26
 categories: clean_code
-tags: decorator
+tags:
+    - decorator
 ---
 
 

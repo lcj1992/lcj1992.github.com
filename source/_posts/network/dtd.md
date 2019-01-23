@@ -3,7 +3,8 @@ layout: post
 title: dtd
 date: 2015-12-27
 categories: network
-tags: dtd network
+tags:
+    - dtd
 ---
 
 如果tomcat web.xml中某个参数你忘记含义了，看dtd

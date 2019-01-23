@@ -3,11 +3,10 @@ layout: post
 title: sql基础
 date: 2014-11-16
 categories: db
-tags: sql 范式
+tags:
+    - sql
+    - 范式
 ---
-
-
-
 
 1.  ps
 

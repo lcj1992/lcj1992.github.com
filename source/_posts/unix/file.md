@@ -3,12 +3,19 @@ layout: post
 title: 文件相关命令
 date: 2014-11-13
 categories: unix
-tags: file cd ls stat chmod chown tree z find locate xargs
+tags:
+    - file
+    - cd
+    - ls
+    - stat
+    - chmod
+    - chown
+    - tree
+    - z
+    - find
+    - locate
+    - xargs
 ---
-
-
-
-
 
 #### ls -l
 
@@ -187,7 +194,7 @@ cd - 回到上一个工作目录
 ### tree
 
     brew install tree
-    tree -L 2  // 查看当前牧流，但只看2个层级 
+    tree -L 2  // 查看当前牧流，但只看2个层级
 
 ### xargs
 

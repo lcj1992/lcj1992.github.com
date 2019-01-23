@@ -3,7 +3,6 @@ layout: post
 title: 系统启动
 date: 2016-01-05
 categories: os
-tags: system start
 ---
 
 ### 系统启动

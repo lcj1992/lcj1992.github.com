@@ -3,38 +3,25 @@ layout: post
 title: Collection常用子类源码注解
 date: 2016-01-30
 categories: java
-tags: List Set Map Queue
+tags:
+    - List
+    - Set
+    - Map
+    - Queue
 ---
 
-
-
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-
-### 类图 
+### 类图
 List和set的
 ![List_Set](/images/java/list_set.png)
 
-### 公共部分 
+### 公共部分
 
 
-#### Iterable 
+#### Iterable
 
 `Iterable` 只有一个接口返回一组元素的迭代器,实现该接口的类都支持foreach语句
 
-#### Collection 
+#### Collection
 
 *   add(E) 添加一个元素,返回集合是否变更
 *   addAll(Collection<? extends E>) 添加一组元素
@@ -51,7 +38,7 @@ List和set的
 *   toArray() 返回对象数组
 *   toArray(T[] a) 返回T类型的数组,这里指明了对象类型
 
-#### AbstractCollection 
+#### AbstractCollection
 
 其中AbstractCollection对Collection的部分方法进行了实现(除了iterator()和size()),包含了一些List和Set共有的操作
 
@@ -73,7 +60,7 @@ List和set的
                                            Object dest, int destPos,
                                            int length);
 
-### List 
+### List
 
 List接口在Collection的基础之上增加了部分list独有的操作
 
@@ -88,11 +75,11 @@ List接口在Collection的基础之上增加了部分list独有的操作
 *   set(int,E) 设置list某处的元素
 *   subList(int,int) 返回下标1和下标2之间的list
 
-#### AbstractList 
+#### AbstractList
 
 AbstractList对List接口进行了实现,并引入了SubList,Itr和ListItr三个内部类,用于实现subList和listIterator方法,并增加了一个域`modCount`structurally modified的次数(transient修饰)
 
-#### ArrayList 
+#### ArrayList
 
 ArrayList的`elementData`,存储list元素的数组,并且这个域是transient(不参与序列化)修饰的,因为ArrayList重写了readObject和writeObject
 
@@ -102,7 +89,7 @@ ArrayList在AbstractList之外多了一些方法
 *   ensureCapacity(int) 增加ArrayList实例的容量(确保能保存最小的容量)
 *   trimToSize() 将list的容量trim到list当前的size
 
-#### Queue 
+#### Queue
 
 *   add(E) 在队列中添加特定的元素,成功则返回true,如果没有多余空间则抛出IllegalStateException
 *   element() 返回队首元素,它和peek()方法的不同是,如果队列为空,element()抛出noSuchElementException,peek()返回null
@@ -111,7 +98,7 @@ ArrayList在AbstractList之外多了一些方法
 *   poll() 返回队首元素,并从队首移除,如果队列为空,返回null
 *   remove() 返回队首元素,并从队首移除,如果队列为空,抛出noSuchElementException
 
-#### Deque 
+#### Deque
 
 *   addFirst(E) 在对头添加元素,无返回值
 *   addLast(E) 在队尾添加元素,无返回值
@@ -131,7 +118,7 @@ ArrayList在AbstractList之外多了一些方法
 *   removeLast() 返回队尾元素,并从队列移除,如果对列为空,抛出NoSuchElementException
 *   removeLastOccurrence() 移除对象在队列中的最后次出现,如果移除成功,返回true,
 
-#### LinkedList 
+#### LinkedList
 
 LinkedList是基于`双向循环链表`来实现的,数据结构如下:
 
@@ -157,13 +144,13 @@ LinkedList是基于`双向循环链表`来实现的,数据结构如下:
 ### Set  
 set 接口和collection接口方法完全一样
 
-#### AbstractSet 
+#### AbstractSet
 
 *   重写了equals(Object o)方法,集合A和B size相等,并且A包含B所有元素
 *   重写了hashCode() 重写了equals方法就要重写hashCode方法
 *   实现了removeAll(Collection<?> c)
- 
-#### SortedSet 
+
+#### SortedSet
 
 *   Comparator<? super E> comparator() 返回这个sortedSet的比较器
 *   E first() 返回这个Set的第一个元素
@@ -172,12 +159,12 @@ set 接口和collection接口方法完全一样
 *   SortedSet<E> tailSet(E fromElement) 返回这个set大于fromElement的set
 *   SortedSet<E> subSet(E fromElement, E toElement) 返回这个set从fromElement(包括)到toElement(不包括)的set
 
-#### NavigableSet 
+#### NavigableSet
 
-*   E lower(E e) 返回集合中小于元素e的最大的元素 
-*   E floor(E e) 返回集合中小于或等于元素e的最大的元素 
-*   E ceiling(E e) 返回集合中大于或等于元素e的最大的元素 
-*   E higher(E e) 返回集合中大于元素e的最大的元素 
+*   E lower(E e) 返回集合中小于元素e的最大的元素
+*   E floor(E e) 返回集合中小于或等于元素e的最大的元素
+*   E ceiling(E e) 返回集合中大于或等于元素e的最大的元素
+*   E higher(E e) 返回集合中大于元素e的最大的元素
 *   E pollFirst() 类似(#Deque)的,返回集合的最小元素,并从集合中移除
 *   E pollLast() 类似(#Deque)的,返回集合的最大元素,并从集合中移除
 *   Iterator<E> iterator() ..
@@ -190,9 +177,9 @@ set 接口和collection接口方法完全一样
 *   SortedSet<E> headSet(E toElement) == headSet(toElement, false)
 *   SortedSet<E> tailSet(E fromElement) == tailSet(fromElement, true)
 
-#### TreeSet 
+#### TreeSet
 
-#### HashSet 
+#### HashSet
 
 1.  实际上是通过HashMap来实现的 `map.put(e, PRESENT)==null;`
 2.  不保证集合元素的顺序

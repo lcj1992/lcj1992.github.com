@@ -3,7 +3,8 @@ layout: post
 title: logback日常总结
 date: 2015-12-28
 categories: soft java
-tags: logback asyncAppender
+tags:
+    - log
 ---
 
 *   打印异常

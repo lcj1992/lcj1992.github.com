@@ -3,20 +3,14 @@ layout: post
 title: 一个题目来说equals和hashCode
 date: 2016-03-12
 categories: java
-tags: equals hashCode
+tags:
+    - equals
+    - hashCode
 ---
-
-
-*   [HashMap#put](#put)
-*   [HashMap#hash](#hash)
-*   [HashMap#indexFor](#indexFor)
-*   [HashMap#get](#get)
-*   [HashMap#getEntry](#getEntry)
-
 
 概念原理相关 [参见这里](/2016/03/10/equals_hashcode)
 
-### 下边程序结果是什么? 
+### 下边程序结果是什么?
 
     ...
     @Override
@@ -39,9 +33,9 @@ tags: equals hashCode
         hashMap.put(p1, 1);
 
         System.out.println(hashMap.get(new People("foolchild", 24)));
-    } 
+    }
     ...
-  
+
 扒扒HashMap的put和get
 
 ### HashMap#put()  
@@ -107,7 +101,7 @@ tags: equals hashCode
         // h & (length - 1) 其实就是 h % length,不过前者效率高的多,这样可以保证分配平均
         return h & (length-1);
     }
-    
+
 最后来看看
 
 ### hashMap#get()  
@@ -120,8 +114,8 @@ tags: equals hashCode
 
         return null == entry ? null : entry.getValue();
     }
-    
-### HashMap#getEntry 
+
+### HashMap#getEntry
 
 只有e.hash == hash(key),且e.key == key 或者e.key equals key才返回e.
 
@@ -129,7 +123,7 @@ tags: equals hashCode
         if (size == 0) {
             return null;
         }
-        
+
         //hash(key) 是否熟悉,忘了的话看上边
         int hash = (key == null) ? 0 : hash(key);
         for (Entry<K,V> e = table[indexFor(hash, table.length)];
@@ -145,7 +139,7 @@ tags: equals hashCode
         return null;
     }
 
-### 结论 
+### 结论
 
 最后一行的方法调用链如下:
 

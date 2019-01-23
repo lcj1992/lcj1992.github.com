@@ -3,13 +3,15 @@ layout: post
 title: 一条sql的执行（mysql）
 date: 2016-07-16
 categories: db
-tags: explain select mysql
+tags:
+    - select
+    - mysql
 ---
 
 
 
 
-## select sql执行顺序 
+## select sql执行顺序
 
     (8)SELECT (9)DISTINCT
     <select_list>
@@ -31,7 +33,7 @@ ps:
 
 limit works on MySQL and PostgreSQL, top works on SQL Server, rownum works on Oracle.
 
-### 细解 
+### 细解
 
 1.  on vs where
     两者效果可能一样(内连接)，但on是连接两表做笛卡尔积时的连接条件，where连接之后的筛选条件。

@@ -3,10 +3,11 @@ layout: post
 title: awk
 date: 2015-12-25
 categories: unix
-tags: awk unix
+tags:
+    - awk
 ---
 
-<h4 id="picture">原理图</h4>
+## 原理图
 
 ![原理图](/images/unix/awkFlow.jpg)
 
@@ -18,7 +19,7 @@ option为命令的选项，pattern为行匹配规则，action为执行的具体�
 
         awk 'BEGIN {FS=":";print "---header---"} /mysql/  {print $1}  END {print "---footer---"}' /etc/passwd
 
-<h4 id="inVar">内建变量</h4>
+## 内建变量
 
 内建变量
 
@@ -36,7 +37,7 @@ option为命令的选项，pattern为行匹配规则，action为执行的具体�
 |FILENAME|当前输入文件的名字|
 |length($0)|当前行的长度|
 
-<h4 id="example">例子</h4>
+## 例子
 
 1.打印第1，4列，其中$0是所有列　　
 
@@ -103,4 +104,4 @@ option为命令的选项，pattern为行匹配规则，action为执行的具体�
 
 15.打印最后一列
 
-`awk '{print $NF}' file` 
+`awk '{print $NF}' file`

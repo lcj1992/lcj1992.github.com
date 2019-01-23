@@ -3,10 +3,9 @@ layout: post
 title: java并发编程实战笔记与实践
 date: 2015-11-25
 categories: java
-tags: concurrent
+tags:
+    - concurrent
 ---
-
-
 
 
 ### 简介

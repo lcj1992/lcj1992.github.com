@@ -3,11 +3,9 @@ layout: post
 title: 重构
 date: 2017-05-13
 categories: clean_code
-tags: clean_code
+tags:
+    - clean_code
 ---
-
-
-
 
 #### 开篇的例子
 

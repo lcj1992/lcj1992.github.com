@@ -3,26 +3,12 @@ layout: post
 title: thrift
 date: 2016-07-26
 categories: soft
-tags: thrift rpc
+tags:
+    - thrift
+    - rpc
 ---
 
-
-  
-  
-  
-  
-  * [thrift VS protobuf](#thrift_vs_protobuf)
-
-  
-  
-    * [编写thrift接口定义（idl）](#thrift_file)
-    
-    
-    
-    
-  
-
-### thrift基本概念 
+### thrift基本概念
 
 ![thrift_architecture](/images/soft/thrift_architecture.png)
 
@@ -31,7 +17,7 @@ Thrift通过一个中间语言(IDL, 接口定义语言)来定义RPC的接口和�
 * 协议层（protocol）：RPC报文格式和数据编码格式
 * 传输层（transport）：实现底层的通信（如 socket）以及系统相关的功能（如事件循环、多线程）
 
-#### 数据类型 
+#### 数据类型
 
 参见org.apache.thrift.protocol.TType
 
@@ -42,7 +28,7 @@ Thrift通过一个中间语言(IDL, 接口定义语言)来定义RPC的接口和�
 * Service： 定义对象的接口，和一系列方法
 详见[数据类型](https://diwakergupta.github.io/thrift-missing-guide/#_types)
 
-#### 协议层类型 
+#### 协议层类型
 
 参见org.apache.thrift.protocol.TProtocol
 Thrift可以让你选择客户端与服务端之间传输通信协议的类别，在传输协议上总体上划分为文本(text)和二进制(binary)传输协议, 为节约带宽，提供传输效率，一般情况下
@@ -54,7 +40,7 @@ Thrift可以让你选择客户端与服务端之间传输通信协议的类别�
 * TSimpleJSONProtocol – 这种节约只提供JSON只写的协议，适用于通过脚本语言解析
 * TDebugProtocol – 在开发的过程中帮助开发人员调试用的，以文本的形式展现方便阅读。
 
-#### 传输层类型 
+#### 传输层类型
 
 参见org.apache.thrift.transport.TTransport
 
@@ -68,7 +54,7 @@ Thrift可以让你选择客户端与服务端之间传输通信协议的类别�
 * TFramedTransport – 以frame为单位进行传输，非阻塞式服务中使用。同TBufferedTransport类似，也会对相关数据进行buffer，同时，它支持定长数据发送和接收。
 * TMemoryBuffer – 从一个缓冲区中读写数据，使用内存I/O，就好比Java中的ByteArrayOutputStream实现。
 
-#### 服务端类型 
+#### 服务端类型
 
 参见org.apache.thrift.server.TServer
 
@@ -77,14 +63,14 @@ Thrift可以让你选择客户端与服务端之间传输通信协议的类别�
 * TThreadPoolServer – 线程池服务模型，使用标准的阻塞式IO，预先创建一组线程处理请求。
 * TNonblockingServer – 多线程服务模型，使用非阻塞式IO（需使用TFramedTransport数据传输方式）
 
-#### thrift VS protobuf 
+#### thrift VS protobuf
 
 Thrift has integrated RPC implementation, while for Protobuf RPC solutions are separated, but available (like Zeroc ICE ).
 参照[thrift_protobuf](http://stackoverflow.com/questions/69316/biggest-differences-of-thrift-vs-protocol-buffers)
 
-### thrift使用 
+### thrift使用
 
-#### 安装 
+#### 安装
 
 方式一
 
@@ -99,9 +85,9 @@ Thrift has integrated RPC implementation, while for Protobuf RPC solutions are s
 
     brew install thrift
 
-#### 使用 
+#### 使用
 
-##### 编写a.thrift 
+##### 编写a.thrift
 
     namespace java tutorial
     namespace py tutorial
@@ -110,12 +96,12 @@ Thrift has integrated RPC implementation, while for Protobuf RPC solutions are s
         int multiply(1:int n1, 2:int n2),
     }
 
-##### 生成代码 
+##### 生成代码
 
     vi hello.thrifht
     thrift --gen java a.thrift
 
-##### 接口实现类 
+##### 接口实现类
 
     import org.apache.thrift.TException;
 
@@ -205,7 +191,7 @@ Thrift has integrated RPC implementation, while for Protobuf RPC solutions are s
         }
     }
 
-#### 抓包验证 
+#### 抓包验证
 
 下边的报文就是上边的例子的，server提供multiply的服务实现，client进行调用。主要看CALL multiply和REPLY multiply
 

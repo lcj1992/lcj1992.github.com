@@ -3,11 +3,10 @@ layout: post
 title: 从启动日志看spring mvc的流程
 date: 2015-01-27
 categories:  java_web
-tags: spring mvc
+tags:
+    - mvc
+    - spring
 ---
-
-
-
 
 ### 原理图  
 

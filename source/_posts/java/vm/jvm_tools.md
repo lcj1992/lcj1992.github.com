@@ -3,18 +3,16 @@ layout: post
 title: jvm性能工具(notes)
 date: 2015-12-26
 categories: java
-tags: jvm tool jps jstat jstack jmap jhar jcmd
+tags:
+    - jvm
+    - tool
+    - jps
+    - jstat
+    - jstack
+    - jmap
+    - jhar
+    - jcmd
 ---
-
-
-
-
-
-
-
-
-
-*oql)
 
 ### all
 

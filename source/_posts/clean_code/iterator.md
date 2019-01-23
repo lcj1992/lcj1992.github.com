@@ -3,11 +3,9 @@ layout: post
 title: 迭代器模式
 date: 2016-07-26
 categories: clean_code
-tags: iterator
+tags:
+    - iterator
 ---
-
-
-
 
 ## 定义
 

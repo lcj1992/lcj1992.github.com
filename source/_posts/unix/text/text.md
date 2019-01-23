@@ -3,10 +3,21 @@ layout: post
 title: 文本
 date: 2015-12-24
 categories: unix
-tags: text tail head　atnodes sort uniq ls cut tee jq sed awk xml2json
+tags:
+    - text
+    - tail
+    - head　
+    - atnodes
+    - sort
+    - uniq
+    - ls
+    - cut
+    - tee
+    - jq
+    - sed
+    - awk
+    - xml2json
 ---
-
-
 
 
 #### atnodes
@@ -224,7 +235,7 @@ echo -e 高亮
 
     echo 'xxx' | xml2json | jq .
 
-#### pbcopy,pbpaste 
+#### pbcopy,pbpaste
 
 大段的文本直接管道到pbcopy,应该会快点的(linux上xclip)
 
@@ -232,7 +243,7 @@ echo -e 高亮
     pbpaste > test
 
 
-#### 参考 
+#### 参考
 
 [1]<http://linuxtools-rst.readthedocs.org/zh_CN/latest/>
 

@@ -3,12 +3,9 @@ layout: post
 title: sublime插件
 date: 2016-03-11
 categories: tool
-tags: sublime
+tags:
+    - sublime
 ---
-
-
-
-
 
 
 首先需要安装包管理插件,方便安装其他插件
@@ -45,7 +42,7 @@ sublime text json 格式化插件安装
 
 一些好的插件 : <https://github.com/mytharcher/SimpleGray/blob/master/README.md>
 
-### 快捷键 
+### 快捷键
 
 #### 查找命令
 
@@ -55,7 +52,7 @@ sublime text json 格式化插件安装
 
 Type part of a file name to open it.
 
-1.  @ to jump to symbols,  `tp@rf`  会匹配test.py中的read_file 
+1.  @ to jump to symbols,  `tp@rf`  会匹配test.py中的read_file
 2.  \# to search within the file,  `tp#order` 会匹配test.py中的orderId
 3.  : to go to a line number.  `tp:100` 会跳到test.py的第100行
 
@@ -80,7 +77,7 @@ shift ＋ cmd ＋ L  选择
 然后进行重命名
 
 ctrl + cmd + j 格式化json
-ctrl + F5   排序 
+ctrl + F5   排序
 
 注册码：见参考[2]
 
@@ -91,4 +88,3 @@ ctrl + F5   排序
 [2]<http://9iphp.com/web/html/sublime-text-3-license-key.html>
 
 [sublimerge官网]<http://www.sublimerge.com/>
-

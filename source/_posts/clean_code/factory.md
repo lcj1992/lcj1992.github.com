@@ -3,7 +3,8 @@ layout: post
 title: 工厂（简单工厂、工厂方法、抽象工厂）
 date: 2016-07-26
 categories: clean_code
-tags: factory
+tags:
+    - factory
 ---
 
 

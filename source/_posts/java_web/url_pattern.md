@@ -3,20 +3,12 @@ layout: post
 title: url pattern
 date: 2015-12-27
 categories: java_web
-tags: url_pattern
+tags:
+    - url_pattern
 ---
 
-*   [标准的web.xml](#web.xml)
-    *   [url-pattern种类](#kind)
-    
-*   [ant-style](#ant_style)
 
-    
-    
-
-<h2 id="web.xml">标准的web.xml的path pattern</h2>
-
-<h3 id="kind">url-pattern种类</h3>
+### url-pattern种类
 
 |url-pattern|翻译下下|对应wrapper(匹配规则)|
 |-|-|
@@ -50,7 +42,7 @@ addServletMapping会调用[addWrapper](#addWrapper)将对应模式url-pattern加
 
 wrapper代表一个servlet，它负责管理一个Servlet，包括Servlet的装载,初始化,执行以及资源回收
 
-<h3 id="handler">tomcat处理顺序</h3>
+### tomcat处理顺序
 
 1.   精确匹配 `exact match`　对应 exactWrappers
 2.   前缀匹配 `prefix match`　对应wildcardWrappers
@@ -85,12 +77,12 @@ Ant path 匹配原则
 |/app/**/dir/file.	| 匹配(Matches) /app/dir/file.jsp, /app/foo/dir/file.html,/app/foo/bar/dir/file.pdf, 和 /app/dir/file.java
 |/**/*.jsp	|　匹配(Matches)任何的.jsp 文件
 
-<h2 id="addition">附录</h2>
+## 附录
 
 addWrapper：tomcat读取web.xml，将servlet分别加入对应的wrapper中
 internalMapWrapper: 按照一定的处理顺序，将请求分别打给对应的wrapper，交给该wrapper的servlet处理
 
-<h3 id="addWrapper">addWrapper</h3>
+### addWrapper
 
         /**
          * Adds a wrapper to the given context.
@@ -156,7 +148,7 @@ internalMapWrapper: 按照一定的处理顺序，将请求分别打给对应的
         }
 
 
-<h3 id="internalMapWrapper">internalMapWrapper</h3>
+### internalMapWrapper
 
         /**
          * Wrapper mapping.

@@ -3,7 +3,9 @@ layout: post
 title: explain调优sql语句（mysql）
 date: 2017-10-10
 categories: db
-tags: explain select mysql
+tags:
+    - explain
+    - mysql
 ---
 
 
@@ -20,7 +22,7 @@ ps:
 2.  认为增加explain时mysql不会执行查询，这是错误的。实际上如果查询在from自居中包含子查询，mysql实际上是会执行子查询的。
 3.  explain只是个近似的结果
 
-### explain输出字段说明 
+### explain输出字段说明
 
 |字段|对应json格式的key|含义|备注|
 |-|-|-|-|-|
@@ -37,7 +39,7 @@ ps:
 |filtered|filtered|被查询条件过滤的记录数的占比|5.7.3之前extended才会显示,总是100%！？参见[总是100%](http://blog.chinaunix.net/uid-20726500-id-5573764.html)|
 |Extra|none|额外信息|using index 使用覆盖索引；using where 使用where过滤|
 
-#### select_type说明 
+#### select_type说明
 
 |类型|对应json格式的key|含义|
 |-|-|-|
@@ -58,7 +60,7 @@ ps:
 2.  uncacheable: select中的某些特性阻止结果被缓存在一个Item_cache中（Item_cache未被文档记载，它与查询缓存不是一回事，尽管它可以被一些相同类型的构件否定，例如RAND()函数）
 3.  针对select，不出意外的话，应该是你的sql中有多少个select，explain你的sql，就会有多少行，每个select都对应有自己的select_type。
 
-#### table列说明 
+#### table列说明
 
 M，N都是explain结果中的id字段值
 
@@ -68,7 +70,7 @@ M，N都是explain结果中的id字段值
 |`<derivedN>` |第n行的派生表的select|
 |`<subqueryN>`| The row refers to the result of a materialized subquery for the row with an id value of N|
 
-#### type 
+#### type
 
 |类型|含义|备注|case|
 |-|-|-|-|
@@ -124,7 +126,7 @@ case2:
 3.  id为2: type为index，且Extra为Using index表明使用了覆盖索引优化,索引树中包含所有select的数据，所以就不需要回表拿数据了
 4.  id为1: 使用了book_id索引，且使用了>=,所以为range，
 5.  id为1: 使用了where条件，所以Extra中有Using where
-6.  id为1: rows 19764(估计值) 
+6.  id为1: rows 19764(估计值)
 
 case3:
 

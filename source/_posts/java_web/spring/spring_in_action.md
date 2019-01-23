@@ -3,11 +3,11 @@ layout: post
 title: spring实战
 date: 2016-01-07
 categories: java_web
-tags: spring bean context cglib dynamicProxy
+tags:
+    - spring
+    - cglib 
+    - dynamicProxy
 ---
-
-
-
 
 本文就是用，不讲任何源码，简易版手册
 
@@ -173,7 +173,7 @@ ApplicationListener<ContextRefreshEvent>
 
 Constructor > @PostConstruct > InitializingBean > init-method，构造函数最优先
 
-# 参考 
+# 参考
 
 [component-scan-vs-annotation-config](http://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan)
 [scope](http://stackoverflow.com/questions/7621920/scopeprototype-bean-scope-not-creating-new-bean)

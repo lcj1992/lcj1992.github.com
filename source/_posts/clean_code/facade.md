@@ -3,11 +3,9 @@ layout: post
 title: 门面模式
 date: 2016-07-26
 categories: clean_code
-tags: facade
+tags:
+    - facade
 ---
-
-
-
 
 ## 定义
 

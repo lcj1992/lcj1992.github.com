@@ -3,7 +3,9 @@ layout: post
 title: 背包问题
 date: 2014-11-10
 categories: algorithm
-tags: knapsack dp
+tags:
+    - knapsack
+    - dp
 ---
 
 ### 01_knapsack
@@ -45,6 +47,6 @@ tags: knapsack dp
       return 0;
     }
 
-### 参考 
+### 参考
 
 [1]<https://en.wikipedia.org/wiki/Knapsack_problem>

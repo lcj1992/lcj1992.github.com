@@ -3,11 +3,10 @@ layout: post
 title: 通过clion查看mysql-server源码
 date: 2017-10-10
 categories: db
-tags: mysql-server
+tags:
+    - mysql-server
+    - source
 ---
-
-
-
 
 ### 下载编译
 

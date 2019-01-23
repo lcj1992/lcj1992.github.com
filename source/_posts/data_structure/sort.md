@@ -4,12 +4,16 @@ title: 内部排序
 date: 2014-11-09
 categories: ds
 description: 常用的排序算法
-keywords: 内部排序, shell, quick, heap
+keywords:
+    - 内部排序
+    - shell
+    - quick
+    - heap
 ---
 
-  
+
 	#include <stdio.h>
-	 
+
 	void quickSort(int a[], int len);
 	void shellSort(int a[], int len);
 	void heapSort(int a[], int len);
@@ -23,7 +27,7 @@ keywords: 内部排序, shell, quick, heap
 	void swap(int *i, int *j);
 	//打印数组
 	void print(int a[], int len);
-	 
+
 	int main(){
 		int a[10] = { 7, 2, 4, 9, 7, 3, 5, 10, 2, 14 };
 		print(a,10);
@@ -33,14 +37,14 @@ keywords: 内部排序, shell, quick, heap
 		print(a, 10);
 		getchar();
 	}
-	 
+
 	void print(int a[], int len){
 		for (int i = 0; i < len; i++){
 			printf("%d   ", a[i]);
 		}
 		printf("\n");
 	}
-	
+
 ### 快排
 
 	/*快排
@@ -71,7 +75,7 @@ keywords: 内部排序, shell, quick, heap
 		quickSort(a, start);
 		quickSort(a + start + 1,len - start - 1);
 	}
-	 
+
 	void swap(int *i, int *j){
 		int tmp = *i;
 		*i = *j;
@@ -79,7 +83,7 @@ keywords: 内部排序, shell, quick, heap
 	}
 
 ### 堆排  
-	
+
 	/*堆排
 	首先你得知道什么是选择排，就是每次选出一个来，至于你怎么选，那就看你了
 	堆排就是通过堆每次选出堆顶的元素，然后不断的调整堆，关键点也就是建堆和调整堆了
@@ -92,8 +96,8 @@ keywords: 内部排序, shell, quick, heap
 			adjustHeap(a,len);
 		}
 	}
-	 
-	 
+
+
 	/*如何建堆呢？
 	以大顶堆为例，在大顶堆的世界里有一条原则，老子总比小子牛逼。
 	所以你得逐个调整，从最后一个元素开始，如果出现儿子比他爸大的情况，父子换位。
@@ -112,7 +116,7 @@ keywords: 内部排序, shell, quick, heap
 			}
 		}
 	}
-	 
+
 	int height(int len){
 		int level = 0;
 		while (len){
@@ -121,7 +125,7 @@ keywords: 内部排序, shell, quick, heap
 		}
 		return level;
 	}
-	 
+
 	/*如何调整堆呢？
 	在调整堆之前我们做的处理是什么，把堆顶的元素和最后一个元素调了个个，
 	并把len减了1，但是我们不能保证最后一个元素是最大的啊，所以要调整。
@@ -133,7 +137,7 @@ keywords: 内部排序, shell, quick, heap
 		int level = height(len);
 		int index = 0;
 		while (len--){
-			int maxIndex = a[2 * index + 1] > a[2 * index + 2] ? 
+			int maxIndex = a[2 * index + 1] > a[2 * index + 2] ?
 					(2 * index + 1) : (2 * index + 2);
 			if (maxIndex > len){
 				break;
@@ -145,8 +149,8 @@ keywords: 内部排序, shell, quick, heap
 		}
 	}
 
-### shell排 
- 
+### shell排
+
 	/*shell
 	有问题
 	*/

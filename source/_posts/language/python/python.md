@@ -2,11 +2,12 @@
 layout: post
 title: python basic
 date: 2014-11-07
-categories: language
+categories:
+    - python
 ---
 
 **数据类型**：
-	
+
 *	空          `None`  
 *   布尔类型     `Boolean`  
 *	整型        `Int`  
@@ -17,7 +18,7 @@ categories: language
 *	集合 `Set`
 *	字典 `Dict`
 *	日期 `Date`
-  
+
 **控制流**：
 
 if语句：
@@ -25,7 +26,7 @@ if语句：
 	  #!/usr/bin/python
 	  number = 23
 	  guess  = int(raw_input('Enter an integer:'))
-	  
+
 	  if guess == number:
 	          print 'equals'
 	          print 'but you do not win any prizes!'
@@ -34,20 +35,20 @@ if语句：
 	  else:
 	          print 'smaller'
 	  print 'Done'
-  
+
 while语句：（python 中循环可以和else连用）
 
 	  #!/usr/bin/python
 	  number = 23
 	  running = True
-	  
+
 	  while running:
 	          guess = int(raw_input('Enter an integer:'))
-	  
+
 	          if guess ==  number:
 	                  print 'Congratulations'
 	                  print 'but you do not win any prizes.'
-	                  running = False 
+	                  running = False
 	          elif guess < number:
 	                  print 'lower than that'
 	                  print 'try again'
@@ -61,23 +62,23 @@ while语句：（python 中循环可以和else连用）
 for循环
 
 	  #!/usr/bin/python
-	  
+
 	  for i in range(1, 5):
 	      print i
 	  else:
 	      print 'The for loop is over'
-      
+
 break语句：
 
 	  #!/usr/bin/python
-	  
+
 	  while True:
 	          s = raw_input('Enter something:')
 	          if s == 'quit':
 	                  break
 	          print 'Length of the string is', len(s)
 	  print 'Done'
-  
+
 continue语句：
 
 	  #!/usr/bin/python

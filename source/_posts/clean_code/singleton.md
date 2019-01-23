@@ -3,11 +3,9 @@ layout: post
 title: 单例模式
 date: 2016-07-26
 categories: clean_code
-tags: singleton
+tags:
+    - singleton
 ---
-
-
-
 
 确保一个类只有一个实例，并提供一个全局访问点。
 
@@ -26,7 +24,7 @@ tags: singleton
 1.  instance必须声明为volatile，保证初始化的过程中，不会发生重排序。
 2.  保证check and act的原子性。
 
-#### 简单版本 
+#### 简单版本
 
     public class SimpleVersion {
         private static volatile SimpleVersion instance = null;
@@ -39,7 +37,7 @@ tags: singleton
         }
     }
 
-#### 双重检查 
+#### 双重检查
 
     public class DoubleCheckVersion {
         // 必须声明为volatile, 禁止重排序
@@ -143,7 +141,7 @@ singleton3 : creational.singleton.lazyInit.SimpleVersion@2c7b84de
 
 ```
 
-### 参考 
+### 参考
 
 [深入浅出单实例Singleton设计模式]<http://coolshell.cn/articles/265.html>
 

@@ -3,7 +3,9 @@ layout: post
 title: 写可维护的代码
 date: 2017-10-11
 categories: clean_code
-tags: iso25000 clean_code
+tags:
+    - iso25000
+    - clean_code
 ---
 
 

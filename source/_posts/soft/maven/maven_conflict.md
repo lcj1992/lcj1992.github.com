@@ -3,7 +3,8 @@ layout: post
 title: 解决maven冲突终极办法
 date: 2014-11-20
 categories: soft
-tags: maven
+tags:
+    - maven
 ---
 
 #### 基础

@@ -5,21 +5,13 @@ date: 2015-12-08
 categories: secure
 ---
 
-
-
-
-
-
-　    
-
-
-#### xss攻击(跨站脚本攻击) 
+#### xss攻击(跨站脚本攻击)
 
 防范：
 
 对用户输入的数据进行html转义
 
-#### csrf攻击 
+#### csrf攻击
 防范：
 
 1.将cookie设置为httponly
@@ -28,7 +20,7 @@ categories: secure
 
 3.通过referer识别
 
-#### sql注入 
+#### sql注入
 攻击原理：
 
     Class.forName("com.mysql.jdbc.Driver");
@@ -48,6 +40,3 @@ categories: secure
 3.避免密码明文存放
 
 4.处理好相应的异常
-
-
-

@@ -8,6 +8,8 @@ tags:
 ---
 
 
+## 标准的web.xml的path pattern
+
 ### url-pattern种类
 
 |url-pattern|翻译下下|对应wrapper(匹配规则)|

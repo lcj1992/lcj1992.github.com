@@ -3,7 +3,9 @@ layout: post
 title: 系统调用
 date: 2015-12-31
 categories: os
-tags: system_call os
+tags:
+    - system_call
+    - os
 ---
 
 unix系统调用大致分为三类：第一类是与进程管理有关的系统调用；第二类是与文件和外设管理有关的系统调用；第三类是与系统状态有关的系统调用

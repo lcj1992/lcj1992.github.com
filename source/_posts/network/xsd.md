@@ -3,7 +3,8 @@ layout: post
 title: xsd
 date: 2015-12-27
 categories: network
-tags: xsd
+tags:
+    - xsd
 ---
 
 a schema is an abstract collection of metadata, consisting of a set of schema components: chiefly element and attribute declarations and complex and simple type definitions. These components are usually created by processing a collection of schema documents, which contain the source language definitions of these components. In popular usage, however, a schema document is often referred to as a schema.

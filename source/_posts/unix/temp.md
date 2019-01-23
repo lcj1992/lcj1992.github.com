@@ -3,7 +3,21 @@ layout: post
 title: 尚未安家的
 date: 2015-12-27
 categories: linux
-tags: date id scp debug clion ctags cscope whois which whereis whatis ldd screen sublime
+tags:
+    - date
+    - id
+    - scp
+    - debug
+    - clion
+    - ctags
+    - cscope
+    - whois
+    - which
+    - whereis
+    - whatis
+    - ldd
+    - screen
+    - sublime
 ---
 
 1.id

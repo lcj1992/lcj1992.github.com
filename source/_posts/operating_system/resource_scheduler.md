@@ -3,7 +3,9 @@ layout: post
 title: 资源分配与调度
 date: 2015-12-31
 categories: os
-tags: resource scheduler
+tags:
+    - resource
+    - scheduler
 ---
 
 #### 基本概念

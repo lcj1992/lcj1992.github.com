@@ -3,7 +3,8 @@ layout: post
 title: http协议(译)
 date: 2015-12-27
 categories: network
-tags: http
+tags:
+    - http
 ---
 
 `Each header field consists of a name followed by a colon (":") and the field value. Field names are case-insensitive.`

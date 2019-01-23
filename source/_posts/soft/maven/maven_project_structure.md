@@ -3,7 +3,8 @@ layout: post
 title: maven工程结构(译)
 date: 2015-12-28
 categories: soft
-tags: maven
+tags:
+    - maven
 ---
 
 #### project

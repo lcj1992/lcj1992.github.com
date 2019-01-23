@@ -3,7 +3,9 @@ layout: post
 title: leetcode的脚本全解
 date: 2016-04-30
 categories: language
-tags: leetcode shell
+tags:
+    - leetcode
+    - shell
 ---
 
 ***[Tenth Line](https://leetcode.com/problems/tenth-line/)***

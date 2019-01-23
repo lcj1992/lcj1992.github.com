@@ -3,11 +3,9 @@ layout: post
 title: kafka源码分析
 date: 2016-07-10
 categories: soft
-tags: kafka
+tags:
+    - kafka
 ---
-
-
-
 
 ### kafka源码安装
 

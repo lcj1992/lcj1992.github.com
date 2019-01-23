@@ -3,7 +3,8 @@ layout: post
 title: sed
 date: 2015-12-26
 categories: unix
-tags: sed
+tags:
+    - sed
 ---
 
 http://coolshell.cn/articles/9104.html
@@ -164,6 +165,6 @@ command中首先要定址，你要告诉sed你希望处理的行,
 `sed '=' access.log`
 显示行号,类似的还有
 
-vi 中输入:set nu 
+vi 中输入:set nu
 
 cat -n xx.log

@@ -3,7 +3,8 @@ layout: post
 title: spring基础
 date: 2016-01-07
 categories: java_web
-tags: spring
+tags:
+    - spring
 ---
 
 #### spring架构
@@ -33,6 +34,6 @@ tags: spring
 
 *   aop 面向切面编程,提供比如日志记录、权限控制、性能统计等通用功能和业务逻辑分离的技术
 
-#### 参考 
+#### 参考
 
 [1]<http://www.importnew.com/17474.html>

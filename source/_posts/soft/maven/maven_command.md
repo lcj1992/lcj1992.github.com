@@ -3,7 +3,8 @@ layout: post
 title: maven基本命令
 date: 2015-12-28
 categories: soft
-tags: maven
+tags:
+    -  maven
 ---
 
 #### 基础

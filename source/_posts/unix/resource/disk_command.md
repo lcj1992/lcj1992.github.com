@@ -3,7 +3,9 @@ layout: post
 title: 磁盘命令
 date: 2015-12-27
 categories: unix
-tags: du df
+tags:
+    - du
+    - df
 ---
 
     lcj@lcj:~$ df -h
@@ -54,6 +56,3 @@ KB_read/s表示每秒从设备读取的数据量
 KB_wrtn/s表示每秒向设备写入的数据量
 KB_read 表示读取的数据总量
 KB_wrtn 表示写入的数据总量
-
-
-

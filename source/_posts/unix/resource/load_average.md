@@ -3,7 +3,8 @@ layout: post
 title: load average
 date: 2015-12-27
 categories: unix
-tags: load
+tags:
+    - load
 ---
 
 #### 基本含义

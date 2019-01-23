@@ -3,7 +3,9 @@ layout: post
 title: tmux & screen @Deprecated
 date: 2015-12-28
 categories: unix
-tags: tmux screen
+tags:
+    - tmux
+    - screen
 ---
 
 买了alfred和dash后，发现这篇文章完全可以废掉了,因为dash里有tmux和screen的手册，而且清晰简单，不像有些linux命令的手册似的，晦涩难懂。

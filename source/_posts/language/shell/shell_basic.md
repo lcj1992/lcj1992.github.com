@@ -3,7 +3,8 @@ layout: post
 title: shell语法
 date: 2015-03-18
 categories: language
-tags: shell
+tags:
+    - shell
 ---
 
 ###shell 基础
@@ -24,7 +25,7 @@ tags: shell
 
 5.变量类型：局部变量，环境变量，shell变量
 
-6.从终端读入并保存在变量中 `read xxval`	
+6.从终端读入并保存在变量中 `read xxval`
 
 #### 特殊变量
 
@@ -187,7 +188,7 @@ test or [ ﻿判定语句 ]
     else
        Statement(s) to be executed if no expression is true
     fi
-    
+
 #### case
 
 取值后面必须为关键字 in，每一模式必须以右括号结束。取值可以为变量或常数。匹配发现取值符合某一模式后，其间所有命令开始执行直至 ;;。;; 与其他语言中的 break 类似，意思是跳到整个 case 语句的最后.取值将检测匹配的每一个模式。一旦模式匹配，则执行完匹配模式相应命令后不再继续其他模式。如果无一匹配模式，使用星号 * 捕获该值，再执行后面的命令。

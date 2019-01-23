@@ -3,7 +3,8 @@ layout: post
 title: 2017计划（2017-01-28--2018-02-15）
 date: 2017-02-06
 categories: think
-tags: plan
+tags:
+    - plan
 ---
 
 ## 17年计划

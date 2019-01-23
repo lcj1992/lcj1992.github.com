@@ -3,7 +3,8 @@ layout: post
 title: 2017年终总结
 date: 2018-02-23
 categories: think
-tags: plan
+tags:
+    - plan
 ---
 
 17年年终总结，主要集中在工作和学习上
@@ -37,17 +38,17 @@ tags: plan
 1. 实现模式：
   - 本书最大的跨度只到类一级，是一本小书，也是一本好书，介于编程语言和设计模式之间。
   - 完成度 100%
-  - 产出：读书笔记[实现模式](/2017/01/29/implementation-patterns)
+  - 产出：读书笔记[实现模式](/2017/01/29/clean_code/implementation-patterns)
 
 2. head first设计模式、设计模式：
   - 类内、类间
   - 完成度 100%
-  - 产出: 读书笔记[设计模式概述](/2016/07/28/design_overview)
+  - 产出: 读书笔记[设计模式概述](/2016/07/28/clean_code/design_overview)
 
 3. effective java、阿里巴巴java开发手册、重构
   - 类内、类间、模块间
   - 完成度 70%
-  - 产出: [写可维护的代码](/2017/10/11/maintainable_code)、[重构](/2017/05/13/refactor_list)
+  - 产出: [写可维护的代码](/2017/10/11/clean_code/maintainable_code)、[重构](/2017/05/13/clean_code/refactor_list)
 
 4. 实现领域驱动设计、微服务设计
   - 模块间

@@ -4,7 +4,6 @@ title: 回调函数与函数指针
 date: 2015-01-25
 categories: language
 description: function_pointer
-tags:
 ---
 
 

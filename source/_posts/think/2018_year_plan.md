@@ -3,10 +3,9 @@ layout: post
 title: 2018计划（2017-02-15--2018-02-04）
 date: 2018-02-23
 categories: think
-tags: plan 2018
+tags:
+    - plan
 ---
-
-
 
 
 ### 前言

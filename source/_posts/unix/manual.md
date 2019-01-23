@@ -3,7 +3,9 @@ layout: post
 title: 学会使用手册
 date: 2015-12-22
 categories: unix
-tags: man unix command
+tags:
+    - man
+    - unix
 ---
 
 ### apropos　
@@ -17,7 +19,7 @@ tags: man unix command
 查看which命令是做什么用的
 
     apropos -e which
-    
+
 ### manual(手册)
 
 | 快捷键| 作用  |
@@ -45,7 +47,7 @@ ubuntu
 /usr/bin/xx　安装的不需要root权限的
 /usr/sbin/xx 安装的需要root权限的
 
-mac 
+mac
 /usr/local/bin/ brew安装的软件都在这
 
 ### 实用至上

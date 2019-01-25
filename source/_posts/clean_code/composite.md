@@ -7,9 +7,6 @@ tags:
     - composite
 ---
 
-
-
-
 ## 定义
 
 ### 动机

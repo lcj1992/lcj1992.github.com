@@ -28,7 +28,7 @@ mac的包管理工具默认是不带的，需要自己安装。
 
 
     brew install xxx
-    brew remove xxx
+    brew remove xx
     port install xxx
     port remove xxx
 

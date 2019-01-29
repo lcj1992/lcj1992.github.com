@@ -10,7 +10,7 @@ tags:
 
 在文件树种查找文件，并做相应处理
 
-            find pathname -options [-print -exec -ok ...]
+        find pathname -options [-print -exec -ok ...]
 
 命令参数
 

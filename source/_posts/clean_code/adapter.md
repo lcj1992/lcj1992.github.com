@@ -24,6 +24,8 @@ tags:
 3. Adapter
     * 对Adaptee的接口与Target接口进行适配
 
+<!-- more -->
+
 ## 优点
 类适配器
 

@@ -8,9 +8,6 @@ tags:
     - mysql
 ---
 
-
-
-
 ## select sql执行顺序
 
     (8)SELECT (9)DISTINCT

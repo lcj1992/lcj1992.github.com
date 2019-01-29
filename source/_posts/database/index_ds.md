@@ -7,9 +7,6 @@ tags:
     - index
 ---
 
-
-
-
 ## 索引的数据结构
 
 ### myisam

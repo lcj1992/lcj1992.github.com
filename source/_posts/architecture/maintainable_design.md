@@ -8,7 +8,6 @@ tags:
     - clean_code
 ---
 
-
 ### 要有代码
 有人也许为认为，代码不再是问题，我们正在临近代码的终结点，代码就会自动产生出来，不需要人工编写？
 但事实是我们可以创造各种与需求接近的语言，可以创造帮助把需求解析和汇整为正式结构的各种工具，但是这些工具也需要代码的，语言也是需要翻译的，类似于java与javac（c++编写）的关系，所以代码永存。
@@ -635,9 +634,3 @@ public class PersistenceCompositeLogic extends CompositeLogic {
 [IOC 与 好莱坞原则](http://blog.csdn.net/gaoxiaoyun00130901/article/details/7522161)
 
 [编程中的命名设计那点事](https://coolshell.cn/articles/990.html)
-
-实现模式
-
-重构
-
-代码整洁之道

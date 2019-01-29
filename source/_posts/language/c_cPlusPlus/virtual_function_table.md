@@ -5,7 +5,6 @@ date: 2014-11-03
 categories: language
 ---
 
-
 **单继承**
 
 无虚函数覆盖：

@@ -7,7 +7,6 @@ tags:
     - sublime
 ---
 
-
 首先需要安装包管理插件,方便安装其他插件
 
 ### package control

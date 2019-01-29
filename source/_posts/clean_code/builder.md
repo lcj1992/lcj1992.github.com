@@ -15,6 +15,7 @@ tags:
 
 ![builder](/images/design_pattern/builder.png)
 
+<!-- more -->
 ## 使用场景
 
 1. 当创建对象的算法应该独立于对象的组成部分以及他们的装配方式时。

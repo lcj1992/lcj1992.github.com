@@ -13,6 +13,7 @@ tags:
 
 ![桥接器](/images/design_pattern/bridge_uml.png)
 
+<!-- more -->
 1. Abstraction
     * 定义抽象类的接口。
     * 维护一个指向Implementor类型对象的指针。

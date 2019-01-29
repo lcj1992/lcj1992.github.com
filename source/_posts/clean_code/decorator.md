@@ -13,6 +13,8 @@ tags:
 
 ![装饰器](/images/design_pattern/decorator.jpg)
 
+<!-- more -->
+
 1. Component 定义一个对象接口，可以给这些对象动态的添加指责
 2. ConcreteComponent 定义一个对象，可以给这个对象添加一些职责
 3. Decorator 维持一个指向Component对象的指针，并定义一个与Component接口一致的接口

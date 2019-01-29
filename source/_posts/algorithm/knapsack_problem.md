@@ -47,6 +47,8 @@ tags:
       return 0;
     }
 
+<!-- more -->
+
 ### 参考
 
 [1]<https://en.wikipedia.org/wiki/Knapsack_problem>

@@ -52,7 +52,3 @@ tags:
 ![dead_lock](/images/performance/dead_lock_block.png)
 
 4.卧槽，死锁了
-
-### 工作遇到的
-
-//todo

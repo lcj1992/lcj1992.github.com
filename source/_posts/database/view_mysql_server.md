@@ -28,6 +28,7 @@ cmake \
 -DWITH_DEBUG=1  \
 -DDOWNLOAD_BOOST=1 -DWITH_BOOST=/Users/lichuangjian/soft/mysql/ -DDOWNLOAD_BOOST_TIMEOUT=60000
 ```
+<!-- more -->
 
 * 编译
 

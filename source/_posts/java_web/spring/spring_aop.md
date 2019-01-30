@@ -45,7 +45,7 @@ aspectj
 
 #### aop术语
 
-##### ***Advice（通知）***
+##### Advice（通知）
 
 `action taken by an aspect at a particular join point.` Different types of advice include "around," "before" and "after" advice. (Advice types are discussed below.)` Many AOP frameworks, including Spring, model an advice as an interceptor, maintaining a chain of interceptors around the join point.`
 
@@ -60,17 +60,17 @@ aspectj
 各advice类图
 ![advice](/images/java_web/aop_advice.png)
 
-##### ***JoinPoint（连接点）***
+##### JoinPoint（连接点）
 
 `a point during the execution of a program`, such as the execution of a method or the handling of an exception. `In Spring AOP, a join point always represents a method execution。`
 
-##### ***PointCut（切点）***
+##### PointCut（切点）
 
 `a predicate that matches join points.` Advice is associated with a pointcut expression and runs at any join point matched by the pointcut (for example, the execution of a method with a certain name). The concept of join points as matched by pointcut expressions is central to AOP, and Spring uses the AspectJ pointcut expression language by default.
 
 pointcut决定advice应该作用于哪个joinPoint，也就是说通过pointcut来定义需要增强的方法的集合，这些集合的选取可以按照一定的规则来完成。
 
-##### ***Aspect/Advisor（切面/通知器）***
+##### Aspect/Advisor（切面/通知器）
 
 a modularization of a concern that cuts across multiple classes. Transaction management is a good example of a crosscutting concern in enterprise Java applications. In Spring AOP, aspects are implemented using regular classes (the schema-based approach) or regular classes annotated with the @Aspect annotation (the @AspectJ style).切面是
 
@@ -84,11 +84,11 @@ ps: aspect和advisor的区别[aspect和advisor](http://www.iteye.com/problems/69
 It is perfectly possible to mix @AspectJ style aspects using the autoproxying support, schema-defined <aop:aspect> aspects, <aop:advisor> declared advisors and even proxies and interceptors defined using the Spring 1.2 style in the same configuration. All of these are implemented using the same underlying support mechanism and will co-exist without any difficulty. [官方文档](https://docs.spring.io/spring/docs/current/spring-framework-reference/html/aop.html#aop-mixing-styles)
 
 
-##### ***Introduction***
+##### Introduction
 
 declaring additional methods or fields on behalf of a type. Spring AOP allows you to introduce new interfaces (and a corresponding implementation) to any advised object. For example, you could use an introduction to make a bean implement an IsModified interface, to simplify caching. (An introduction is known as an inter-type declaration in the AspectJ community.)
 
-##### ***Weaving***
+##### Weaving
 
 linking aspects with other application types or objects to create an advised object. This can be done at compile time (using the AspectJ compiler, for example), load time, or at runtime. Spring AOP, like other pure Java AOP frameworks, performs weaving at runtime. 织入是把切面应用到目标对象并创建新的代理对象的过程。切面在指定的连接点织入到目标对象。在目标对象的生命周期里有多个点可以进行织入：
     * 编译期:切面在目标类编译时被织入，这种方式需要特殊的编译器，Aspectj的织入编译器就是以这种方法织入切面的

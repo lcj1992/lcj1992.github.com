@@ -5,7 +5,7 @@ date: 2016-01-07
 categories: java_web
 tags:
     - spring
-    - cglib 
+    - cglib
     - dynamicProxy
 ---
 

@@ -9,9 +9,6 @@ tags:
     - ServletContext
 ---
 
-
-
-
 本文基于spring4.3.1
 
 ### 入口-ContextLoaderListener

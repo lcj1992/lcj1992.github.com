@@ -2,9 +2,8 @@
 layout: post
 title: tomcat的启动关闭与请求处理
 date: 2016-04-26
-categories: soft
 tags:
-    - tomcat 
+    - tomcat
 ---
 
 基于7.0.42.0, tomcat源码导入idea[参看这篇](/2015/12/28/import_tomcat_to_idea)

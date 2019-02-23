@@ -2,7 +2,6 @@
 layout: post
 title: 磁盘命令
 date: 2015-12-27
-categories: unix
 tags:
     - du
     - df

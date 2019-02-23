@@ -2,9 +2,8 @@
 layout: post
 title: idea中编译tomcat源码(译)
 date: 2015-12-28
-categories: soft java_web
 tags:
-    - tomcat 
+    - tomcat
 ---
 
 ## 创建子模块方式

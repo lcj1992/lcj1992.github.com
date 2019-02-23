@@ -19,7 +19,6 @@ tags:
 7.  定时任务在这个目录`/var/spool/cron/xx`下增加一个文件,按照cron的格式写就行
 8.  cron的执行日志在`/var/log/cron`
 
-
 ### cron
 
 cron可以有6到7个域

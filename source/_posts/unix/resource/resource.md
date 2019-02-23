@@ -33,8 +33,6 @@ tags:
 *   pstree
 *   sar　收集，统计，保存系统活动信息
 *   ethtool
-/2015/12/26/jvm_tools)
-
 
      Performance tools　　
 

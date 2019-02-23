@@ -5,6 +5,7 @@ date: 2016-03-21
 categories: tool
 tags:
     - alfred
+    - dash
     - oh-my-zsh
     - zsh
     - z

@@ -27,7 +27,7 @@ tags:
 
 研究网络协议必备
 
-#### wiki
+#### 基础命令
 
 |命令选项|作用|
 |-|-|
@@ -56,7 +56,7 @@ eg:
 
 使用表达式可以让你略去各种各样的流量而只得到你真正关注的。掌握表达式并且会创造性地使用组合技巧才使你真正发挥tcpdump的力量。有三种主要的表达式: type, dir 和 proto.
 
-***1.主要的表达式:***
+##### 主要的表达式
 
 type: `host`,`net`,`port`,`portrange`
 
@@ -76,7 +76,7 @@ eg:
     tcpdump less 32   //只看到包低于或高于一定的大小
     tcpdump > 32
 
-***2.与或非:***
+##### 与或非
 
 1.  and 或者 &&, 在使用 && 的时候，要用单引号或者双引号包住表达式 `tcpdump -nvvv -i any -c 3 'port 22 && port 60738'`
 2.  or 或者 \|\|
@@ -133,6 +133,31 @@ eg: 如果一台服务器有100个网站，他们都做了别名，该台服务�
 
 ### ifconfig
 
+### curl
+
+最基本的方式: `curl http://www.google.com`
+
+post请求: `curl -X post http://www.google.com`
+
+指定header: `curl -H "Content-Type:application/json" -X POST -d {"name":"lcj","age":"10"} www.google.com`
+
+提交数据post请求表单内容: `curl -d  "user=lcj&password=12345" http://www.google.com`
+
+返回header: `curl -i www.google.com`
+
+只返回header: `curl -I  www.google.com`
+
+使用代理: `curl -x  233.210.225.25:8085   http://www.google.com`
+
+保存cookie: `curl -D cookie0001.txt http://www.google.com`
+
+使用cookie -b 或--cookie: `curl -b cookie0001.txt http://www.google.com`
+
+使用user-agent: `curl -A  "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)"  -x  123.45.67.89:1080 http://www.google.com`
+
+伪造referer: `curl  -e "www.google.com"  http://mail.google.com`
+
+加强版的curl `httpie`
 
 ### 参考
 

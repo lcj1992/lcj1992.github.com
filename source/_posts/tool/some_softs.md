@@ -29,8 +29,6 @@ tags:
 
 #### 我用的workflow
 
-://github.com/blainesch/alfred-chrome-bookmarks)
-
 ![alfred_workflow.png](/images/tool/alfred_workflow.png)
 
 ### switchHosts

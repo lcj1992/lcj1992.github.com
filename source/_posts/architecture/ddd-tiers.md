@@ -17,7 +17,7 @@ tags:
 
 # 认识分层架构
 
-!(认识分层架构)[/images/认识分层架构.jpg]
+![认识分层架构](/images/认识分层架构.jpg)
 
 依据wikipedia的定义，[层](https://en.wikipedia.org/wiki/Layer_(object-oriented_design)是一组可在**相同环境**下**复用**的组件。[分层架构](https://en.wikipedia.org/wiki/Multitier_architecture)是将**展现**、**应用处理**、**数据管理功能**物理分离的client-server架构。
 

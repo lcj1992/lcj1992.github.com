@@ -43,51 +43,6 @@ tags:
 #### 命名  提供不多不少、正确的信息
 * 名副其实   用名字来讲述故事  
     * rename method     
-        未申请过退款是算退款成功呢，还是退款失败呢？ isRefundMoneyOK -> isRefunding
-
-        重构前
-
-        ```
-        public Boolean isRefundMoneyOk(long userId, long tradeNo) {
-            boolean isRefundMoneyOk = true;
-            List<RefundRequestDO> refundRequestDOs = refundRequestMapperProxy
-                    .selectListByStatus(userId, tradeNo, null, null);
-            if (CollectionUtils.isEmpty(refundRequestDOs)) {
-                isRefundMoneyOk = false;
-                return isRefundMoneyOk;
-            }
-            for (RefundRequestDO refundRequestDO : refundRequestDOs) {
-                if (RefundRequestDO.TypeEnum.REFUND.getCode() != refundRequestDO.getType()
-                        || RefundRequestDO.StatusEnum.AGREE.getCode() != refundRequestDO.getStatus()
-                        || RefundRequestDO.ResultEnum.SUCCESS.getCode() != refundRequestDO.getResult()) {
-                    isRefundMoneyOk = false;
-                    break;
-                }
-            }
-            return isRefundMoneyOk;
-        }
-        ```
-
-        重构后
-
-        ```
-        public Boolean isRefunding(long userId, long tradeNo) {
-            List<RefundRequestDO> refundRequestDOs = refundRequestMapperProxy
-                    .selectListByStatus(userId, tradeNo, null, null);
-            if (CollectionUtils.isEmpty(refundRequestDOs)) {
-                return false;
-            }
-            for (RefundRequestDO refundRequestDO : refundRequestDOs) {
-                if (RefundRequestDO.TypeEnum.REFUND.getCode() != refundRequestDO.getType()
-                        || RefundRequestDO.StatusEnum.AGREE.getCode() != refundRequestDO.getStatus()
-                        || RefundRequestDO.ResultEnum.SUCCESS.getCode() != refundRequestDO.getResult()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        ```
-
 * 精确，不说废话
     * 语境信息 作用域、生命周期、类型都能用别的方式充分说明
         OrderInfoMapper#selectOrderInfoByTradeNoFromMaster
@@ -116,68 +71,6 @@ tags:
 
 * 职责单一   风控和申请支付token变化率不一致   handleRiskControlAndPayment
 * 局部化影响  封装变化，收敛变化。好处：1.可测试性高，待测的地方少 2.可变性高，更不易引入bug。
-    监控由jmonitor改为cat，并双写一段时间，是选择在所有打监控的地方添加cat的监控，还是在监控的方法内部添加cat的监控，对外调用方式不变？
-    tradecenter监控有jmonitor改为cat
-
-    重构前
-
-    ```
-    public CommonResponse<CreateOrderResponseBean> createOrder(CommonRequest<CreateOrderRequestBean> request) {
-        CreateOrderRequestBean requestBean = request.getRequestData();
-        BusinessLineClientEnum businessLineClient = requestBean.getContextParam().getFillOrderInfo().getBuyInfo()
-                .getBusinessLine();
-        MonitorUtil.monitor(businessLineClient, MonitorConsts.CREATE_ORDER);
-        CatUtil.logMetricForCount(businessLineClient, CatConsts.CREATE_ORDER);
-
-        ......下单代码
-
-        MonitorUtil.monitor(businessLineClient, MonitorConsts.CREATE_ORDER_SUCCESS);
-        CatUtil.logMetricForCount(businessLineClient, CatConsts.CREATE_ORDER_SUCCESS);
-        return CommonResponse.buildSuccess(createSuccessResponse(context.getCollectContext().getStandardParam().getOrderNo()));
-    }
-
-    public class MonitorUtil {
-        private static final String SPLITTER = "_";
-
-        public static void monitor(BusinessLineClientEnum bizLine, String monitorKey) {
-            JMonitor.add(bizLine.name() + SPLITTER + monitorKey);
-        }
-    }
-
-    public class CatUtil {
-        private static final String SPLITTER = "_";
-        private static final String ERROR_INFO_KEY = "errorInfo";
-
-        public static void logMetricForCount(BusinessLineClientEnum bizLine, String catKey) {
-            Cat.logMetricForCount(bizLineName + SPLITTER + catKey);
-        }
-    }
-    ```
-    重构后
-    ```
-    public CommonResponse<CreateOrderResponseBean> createOrder(CommonRequest<CreateOrderRequestBean> request) {
-        CreateOrderRequestBean requestBean = request.getRequestData();
-        BusinessLineClientEnum businessLineClient = requestBean.getContextParam().getFillOrderInfo().getBuyInfo()
-                .getBusinessLine();
-        MonitorUtil.monitor(businessLineClient, MonitorConsts.CREATE_ORDER);
-
-        ......下单代码
-
-        MonitorUtil.monitor(businessLineClient, MonitorConsts.CREATE_ORDER_SUCCESS);
-        return CommonResponse.buildSuccess(createSuccessResponse(context.getCollectContext().getStandardParam().getOrderNo()));
-    }
-
-    public class MonitorUtil {
-
-        private static final String SPLITTER = "_";
-
-        public static void monitor(BusinessLineClientEnum bizLine, String monitorKey) {
-            JMonitor.add(bizLine.name() + SPLITTER + monitorKey);
-            Cat.logMetricForCount(bizLineName + SPLITTER + catKey);
-        }
-    }
-    ```
-
 * 最小化重复  DRY   
     * extract method
     * Replace Constructor with Factory Method
@@ -187,62 +80,7 @@ tags:
 ##### 模式
 
 * 消息 尽可能清晰和直接的表达逻辑，并且适当地推迟牵涉到的细节
-    * 分解性消息（助手方法）
-    spring的AbstractApplicationContext#refresh
-    ```
-    public void refresh() throws BeansException, IllegalStateException {
-       synchronized (this.startupShutdownMonitor) {
-          // Prepare this context for refreshing.
-          prepareRefresh();
-
-          // Tell the subclass to refresh the internal bean factory.
-          ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
-
-          // Prepare the bean factory for use in this context.
-          prepareBeanFactory(beanFactory);
-
-          try {
-             // Allows post-processing of the bean factory in context subclasses.
-             postProcessBeanFactory(beanFactory);
-
-             // Invoke factory processors registered as beans in the context.
-             invokeBeanFactoryPostProcessors(beanFactory);
-
-             // Register bean processors that intercept bean creation.
-             registerBeanPostProcessors(beanFactory);
-
-             // Initialize message source for this context.
-             initMessageSource();
-
-             // Initialize event multicaster for this context.
-             initApplicationEventMulticaster();
-
-             // Initialize other special beans in specific context subclasses.
-             onRefresh();
-
-             // Check for listener beans and register them.
-             registerListeners();
-
-             // Instantiate all remaining (non-lazy-init) singletons.
-             finishBeanFactoryInitialization(beanFactory);
-
-             // Last step: publish corresponding event.
-             finishRefresh();
-          }
-
-          catch (BeansException ex) {
-             // Destroy already created singletons to avoid dangling resources.
-             destroyBeans();
-
-             // Reset 'active' flag.
-             cancelRefresh(ex);
-
-             // Propagate exception to caller.
-             throw ex;
-          }
-       }
-    }
-    ```
+    * 分解性消息（助手方法），eg. spring的AbstractApplicationContext#refresh
 * 参数
     * 参数越少越好、参数对象
     * 可选参数
@@ -254,48 +92,6 @@ tags:
     * 信息最小扩散原则   尽可能地缩短临时变量的垂直距离
     * split temporary variable
     * 卫语句  分清先决条件和主体逻辑，不需要用到复杂的控制结构，它的影响后果完全是局部的。
-
-    重构前
-    ```
-    private void rollbackIfNeed(LogicResult executeResult, T context) {
-        if (!executeResult.isSuccess()) {
-            List<LogicUnit> reverseLogicList = executeResult.getInvocationInfo().getSuccessList();
-            if (!CollectionUtils.isEmpty(reverseLogicList)) {
-                for (LogicUnit logicUnit : reverseLogicList) {
-                    try {
-                        LOGGER.warn("流程异常,逻辑rollback:{}", logicUnit.getClass().getSimpleName());
-                        logicUnit.rollback(context, executeResult);
-                    } catch (Exception ex) {
-                        LOGGER.error("roll back for logic:{} fail, context:{}", logicUnit.getClass().getSimpleName(),
-                                context, ex);
-                    }
-                }
-            }
-        }
-    }
-    ```
-    重构后
-    ```
-    private void rollbackIfNeed(LogicResult executeResult, T context) {
-        if (executeResult.isSuccess()) {
-            return;
-        }
-
-        List<LogicUnit> successList = executeResult.getInvocationInfo().getSuccessList();
-        if(CollectionUtils.isEmpty(successList)){
-            return;
-        }
-
-        for (LogicUnit logicUnit : successList) {
-            try {
-                LOGGER.warn("流程异常,逻辑rollback:{}", logicUnit.getClass().getSimpleName());
-                logicUnit.rollback(context, executeResult);
-            } catch (Exception ex) {
-                LOGGER.error("roll back for logic:{} fail, context:{}", logicUnit.getClass().getSimpleName(), context, ex);
-            }
-        }
-    }
-    ```
 * 异常
     * 集合里的元素即使isNotEmpty，取出的数据元素也可能为null
     * Replace Exception with Test  
@@ -313,66 +109,8 @@ tags:
 ##### 原则
 * 最小化重复
     * extract class  
-    RiskControlRequestDeserializer
-    ```
-    public class RiskControlRequestDeserializer {
-
-        private static final Map<BusinessLineClientEnum, Class<? extends BaseRiskControlRequest>> RISK_CONTROL_REQUEST_CLASS_MAP =
-                ImmutableMap.<BusinessLineClientEnum, Class<? extends BaseRiskControlRequest>>builder()
-                        .put(BusinessLineClientEnum.menpiao, TicketRiskControlRequest.class)
-                        .put(BusinessLineClientEnum.gentuanyou, TravelRiskControlRequest.class)
-                        .put(BusinessLineClientEnum.jiujing, JingJiuRiskControlRequest.class)
-                        .put(BusinessLineClientEnum.flightx, FlightxRiskControlRequest.class)
-                        .build();
-
-        public static BaseRiskControlRequest deserializeFieldsByBusinessLine(String riskParamJson, BusinessLineClientEnum bizLine) {
-            Class<? extends BaseRiskControlRequest> riskControlRequestClass = RISK_CONTROL_REQUEST_CLASS_MAP.get(bizLine);
-            return JsonUtils.json2Object(riskParamJson, riskControlRequestClass);
-        }
-
-    }
-    ```
 * 逻辑与数据捆绑变化率（数据、逻辑）
-    InputWebContextParam
-    ```
-    public class InputWebContextParam {
-
-        /**
-         * 参数可能是mt i版 或者 native
-         */
-        private InputCommonParam commonParam;
-
-        /**
-         * 买家的客户端信息
-         */
-        private InputClientInfo clientInfo;
-        /**
-         * 账号体系信息
-         */
-        private InputUserInfo userInfo;
-        /**
-         * 渠道信息
-         */
-        private InputChannelInfo channelInfo;
-        /**
-         * 产品信息
-         */
-        private InputProductInfo productInfo;
-        /**
-         * 订单内容
-         */
-        private InputFillOrderInfo fillOrderInfo;
-        /**
-         * 资金信息
-         */
-        private InputPayInfo payPoolInfo;
-        /**
-         * 扩展信息
-         */
-        private InputExtensionalInfo extensionalInfo;
-    }
-    ```
-* 信息最小扩散
+    * 信息最小扩散
 
 #### 类间
 
@@ -388,177 +126,13 @@ tags:
 
 ##### 设计模式
 * 工厂  多是简单工厂
-* 代理  事务、数据双写、数据应用、热点数据读主
+* 代理  事务,AOP
 * 策略  
-    * 支付回调处理
-    ```
-    private static PayNotifyStrategy.Strategy findPayNotifyStrategy(String callbackOutNo, OrderInfoDO orderInfoDO) {
-        PayLogMapper payLogMapper = SpringBeanUtil.getBean(PayLogMapper.class);
-        PayLogDO payLogDO = payLogMapper
-                .selectPayLogByTradeNoAndStatusFromMaster(orderInfoDO.getTradeNo(), PayLogStatusEnum.PAY_OK.getCode());
-        LOGGER.info("支付回调查找策略findPayNotifyStrategy：callbackOutNo:{},orderInfo:{},paylogDo:{}", callbackOutNo,
-                orderInfoDO, payLogDO);
-        if (payLogDO != null) {
-            if (callbackOutNo.equalsIgnoreCase(payLogDO.getOutNo())) {
-                return PayNotifyStrategy.Strategy.SamePay;
-            } else {
-                return PayNotifyStrategy.Strategy.TwicePay;
-            }
-        }
-
-        // 暂时只关注跟团游
-        // 1：待支付 ，8：支付成功, 32：取消(退完), 64：关闭
-        if (orderInfoDO.getStatus() == 1 || orderInfoDO.getStatus() == OrderDBState.PAY_WAIT.getCode()) {
-            return PayNotifyStrategy.Strategy.FirstPaySuccess;
-        }
-
-        if (orderInfoDO.getStatus() == 64) {
-            return PayNotifyStrategy.Strategy.PayTimeout;
-        }
-
-        return null;
-    }
-    ```
-    * 游玩人联系人规则转换
-* 享元 ThriftPayConfirmTool
-```
-public class ThriftPayConfirmTool {
-
-    private static Logger LOGGER = LoggerFactory.getLogger(ThriftPayConfirmTool.class);
-
-    private static Map<String, ThriftPayConfirm2BusinessService> SERVICE_CACHE = new ConcurrentHashMap<>();
-
-    public static BooleanResponse notifyPayConfirm(PayConfirmNotice2BusinessRequest request,
-            MtClientProxyBuilder.APIInfo apiInfo) {
-        String appKey = apiInfo.getRemoteAppKey();
-        ThriftPayConfirm2BusinessService service = SERVICE_CACHE.get(appKey);
-
-        try {
-            if (service == null) {
-                synchronized (ThriftPayConfirmTool.class) {
-                    ThriftPayConfirm2BusinessService newService = (ThriftPayConfirm2BusinessService) MtClientProxyBuilder
-                            .createInstance(apiInfo);
-                    SERVICE_CACHE.put(appKey, newService);
-                    service = newService;
-                }
-            }
-        } catch (Exception e) {
-            LOGGER.error("初始化Thrift失败:", e);
-        }
-        BooleanResponse notifyBizResult = service.notify4PayConfirm(request);
-        return  notifyBizResult;
-    }
-}
-```
+* 享元
 * 观察者 事件驱动
-* 模板 执行框架、保险plus多种任务执行
-```
-public LogicResult doLogicSchedule(T context, LogicGroup<T> group) {
-    List<LogicUnit<T>> allLogic = group.getAllLogic();
-    LogicResult.InvocationInfo invocationInfo = buildInvocationInfo();
-    LogicResult logicResult = null;
-    for (LogicUnit logicUnit : allLogic) {
-        if (!mapping(context, logicUnit)) {
-            continue;
-        }
-        try {
-            invocationInfo.setLast(logicUnit);
-            logicResult = logicUnit.doLogic(context);
-        } catch (Exception ex) {
-            logicResult = LogicResult.createException(ex);
-        }
-
-        if (!logicResult.isSuccess()) {
-            invocationInfo.getFailList().add(logicUnit);
-            LifecycleLogger.error(logicUnit + "执行失败, context" + context + ", 原因:" + logicResult.getMessage());
-            break;
-        } else {
-            invocationInfo.getSuccessList().add(logicUnit);
-            LifecycleLogger.info(logicUnit + "执行成功");
-        }
-    }
-    logicResult.setInvocationInfo(invocationInfo);
-    rollbackIfNeed(logicResult, context);
-    return logicResult;
-}
-```
-* 组合 order的数据推送
-```
-public abstract class CompositeLogic implements Logic {
-
-    protected List<Logic> childLogicList = Lists.newArrayList();
-
-    @PostConstruct
-    protected void init() {
-        registerAllLogic();
-    }
-
-    protected abstract void registerAllLogic();
-
-    protected void registerLogic(Class<? extends Logic> clazz) {
-        childLogicList.add(SpringBeanUtil.getBean(clazz));
-    }
-
-    @Override
-    public boolean async() {
-        return false;
-    }
-
-    @Override
-    public void doLogic(DataPushContext context) {
-        for (Logic logic : childLogicList) {
-            if (logic.async()) {
-                AsyncTool.submit(() -> {
-                    logic.doLogic(context);
-                });
-            } else {
-                logic.doLogic(context);
-            }
-        }
-    }
-}
-
-
-public class MtpCompositeLogic extends CompositeLogic {
-
-    @Override
-    protected void registerAllLogic() {
-        registerLogic(InsuranceLogicUnit.class);
-        registerLogic(PersistenceCompositeLogic.class);
-        registerLogic(ACKSuccessLogicUnit.class);
-        registerLogic(CloseOrderLogicUnit.class);
-        registerLogic(OperationLogLogicUnit.class);
-        registerLogic(CreatedEventLogicUnit.class);
-        registerLogic(HiveLogLogic.class);
-    }
-}
-
-
-
-public class PersistenceCompositeLogic extends CompositeLogic {
-
-    @Override
-    protected void registerAllLogic() {
-        registerLogic(UserIdMapPersistenceLogicUnit.class);
-        registerLogic(OrderExtendsPersistenceLogicUnit.class);
-        registerLogic(OrderMultiLevelPersistenceLogicUnit.class);
-        registerLogic(ContactPersistenceLogicUnit.class);
-        registerLogic(VisitorsPersistenceLogicUnit.class);
-        registerLogic(BookInfoPersistenceLogicUnit.class);
-        registerLogic(OrderUserRelationPersistenceLogicUnit.class);
-        registerLogic(BookGoodInfoPersistenceLogicUnit.class);
-        registerLogic(InsurancePersistenceLogicUnit.class);
-        registerLogic(MtpNotifyStatusManagePersistenceLogicUnit.class);
-    }
-
-    @Override
-    @Transactional
-    public void doLogic(DataPushContext context) {
-        super.doLogic(context);
-    }
-}
-```
-* 门面 用户界面层和应用层的解耦 （门票的徒有其表）
+* 模板
+* 组合
+* 门面 用户界面层和应用层的解耦
 
 #### IDEA重构快捷键
 

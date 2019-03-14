@@ -49,7 +49,7 @@ tags:
 3. effective java、阿里巴巴java开发手册、重构
   - 类内、类间、模块间
   - 完成度 70%
-  - 产出: [写可维护的代码](/2017/10/11/clean_code/maintainable_code)、[重构](/2017/05/13/clean_code/refactor_list)
+  - 产出: [写可维护的代码](/2017/10/11/architecture/maintainable_design/)、[重构](/2017/05/13/clean_code/refactor_list)
 
 4. 实现领域驱动设计、微服务设计
   - 模块间

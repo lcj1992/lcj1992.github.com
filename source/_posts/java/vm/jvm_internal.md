@@ -1,6 +1,6 @@
 ---
 layout: post
-title: jvm内存模型
+title: jvm内存结构
 date: 2015-09-03
 categories: java
 tags:

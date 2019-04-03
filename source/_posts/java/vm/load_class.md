@@ -17,8 +17,7 @@ class loader加载类时按照顺序执行三个基本步骤。
 
 1.   加载（load）：查找并导入类的二进制数据
 2.   链接（link）：验证（verification）、准备（preparation）、解析(可选)(resolution)
-     1.   验证： 确保导入的类的正确性  
-
+3.   验证： 确保导入的类的正确性  
 
 
 jvm通过bootstrap classloader加载一个初始化类。这个类在调用public static void main方法之前被链接并初始化。这个方法的执行会反过来驱动其他类和接口的加载，链接，初始化。

@@ -31,31 +31,3 @@ categories: performance
 *   从ssd中随机读取　27M　顺序读取　　200+M
 *   从网络顺序读取　100M
 *   从磁盘顺序读取　33M
-
-#### 相关术语
-
-1.  qps 每秒查询数qps 在很大程度上代表系统在业务上的繁忙程度，而每次的请求的背后，可能对应着多次磁盘I/O,多次网络请求，以及多个CPU时间片，通过关注系统的qps数，我们能够非常直观的了解到当前系统业务情况。
-
-2.  rt  response time 请求的响应时间。通过部署cdn边缘节点来缩短用户请求的物理路径，通过内容压缩来减少传输的字节数，使用缓存来减少磁盘I/O和网络请求等。
-
-3.  cdn 内容分发网络
-
-4.  tps 每秒事务数
-
-5.  pv  page view
-
-6.  uv  unique vistor
-
-7.  tp50,tp90,tp99:
-
-    tp90 = top percentile 90
-    Imagine you have response times:10s,1000s,100s,2s
-    Calculating TP is very simple:
-
-    1. Sort all times in ascending order: [2s, 10s, 100s,1000s]
-    2. find latest item in portion you need to calculate.
-
-      2.1 For TP50 it will be ceil(4*0.5) = 2 requests. You need 2nd request.
-
-      2.2 For TP90 it will be ceil(4*0.9) = 4. You need 4th request.
-    3. We get time for the item found above. TP50=10s. TP90=1000s

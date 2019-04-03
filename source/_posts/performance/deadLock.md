@@ -51,4 +51,4 @@ tags:
 
 ![dead_lock](/images/performance/dead_lock_block.png)
 
-4.卧槽，死锁了
+4.死锁了

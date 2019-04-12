@@ -62,7 +62,7 @@ schema是元数据的抽象集合，包含一组schema 组件：元素和属性�
     （xml schemaLocation 的schemaLocation属性，此属性有两个值，第一个值是需要使用的命名空间，第二个值是供命名空间使用的xml schema的位置）
 
     <to>George</to>
-    <from>John</from>
+    <from>John</from
     <heading>Reminder</heading>
     <body>Don't forget the meeting!</body>
     </note>
